@@ -14,7 +14,9 @@
 
 /**
  * Data source creation step component
- * @description Execute data source creation operation and display results
+ * @description Executes data source creation operation and displays results
+ * @author AI Assistant
+ * @date 2025-01-17
  */
 
 import { Message } from '@arco-design/web-react';
@@ -59,7 +61,7 @@ export const CreateStep: React.FC<CreateStepProps> = ({
     const isEditMode = Boolean(wizardState.editingDataSourceId);
 
     if (isEditMode && wizardState.editingDataSourceId) {
-      // Edit mode: call update API
+      // Edit mode: Call update API
       switch (type) {
         case DataSourceType.ZABBIX:
           return updateZabbixDataSource(
@@ -84,7 +86,7 @@ export const CreateStep: React.FC<CreateStepProps> = ({
           };
       }
     } else {
-      // Create mode: call create API
+      // Create mode: Call create API
       switch (type) {
         case DataSourceType.ZABBIX:
           return createZabbixDataSource(wizardState);
