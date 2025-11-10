@@ -26,20 +26,20 @@ export const PermissionsCollapse: React.FC = () => {
       const copyResult = await safeCopyToClipboard(
         JSON.stringify(LARK_BOT_MIN_PERMISSIONS, null, 2),
       );
-
       if (copyResult.success) {
         Message.success('已复制权限配置到剪贴板');
       } else if (copyResult.error) {
+        // ✅ Correct: Expose actual error information
         const errorMessage =
           copyResult.error instanceof Error
             ? copyResult.error.message
             : '复制失败，请重试';
         Message.error(errorMessage);
       }
-    } catch (error: unknown) {
-      const errorObj =
-        error instanceof Error ? error : new Error(String(error));
-      const errorMessage = errorObj.message || '复制失败，请重试';
+    } catch (error) {
+      // ✅ Correct: Expose actual error information (compatible with old versions that may throw errors)
+      const errorMessage =
+        error instanceof Error ? error.message : '复制失败，请重试';
       Message.error(errorMessage);
     }
   };

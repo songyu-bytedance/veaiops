@@ -23,27 +23,27 @@ interface DocsDrawerProps {
 
 /**
  * Documentation drawer component
- * Render documentation content via iframe in drawer
+ * Renders documentation content in drawer via iframe
  */
 export const DocsDrawer: React.FC<DocsDrawerProps> = ({ visible, onClose }) => {
   const [loading, setLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const hasLoadedRef = useRef(false);
 
-  // Get documentation URL (use proxy in dev, use static files in production)
+  // Get documentation URL (development uses proxy, production uses static files)
   const getDocsUrl = () => {
-    // Development environment: access documentation server directly (avoid proxy redirect issues)
+    // Development environment: directly access documentation server (avoid proxy redirect issues)
     if (process.env.NODE_ENV === 'development') {
       return 'http://localhost:4000/';
     }
-    // 生产环境：使用绝对路径（避免相对路径在子路由下出错）
-    // 使用 /veaiops/ 路径与文档 baseURL 保持一致
+    // Production environment: use absolute path (avoid relative path errors in sub-routes)
+    // Use /veaiops/ path to match documentation baseURL
     return '/veaiops/';
   };
 
   useEffect(() => {
     if (visible) {
-      // If already loaded before, show content directly
+      // If previously loaded, directly show content
       if (hasLoadedRef.current) {
         setLoading(false);
       } else {

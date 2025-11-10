@@ -14,8 +14,8 @@
 
 import { Typography } from '@arco-design/web-react';
 import { IconClockCircle, IconRefresh } from '@arco-design/web-react/icon';
-// ✅ 优化：使用最短路径，合并同源导入
-import { STYLES, type TimeInfoProps } from '@ec/shared';
+// ✅ Optimization: Use shortest path, merge same-source imports
+import { STYLES, type TimeInfoProps, formatTimeDisplay } from '@ec/shared';
 import { CellRender } from '@veaiops/components';
 import type React from 'react';
 
@@ -23,10 +23,13 @@ const { Text } = Typography;
 const { StampTime } = CellRender;
 
 /**
- * 时间信息组件
- * 显示事件的创建时间和更新时间
+ * Time info component
+ * Displays event creation time and update time
  */
 export const TimeInfo: React.FC<TimeInfoProps> = ({ selectedRecord }) => {
+  const createdTime = formatTimeDisplay(selectedRecord.created_at);
+  const updatedTime = formatTimeDisplay(selectedRecord.updated_at);
+
   return (
     <div className="grid grid-cols-2 gap-4">
       <div
@@ -43,8 +46,8 @@ export const TimeInfo: React.FC<TimeInfoProps> = ({ selectedRecord }) => {
             创建时间
           </Text>
         </div>
-        {selectedRecord.created_at ? (
-          <StampTime time={selectedRecord.created_at} />
+        {createdTime ? (
+          <StampTime time={createdTime.getTime()} />
         ) : (
           <Text style={{ color: STYLES.TEXT_SECONDARY }}>-</Text>
         )}
@@ -64,8 +67,8 @@ export const TimeInfo: React.FC<TimeInfoProps> = ({ selectedRecord }) => {
             更新时间
           </Text>
         </div>
-        {selectedRecord.updated_at ? (
-          <StampTime time={selectedRecord.updated_at} />
+        {updatedTime ? (
+          <StampTime time={updatedTime.getTime()} />
         ) : (
           <Text style={{ color: STYLES.TEXT_SECONDARY }}>-</Text>
         )}
