@@ -20,7 +20,7 @@ import { useBaseConfig } from './use-base-config';
 import { useDebugEffects } from './use-debug-effects';
 import { useDebugLogging } from './use-debug-logging';
 import { useDefaultValueEffects } from './use-default-value-effects';
-import { useEventHandlers } from './use-event-handlers';
+import { useEventHandlers } from './use-event-handlers'; // ✅ 自动从 index.ts 导入
 import { useFetchEffects } from './use-fetch-effects';
 import { useOptionsProcessing } from './use-options-processing';
 import { usePluginManager } from './use-plugin-manager';

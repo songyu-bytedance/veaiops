@@ -15,6 +15,7 @@
 import type React from 'react';
 import { DocsButton } from '../docs-button';
 import { Logo, Navigation } from '../navigation';
+import { TimezoneSelector } from '../timezone-selector';
 import { UserDropdown } from '../user-dropdown';
 import type { AppHeaderProps } from './types';
 
@@ -41,6 +42,7 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
       <div className="flex items-center space-x-4">
         {/* <ThemeToggle /> */}
         <DocsButton />
+        <TimezoneSelector />
         <UserDropdown />
       </div>
     </div>

@@ -14,6 +14,7 @@
 
 import { Select } from '@arco-design/web-react';
 import { IconDown } from '@arco-design/web-react/icon';
+import { logger as utilLogger } from '@veaiops/utils';
 import React from 'react';
 
 import './style/index.less';
@@ -32,6 +33,42 @@ const SelectBlockRefactoredInner = (props: veArchSelectBlockProps) => {
   // 🔧 Use useRef to track render count, avoid log explosion
   const renderCountRef = React.useRef(0);
   renderCountRef.current++;
+
+  // 🔴 死循环检测：当渲染次数超过 100 次时发出错误警告
+  const INFINITE_LOOP_THRESHOLD = 100;
+  const lastWarningTimeRef = React.useRef<number>(0);
+
+  React.useEffect(() => {
+    if (renderCountRef.current > INFINITE_LOOP_THRESHOLD) {
+      const now = Date.now();
+      // 每 5 秒最多警告一次，避免日志爆炸
+      if (now - lastWarningTimeRef.current > 5000) {
+        lastWarningTimeRef.current = now;
+        utilLogger.error({
+          message: `🚨 SelectBlock 死循环检测：渲染次数超过 ${INFINITE_LOOP_THRESHOLD} 次`,
+          data: {
+            renderCount: renderCountRef.current,
+            addBefore: (props as any).addBefore,
+            placeholder: props.placeholder,
+            hasDataSource: Boolean(props.dataSource),
+            hasDependency: Boolean(props.dependency),
+            hasOptions: Boolean(props.options?.length),
+            optionsLength: props.options?.length || 0,
+            componentId: (props as any).id,
+          },
+          source: 'SelectBlock',
+          component: 'InfiniteLoopDetection',
+        });
+      }
+    }
+  }, [
+    renderCountRef.current,
+    props.addBefore,
+    props.placeholder,
+    props.dataSource,
+    props.dependency,
+    props.options,
+  ]);
 
   // 🔧 Record dataSource information in detail (record all renders)
   const dataSourceDetail =

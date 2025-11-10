@@ -105,7 +105,7 @@ const ActionsArea: FC<ActionsAreaProps> = ({
       {/* Reset button */}
       {showReset && canReset && onReset && (
         <Button type="outline" onClick={handleResetClick}>
-          Reset
+          重置
         </Button>
       )}
 

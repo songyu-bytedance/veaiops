@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import { Message } from '@arco-design/web-react';
+import { logger as utilLogger } from '@veaiops/utils';
 import type { PluginContext } from '../../../types/plugin';
 
 /**
@@ -161,9 +162,12 @@ export class PasteValidator {
   } {
     // 🔧 Defensive check: ensure context exists
     if (!this.context) {
-      console.warn(
-        '[PasteValidator] Context has been destroyed, skipping quantity limit check',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, skipping quantity limit check',
+        data: { newValuesLength: newValues.length },
+        source: 'SelectBlock',
+        component: 'PasteValidator.checkQuantityLimit',
+      });
       return { isValid: true, finalValues: newValues };
     }
 
@@ -181,9 +185,12 @@ export class PasteValidator {
   }> {
     // 🔧 Defensive check: ensure context exists
     if (!this.context) {
-      console.warn(
-        '[PasteValidator] Context has been destroyed, skipping data source validation',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, skipping data source validation',
+        data: { valuesLength: values.length },
+        source: 'SelectBlock',
+        component: 'PasteValidator.validateAgainstDataSource',
+      });
       return { validValues: values, invalidValues: [] };
     }
 

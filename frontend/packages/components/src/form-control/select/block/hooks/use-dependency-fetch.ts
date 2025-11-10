@@ -410,16 +410,20 @@ export const useDependencyFetch = ({
         isDependencyFetchingRef.current = false;
       }
     })();
+    // 🔧 修复死循环：使用精确依赖，避免依赖整个 currentState 对象
+    // 只提取必要的字段，符合 .cursorrules 中的 "useDataSource 精确依赖规范"
   }, [
     dependency,
     dataSource,
     _canFetch,
-    currentState,
+    // currentState, // ❌ 移除：整个对象依赖会导致死循环
+    currentState?.searchValue, // ✅ 只依赖需要的字段
+    currentState?.fetchOptions, // ✅ 只依赖需要的字段
     dataFetcher,
     searchHandler,
     value,
     remoteSearchKey,
-    isDependencyFetchingRef,
-    instanceIdRef,
+    // isDependencyFetchingRef, // ❌ 移除：ref 不应该在依赖数组中
+    // instanceIdRef, // ❌ 移除：ref 不应该在依赖数组中
   ]);
 };

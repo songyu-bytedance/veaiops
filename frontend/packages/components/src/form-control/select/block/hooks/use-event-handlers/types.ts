@@ -13,11 +13,11 @@
 // limitations under the License.
 
 import type React from 'react';
-import type { SelectBlockPluginManager } from '../core/plugin-manager';
-import type { logger } from '../logger';
-import type { SearchHandlerPluginImpl } from '../plugins/search-handler';
-import type { veArchSelectBlockProps } from '../types/interface';
-import type { SelectBlockState } from '../types/plugin';
+import type { SelectBlockPluginManager } from '../../core/plugin-manager';
+import type { logger } from '../../logger';
+import type { SearchHandlerPluginImpl } from '../../plugins/search-handler';
+import type { veArchSelectBlockProps } from '../../types/interface';
+import type { SelectBlockState } from '../../types/plugin';
 
 export interface EventHandlersContext {
   props: veArchSelectBlockProps;

@@ -348,7 +348,7 @@ export const Filters = React.memo(FiltersInner, (prevProps, nextProps) => {
         if (typeof prevComp[key] === 'function') {
           continue;
         } // Skip functions
-        if (JSON.stringify(prevComp[key]) !== JSON.stringify(nextComp[key])) {
+        if (prevComp[key] !== nextComp[key]) {
           return false;
         }
       }

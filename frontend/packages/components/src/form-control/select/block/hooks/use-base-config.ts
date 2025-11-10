@@ -51,16 +51,12 @@ export function useBaseConfig(props: veArchSelectBlockProps) {
       propsKeys: Object.keys(props),
       // 🎯 Key point: dependency tracking
       hasDependency: Boolean(props.dependency),
-      dependency: props.dependency,
-      dependencyString: JSON.stringify(props.dependency),
+      // ⚠️ 修复循环引用：移除 dependency 和 dependencyString，只记录元信息
       dependencyType: typeof props.dependency,
       dependencyIsArray: Array.isArray(props.dependency),
       dependencyLength: Array.isArray(props.dependency)
         ? props.dependency.length
         : 0,
-      dependencyFirstItem: Array.isArray(props.dependency)
-        ? props.dependency[0]
-        : undefined,
       // dataSource information
       hasDataSource: Boolean(props.dataSource),
       dataSourceInfo,
@@ -97,8 +93,12 @@ export function useBaseConfig(props: veArchSelectBlockProps) {
     {
       // dependency after destructuring
       hasDependencyAfterDestructure: Boolean(dependency),
-      dependencyAfterDestructure: dependency,
-      dependencyStringAfterDestructure: JSON.stringify(dependency),
+      // ⚠️ 修复循环引用：移除 dependencyAfterDestructure 和 dependencyStringAfterDestructure
+      dependencyTypeAfterDestructure: typeof dependency,
+      dependencyIsArrayAfterDestructure: Array.isArray(dependency),
+      dependencyLengthAfterDestructure: Array.isArray(dependency)
+        ? dependency.length
+        : 0,
       // dataSource after destructuring
       hasDataSourceAfterDestructure: Boolean(dataSource),
       dataSourceTypeAfterDestructure: typeof dataSource,

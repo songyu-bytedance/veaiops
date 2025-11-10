@@ -188,9 +188,10 @@ export function useOptionsProcessing(
     enumOptions,
     value,
     // 🔧 Fix infinite loop: Use specific values instead of entire object
+    // ⚠️ 修复死循环：移除 stateVersion 依赖，避免每次状态更新都触发 finalOptions 重新计算
     JSON.stringify(currentState?.fetchOptions),
     currentState?.searchValue,
-    currentState?.stateVersion,
+    // currentState?.stateVersion, // ❌ 移除：导致死循环
   ]);
 
   // Type guard function

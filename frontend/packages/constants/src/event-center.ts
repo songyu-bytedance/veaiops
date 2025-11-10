@@ -57,14 +57,14 @@
  * Note: Migrated from application, includes complete event status definitions
  */
 export const EVENT_STATUS_OPTIONS = [
-  { label: 'Initial', value: 0, extra: { color: 'gray' } },
-  { label: 'Subscribed', value: 1, extra: { color: 'blue' } },
-  { label: 'Card Built', value: 2, extra: { color: 'cyan' } },
-  { label: 'Dispatched', value: 3, extra: { color: 'green' } },
-  { label: 'No Dispatch', value: 4, extra: { color: 'orange' } },
-  { label: 'ChatOps Not Matched', value: 11, extra: { color: 'red' } },
-  { label: 'ChatOps Rule Filtered', value: 12, extra: { color: 'purple' } },
-  { label: 'ChatOps Rule Limited', value: 13, extra: { color: 'magenta' } },
+  { label: '初始化', value: 0, extra: { color: 'gray' } },
+  { label: '已订阅', value: 1, extra: { color: 'blue' } },
+  { label: '已构建卡片', value: 2, extra: { color: 'cyan' } },
+  { label: '已分发', value: 3, extra: { color: 'green' } },
+  { label: '无分发', value: 4, extra: { color: 'orange' } },
+  { label: 'ChatOps未匹配', value: 11, extra: { color: 'red' } },
+  { label: 'ChatOps规则过滤', value: 12, extra: { color: 'purple' } },
+  { label: 'ChatOps规则限制', value: 13, extra: { color: 'magenta' } },
 ] as const;
 
 /**
@@ -82,20 +82,20 @@ export const EVENT_STATUS_MAP = EVENT_STATUS_OPTIONS.reduce(
  * Event type options
  */
 export const EVENT_TYPE_OPTIONS = [
-  { label: 'System Alert', value: 'system_alert' },
-  { label: 'Application Exception', value: 'app_exception' },
-  { label: 'Performance Alert', value: 'performance_alert' },
-  { label: 'Security Event', value: 'security_event' },
-  { label: 'Business Exception', value: 'business_exception' },
-  { label: 'Infrastructure Alert', value: 'infrastructure_alert' },
+  { label: '系统告警', value: 'system_alert' },
+  { label: '应用异常', value: 'app_exception' },
+  { label: '性能告警', value: 'performance_alert' },
+  { label: '安全事件', value: 'security_event' },
+  { label: '业务异常', value: 'business_exception' },
+  { label: '基础设施告警', value: 'infrastructure_alert' },
 ] as const;
 
 /**
  * Priority options
  */
 export const PRIORITY_OPTIONS = [
-  { label: 'Critical', value: 'critical', color: 'red' },
-  { label: 'High', value: 'high', color: 'orange' },
-  { label: 'Medium', value: 'medium', color: 'blue' },
-  { label: 'Low', value: 'low', color: 'gray' },
+  { label: '紧急', value: 'critical', color: 'red' },
+  { label: '高', value: 'high', color: 'orange' },
+  { label: '中', value: 'medium', color: 'blue' },
+  { label: '低', value: 'low', color: 'gray' },
 ] as const;

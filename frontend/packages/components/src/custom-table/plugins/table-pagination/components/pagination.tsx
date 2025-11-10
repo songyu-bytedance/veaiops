@@ -39,7 +39,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
   onChange,
   ...restProps
 }) => {
-  // Compose showTotal renderer: "Items 1-10, Total 12 (2 pages), 10 items/page"
+  // Compose showTotal renderer: "第1-10条，共12条（2页），10条/页"
   const renderTotal:
     | ((total: number, range: number[]) => ReactNode)
     | undefined =
@@ -52,7 +52,7 @@ const CustomPagination: React.FC<CustomPaginationProps> = ({
           const end =
             range?.[1] ??
             (pageSize > 0 ? Math.min(current * pageSize, t || 0) : 0);
-          return `Items ${start}-${end}, Total ${t} (${pages} pages), ${pageSize} items/page`;
+          return `第${start}-${end}条，共${t}条（${pages}页），${pageSize}条/页`;
         }
       : undefined;
 

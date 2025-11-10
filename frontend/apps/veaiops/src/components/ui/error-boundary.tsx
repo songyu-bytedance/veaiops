@@ -46,14 +46,13 @@ class ErrorBoundary extends React.Component<
               className="text-2xl font-bold mb-4"
               style={{ color: 'var(--color-text-base)' }}
             >
-              Application Load Error
+              应用程序加载错误
             </h1>
             <p
               className="mb-4"
               style={{ color: 'var(--color-text-secondary)' }}
             >
-              Sorry, the application encountered an error. Please try refreshing
-              the page.
+              抱歉，应用程序遇到错误。请尝试刷新页面。
             </p>
             <button
               type="button"
@@ -70,7 +69,7 @@ class ErrorBoundary extends React.Component<
                 e.currentTarget.style.backgroundColor = 'var(--color-primary)';
               }}
             >
-              Refresh Page
+              刷新页面
             </button>
           </div>
         </div>

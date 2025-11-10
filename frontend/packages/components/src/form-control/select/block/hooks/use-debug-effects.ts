@@ -38,9 +38,18 @@ export function useDebugEffects({
   addDebugLog: (action: string, data: Record<string, unknown>) => void;
 }) {
   // === Render start logging ===
+  // ⚠️ 修复循环引用问题：避免使用 JSON.stringify(props)，因为 props 中可能包含循环引用的对象
   addDebugLog('HOOK_RENDER_START', {
     renderCount: renderCountRef.current,
-    propsHash: JSON.stringify(props).slice(0, 100),
+    // 只记录可序列化的 props 字段
+    propsInfo: {
+      hasDataSource: Boolean(props.dataSource),
+      hasDependency: Boolean(props.dependency),
+      hasOptions: Boolean(props.options),
+      optionsLength: props.options?.length || 0,
+      placeholder: props.placeholder,
+      addBefore: props.addBefore,
+    },
     value,
     currentState: {
       ...currentState,

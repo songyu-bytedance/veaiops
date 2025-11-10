@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { logger } from '@veaiops/utils';
 import type React from 'react';
 import { type FC, Fragment } from 'react';
 import { commonClassName } from '../core/constants';
@@ -36,15 +37,18 @@ const FieldsArea: FC<FieldsAreaProps> = ({
   actionsArea,
 }) => {
   // 🔧 Add detailed logging: track FieldsArea rendering
-  if (process.env.NODE_ENV === 'development') {
-    console.info('[Filters/FieldsArea] FieldsArea rendering', {
+  // ⚠️ 修复循环引用问题：避免使用 JSON.stringify(config)，因为 config 中可能包含循环引用的对象（如 apiClient）
+  logger.debug({
+    message: '[FieldsArea] FieldsArea rendering',
+    data: {
       configLength: config.length,
-      configReference: config,
-      configHash: JSON.stringify(config).substring(0, 200),
       configTypes: config.map((item) => item.type),
-      timestamp: Date.now(),
-    });
-  }
+      configFields: config.map((item) => item.field),
+      hasActionsArea: Boolean(actionsArea),
+    },
+    source: 'Filters',
+    component: 'FieldsArea',
+  });
 
   return (
     <div className={`${commonClassName} w-full`}>
@@ -62,25 +66,27 @@ const FieldsArea: FC<FieldsAreaProps> = ({
         };
 
         // 🔧 Add detailed logging: track each field rendering
-        if (process.env.NODE_ENV === 'development') {
-          const isSelectType = item.type === 'select' || item.type === 'Select';
-          if (isSelectType) {
-            const hasOptions =
-              item.componentProps && 'options' in item.componentProps;
-            const options = hasOptions
-              ? (item.componentProps as any).options
-              : undefined;
+        const isSelectType = item.type === 'select' || item.type === 'Select';
+        if (isSelectType) {
+          const hasOptions =
+            item.componentProps && 'options' in item.componentProps;
+          const options = hasOptions
+            ? (item.componentProps as any).options
+            : undefined;
 
-            console.info('[Filters/FieldsArea] Rendering Select field', {
+          logger.debug({
+            message: '[FieldsArea] Rendering Select field',
+            data: {
               index,
               fieldKey,
               type: item.type,
               hasOptions,
-              optionsReference: options,
               optionsLength: Array.isArray(options) ? options.length : 0,
-              timestamp: Date.now(),
-            });
-          }
+              // ⚠️ 避免记录 optionsReference，因为可能包含循环引用的对象
+            },
+            source: 'Filters',
+            component: 'FieldsArea',
+          });
         }
 
         return (

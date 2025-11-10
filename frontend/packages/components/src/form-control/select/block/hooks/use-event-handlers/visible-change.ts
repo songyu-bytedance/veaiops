@@ -13,8 +13,8 @@
 // limitations under the License.
 
 import { isEmpty } from 'lodash-es';
-import { logger } from '../logger';
-import type { EventHandlersContext } from './use-event-handlers.types';
+import { logger } from '../../logger';
+import type { EventHandlersContext } from './types';
 
 function extractDataSourceApi(dataSource: unknown): string | undefined {
   if (dataSource && typeof dataSource === 'object' && 'api' in dataSource) {

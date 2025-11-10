@@ -48,22 +48,22 @@ import { AgentType } from '@veaiops/api-client';
  */
 export const AGENT_TYPE_OPTIONS = [
   {
-    label: 'Content Recognition Agent',
+    label: '内容识别Agent',
     value: AgentType.CHATOPS_INTEREST_AGENT,
     color: 'blue',
   },
   {
-    label: 'Proactive Reply Agent',
+    label: '主动回复Agent',
     value: AgentType.CHATOPS_PROACTIVE_REPLY_AGENT,
     color: 'green',
   },
   {
-    label: 'Reactive Reply Agent',
+    label: '被动回复Agent',
     value: AgentType.CHATOPS_REACTIVE_REPLY_AGENT,
     color: 'orange',
   },
   {
-    label: 'Intelligent Threshold Agent',
+    label: '智能阈值Agent',
     value: AgentType.INTELLIGENT_THRESHOLD_AGENT,
     color: 'purple',
   },

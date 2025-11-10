@@ -12,18 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { logger as utilLogger } from '@veaiops/utils';
 import { isEmpty } from 'lodash-es';
 import type React from 'react';
 import { useCallback } from 'react';
-import type { SelectBlockPluginManager } from '../core/plugin-manager';
-import { logger } from '../logger';
-import type { DataFetcherPluginImpl } from '../plugins/data-fetcher';
-import type { PaginationPluginImpl } from '../plugins/pagination-handler';
-import type { PasteHandlerPluginImpl } from '../plugins/paste-handler';
-import type { SearchHandlerPluginImpl } from '../plugins/search-handler';
-import type { SelectOption, veArchSelectBlockProps } from '../types/interface';
-import type { SelectBlockState } from '../types/plugin';
-import { handleVisibleChangeLogic } from './use-event-handlers.visible-change';
+import type { SelectBlockPluginManager } from '../../core/plugin-manager';
+import { logger } from '../../logger';
+import type { DataFetcherPluginImpl } from '../../plugins/data-fetcher';
+import type { PaginationPluginImpl } from '../../plugins/pagination-handler';
+import type { PasteHandlerPluginImpl } from '../../plugins/paste-handler';
+import type { SearchHandlerPluginImpl } from '../../plugins/search-handler';
+import type {
+  SelectOption,
+  veArchSelectBlockProps,
+} from '../../types/interface';
+import type { SelectBlockState } from '../../types/plugin';
+import { handleVisibleChangeLogic } from './visible-change';
 
 /**
  * Event handlers Hook
@@ -294,8 +298,11 @@ export function useEventHandlers(
       _fetchOptions,
       paginationHandler,
       initialOptions,
-      JSON.stringify(props.dataSource),
-      JSON.stringify(props.dependency),
+      // ⚠️ 修复循环引用问题：避免使用 JSON.stringify(props.dataSource) 和 JSON.stringify(props.dependency)
+      // 因为这些对象可能包含循环引用的对象（如 apiClient -> request -> CustomFetchHttpRequest）
+      // 直接使用对象引用作为依赖，React 会通过引用相等性检测变化
+      props.dataSource,
+      props.dependency,
     ],
   );
 
@@ -311,9 +318,12 @@ export function useEventHandlers(
 
       // Defensive check: ensure target exists
       if (!target) {
-        console.warn(
-          '[ScrollHandler] Event target is undefined, skipping scroll handling',
-        );
+        utilLogger.warn({
+          message: 'Event target is undefined, skipping scroll handling',
+          data: { event: e },
+          source: 'SelectBlock',
+          component: 'popupScrollHandler',
+        });
         return;
       }
 

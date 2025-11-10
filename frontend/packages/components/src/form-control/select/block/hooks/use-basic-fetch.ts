@@ -117,18 +117,20 @@ export const useBasicFetch = ({
     if (!dataSourceShare) {
       _fetchOptions();
     }
+    // 🔧 修复死循环：移除不必要的依赖，避免频繁重新执行
+    // 符合 .cursorrules 中的 "useDataSource 精确依赖规范"
   }, [
-    currentState?.searchValue,
+    currentState?.searchValue, // ✅ 只依赖需要的字段
     _canFetch,
     dataSource,
     dataSourceShare,
     shouldFetchDueToValueEmpty,
     dependency,
-    isDependencyFetchingRef,
+    // isDependencyFetchingRef, // ❌ 移除：ref 不应该在依赖数组中
     shouldFetchBasic,
     _fetchOptions,
-    addDebugLog,
-    currentState?.fetchOptions?.length,
-    currentState?.mounted,
+    // addDebugLog, // ❌ 移除：函数引用稳定，不需要在依赖数组中
+    // currentState?.fetchOptions?.length, // ❌ 移除：会导致频繁重新执行
+    // currentState?.mounted, // ❌ 移除：会导致频繁重新执行
   ]);
 };

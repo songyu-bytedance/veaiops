@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { logger as utilLogger } from '@veaiops/utils';
 import type { SelectOption } from '../../../types/interface';
 import type { DataFetcherPlugin, PluginContext } from '../../../types/plugin';
 
@@ -29,9 +30,12 @@ export class PasteDataFetcher {
   ): Promise<void> {
     // 🔧 Defensive check: ensure context exists
     if (!this.context) {
-      console.warn(
-        '[PasteDataFetcher] Context has been destroyed, skipping data fetch',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, skipping data fetch',
+        data: { pastedValuesLength: pastedValues.length },
+        source: 'SelectBlock',
+        component: 'PasteDataFetcher.triggerDataFetchForPastedValues',
+      });
       return;
     }
 
@@ -87,16 +91,40 @@ export class PasteDataFetcher {
           fetchedOptions,
         );
 
-        // 🔧 Batch update state, including stateVersion to force re-render
-        const currentState = this.context.state;
+        // 🔧 Batch update state
         this.context.setState({
           fetchOptions: mergedOptions,
-          // 🔧 Force re-render: update stateVersion to ensure React immediately responds to state changes
-          stateVersion: (currentState?.stateVersion || 0) + 1,
+          // ⚠️ 修复死循环：移除手动更新 stateVersion
+          // setState({ fetchOptions }) 已经会触发重新渲染，不需要额外更新 stateVersion
+          // 手动更新 stateVersion 会导致所有依赖 stateVersion 的 effect 重新执行，可能引发死循环
+          // stateVersion: (currentState?.stateVersion || 0) + 1, // ❌ 移除
+        });
+
+        utilLogger.info({
+          message: 'Paste data fetch completed, merged options',
+          data: {
+            mergedOptionsLength: mergedOptions.length,
+            pastedValuesLength: pastedValues.length,
+          },
+          source: 'SelectBlock',
+          component: 'PasteDataFetcher.triggerDataFetchForPastedValues',
         });
       }
-    } catch (error) {
-      console.warn('[PasteDataFetcher] Data fetch failed after paste:', error);
+    } catch (error: unknown) {
+      // ✅ 正确：透出实际错误信息，使用 logger 记录
+      const errorObj =
+        error instanceof Error ? error : new Error(String(error));
+      utilLogger.warn({
+        message: 'Data fetch failed after paste',
+        data: {
+          error: errorObj.message,
+          stack: errorObj.stack,
+          errorObj,
+          pastedValuesLength: pastedValues.length,
+        },
+        source: 'SelectBlock',
+        component: 'PasteDataFetcher.triggerDataFetchForPastedValues',
+      });
       // Don't show error message, as this is a background operation
     }
   }

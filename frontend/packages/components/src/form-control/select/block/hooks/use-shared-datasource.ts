@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { logger as utilLogger } from '@veaiops/utils';
 import { useEffect } from 'react';
 import type { SelectBlockState } from '../../types/plugin';
 
@@ -37,6 +38,21 @@ export const useSharedDatasource = ({
   addDebugLog,
 }: UseSharedDatasourceParams) => {
   useEffect(() => {
+    utilLogger.debug({
+      message: 'useSharedDatasource effect triggered',
+      data: {
+        dataSourceShare,
+        hasCurrentState: Boolean(currentState),
+        searchValue: currentState?.searchValue,
+        _canFetch,
+        hasDataSource: Boolean(dataSource),
+        shouldFetchDueToValueEmpty,
+        isFirstHint,
+      },
+      source: 'SelectBlock',
+      component: 'UseSharedDatasource',
+    });
+
     if (!dataSourceShare) {
       return;
     }
@@ -47,6 +63,18 @@ export const useSharedDatasource = ({
     );
 
     if (!shouldFetch) {
+      utilLogger.debug({
+        message: 'Skip fetch - conditions not met',
+        data: {
+          hasCurrentState: Boolean(currentState),
+          searchValue: currentState?.searchValue,
+          _canFetch,
+          hasDataSource: Boolean(dataSource),
+          shouldFetchDueToValueEmpty,
+        },
+        source: 'SelectBlock',
+        component: 'UseSharedDatasource',
+      });
       return;
     }
 
@@ -54,23 +82,37 @@ export const useSharedDatasource = ({
       addDebugLog('TRIGGERING_FETCH_IMMEDIATE', {
         reason: 'dataSourceShare + isFirstHint',
       });
+      utilLogger.info({
+        message: 'Triggering immediate fetch',
+        data: { reason: 'dataSourceShare + isFirstHint' },
+        source: 'SelectBlock',
+        component: 'UseSharedDatasource',
+      });
       _fetchOptions();
     } else {
       addDebugLog('TRIGGERING_FETCH_DELAYED', {
         reason: 'dataSourceShare + !isFirstHint',
       });
+      utilLogger.info({
+        message: 'Triggering delayed fetch (1000ms)',
+        data: { reason: 'dataSourceShare + !isFirstHint' },
+        source: 'SelectBlock',
+        component: 'UseSharedDatasource',
+      });
       setTimeout(() => {
         _fetchOptions();
       }, 1000);
     }
+    // 🔧 修复死循环：移除不必要的依赖
+    // 符合 .cursorrules 中的 "useDataSource 精确依赖规范"
   }, [
     dataSourceShare,
     isFirstHint,
-    currentState?.searchValue,
+    currentState?.searchValue, // ✅ 只依赖需要的字段
     _canFetch,
     dataSource,
     shouldFetchDueToValueEmpty,
     _fetchOptions,
-    addDebugLog,
+    // addDebugLog, // ❌ 移除：函数引用稳定，不需要在依赖数组中
   ]);
 };

@@ -37,9 +37,9 @@ import { ChannelType } from '@veaiops/api-client';
  * - Currently only Lark is supported, other channels are marked as disabled
  */
 export const CHANNEL_OPTIONS = [
-  { label: 'Lark', value: ChannelType.LARK, disabled: false },
-  //   { label: 'DingTalk', value: ChannelType.DING_TALK, disabled: true },
-  //   { label: 'WeChat', value: ChannelType.WE_CHAT, disabled: true },
+  { label: '飞书', value: ChannelType.LARK, disabled: false },
+  //   { label: '钉钉', value: ChannelType.DING_TALK, disabled: true },
+  //   { label: '企业微信', value: ChannelType.WE_CHAT, disabled: true },
   //   { label: 'Webhook', value: ChannelType.WEBHOOK, disabled: true },
 ] as const;
 

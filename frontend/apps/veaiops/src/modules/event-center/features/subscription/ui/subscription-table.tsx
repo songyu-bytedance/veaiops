@@ -51,7 +51,7 @@ interface SubscriptionTableProps {
 
 // Configuration object
 const SUBSCRIPTION_MANAGEMENT_CONFIG = {
-  title: 'Event Subscription',
+  title: '事件订阅',
 };
 
 const queryFormat = {

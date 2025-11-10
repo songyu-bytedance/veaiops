@@ -273,8 +273,9 @@ export const useTaskTableConfig = ({
               type="primary"
               icon={<IconPlus />}
               onClick={onAdd}
+              data-testid="new-task-btn"
             >
-              Create Task
+              创建任务
             </Button>,
           );
         }
@@ -289,7 +290,7 @@ export const useTaskTableConfig = ({
               onClick={onBatchRerun}
               disabled={!selectedTasks || selectedTasks.length === 0}
             >
-              Batch Rerun{' '}
+              批量重新执行
               {selectedTasks &&
                 selectedTasks.length > 0 &&
                 `(${selectedTasks.length})`}

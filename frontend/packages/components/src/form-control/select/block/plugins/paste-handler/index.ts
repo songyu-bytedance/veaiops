@@ -60,16 +60,22 @@ export class PasteHandlerPluginImpl implements PasteHandlerPlugin {
   handlePaste(event: ClipboardEvent): void {
     // Defensive check: ensure config object and context exist
     if (!this.config) {
-      console.warn(
-        '[PasteHandler] Config object not initialized, skipping paste handling',
-      );
+      utilLogger.warn({
+        message: 'Config object not initialized, skipping paste handling',
+        data: {},
+        source: 'SelectBlock',
+        component: 'PasteHandler.handlePaste',
+      });
       return;
     }
 
     if (!this.context) {
-      console.warn(
-        '[PasteHandler] Context has been destroyed, skipping paste handling',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, skipping paste handling',
+        data: {},
+        source: 'SelectBlock',
+        component: 'PasteHandler.handlePaste',
+      });
       return;
     }
 
@@ -129,9 +135,12 @@ export class PasteHandlerPluginImpl implements PasteHandlerPlugin {
   private async updateValue(newValues: string[]): Promise<void> {
     // 🔧 Defensive check: ensure context exists, avoid async operations after component destruction
     if (!this.context) {
-      console.warn(
-        '[PasteHandler] Context has been destroyed, skipping value update',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, skipping value update',
+        data: { newValuesLength: newValues.length },
+        source: 'SelectBlock',
+        component: 'PasteHandler.updateValue',
+      });
       return;
     }
 
@@ -273,9 +282,12 @@ export class PasteHandlerPluginImpl implements PasteHandlerPlugin {
     }
 
     if (!this.context) {
-      console.warn(
-        '[PasteHandler] Context has been destroyed, cannot create paste handler',
-      );
+      utilLogger.warn({
+        message: 'Context has been destroyed, cannot create paste handler',
+        data: {},
+        source: 'SelectBlock',
+        component: 'PasteHandler.createPasteHandler',
+      });
       return undefined;
     }
 

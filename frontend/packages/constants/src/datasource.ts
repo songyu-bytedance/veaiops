@@ -31,12 +31,12 @@ export const DATA_SOURCE_CONFIG = {
     iconColor: '#1890ff',
   },
   Aliyun: {
-    label: 'Aliyun',
+    label: '阿里云',
     color: 'orange',
     iconColor: '#fa8c16',
   },
   Volcengine: {
-    label: 'Volcengine',
+    label: '火山引擎',
     color: 'purple',
     iconColor: '#722ed1',
   },
@@ -47,8 +47,8 @@ export const DATA_SOURCE_CONFIG = {
  */
 export const DATA_SOURCE_OPTIONS = [
   { label: 'Zabbix', value: 'Zabbix' },
-  { label: 'Aliyun', value: 'Aliyun' },
-  { label: 'Volcengine', value: 'Volcengine' },
+  { label: '阿里云', value: 'Aliyun' },
+  { label: '火山引擎', value: 'Volcengine' },
 ] as const;
 
 /**
@@ -56,8 +56,8 @@ export const DATA_SOURCE_OPTIONS = [
  */
 export const DATA_SOURCE_LABELS = {
   Zabbix: 'Zabbix',
-  Aliyun: 'Aliyun',
-  Volcengine: 'Volcengine',
+  Aliyun: '阿里云',
+  Volcengine: '火山引擎',
 } as const;
 
 /**

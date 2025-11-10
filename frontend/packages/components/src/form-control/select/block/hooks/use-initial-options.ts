@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { logger as utilLogger } from '@veaiops/utils';
 import { useEffect } from 'react';
 import type React from 'react';
 import type { SelectBlockState } from '../../types/plugin';
@@ -44,6 +45,19 @@ export const useInitialOptions = ({
       !currentState?.searchValue && !dataSource && hasInitialOptions,
     );
 
+    utilLogger.debug({
+      message: 'useInitialOptions effect triggered',
+      data: {
+        hasInitialOptions,
+        shouldHandleInitialOptions,
+        searchValue: currentState?.searchValue,
+        hasDataSource: Boolean(dataSource),
+        dependency: JSON.stringify(dependency),
+      },
+      source: 'SelectBlock',
+      component: 'UseInitialOptions',
+    });
+
     if (!shouldHandleInitialOptions) {
       return;
     }
@@ -52,16 +66,34 @@ export const useInitialOptions = ({
       reason: 'dependency change with initialOptions but no dataSource',
     });
 
-    pluginManagerRef.current?.setState({
-      stateVersion:
-        (pluginManagerRef.current?.getState()?.stateVersion || 0) + 1,
+    // ⚠️ 修复死循环：移除手动更新 stateVersion 的逻辑
+    // 手动更新 stateVersion 会触发其他 effect，导致死循环
+    // 如果需要强制重新渲染，应该通过其他机制实现
+    utilLogger.info({
+      message: 'Initial options ready (skipped manual stateVersion update)',
+      data: {
+        initialOptionsLength: Array.isArray(initialOptions)
+          ? initialOptions.length
+          : 0,
+        dependency: JSON.stringify(dependency),
+      },
+      source: 'SelectBlock',
+      component: 'UseInitialOptions',
     });
+
+    // ❌ 移除：手动更新 stateVersion 导致死循环
+    // pluginManagerRef.current?.setState({
+    //   stateVersion:
+    //     (pluginManagerRef.current?.getState()?.stateVersion || 0) + 1,
+    // });
+    // 🔧 修复死循环：优化依赖数组，移除不必要的依赖
+    // 符合 .cursorrules 中的 "useDataSource 精确依赖规范"
   }, [
-    currentState?.searchValue,
+    currentState?.searchValue, // ✅ 只依赖需要的字段
     dataSource,
     initialOptions,
     dependency,
-    pluginManagerRef,
-    addDebugLog,
+    // pluginManagerRef, // ❌ 移除：ref 不应该在依赖数组中
+    // addDebugLog, // ❌ 移除：函数引用稳定，不需要在依赖数组中
   ]);
 };
