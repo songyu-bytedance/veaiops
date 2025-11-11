@@ -12,5 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export * from './config-extractor';
-export * from './field-translation';
+// 导出配置提取工具
+export { extractAllConfigItems } from './config-extractor';
+
+// 导出字段翻译工具
+export { getFieldTranslation, safeStringify } from './field-translation';

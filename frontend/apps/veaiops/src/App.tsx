@@ -25,7 +25,7 @@ import { SubscriptionProvider } from '@veaiops/components';
 import { useTimezone } from '@veaiops/utils';
 // Import components and configuration
 import { ErrorBoundary, LoadingFallback } from './components';
-import { AuthRoutes } from './components/auth/auth-routes';
+import { AuthRoutes } from './components/auth/routes';
 import { useAuth } from './config/auth';
 import { ThemeProvider, useTheme } from './contexts/theme-context';
 

@@ -21,7 +21,7 @@
 
 import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import { useCallback } from 'react';
-import { getCommonColumns } from './columns/index';
+import { getCommonColumns } from './index';
 
 /**
  * 监控表格列配置参数

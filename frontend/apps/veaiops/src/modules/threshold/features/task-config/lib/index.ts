@@ -35,7 +35,7 @@ export * from "./data-source";
 export * from "./task-version-request";
 
 // 查询转换器
-export * from "./query-transformer";
+export * from "./query-transformer"; // gitleaks:allow
 
 // Modal 配置
 export * from "./modal";

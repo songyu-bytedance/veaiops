@@ -20,7 +20,7 @@ import {
   createAliyunFields,
   createVolcengineFields,
   createZabbixFields,
-} from '../specific-fields';
+} from '../providers';
 import { getConfigData } from '../utils';
 
 /**

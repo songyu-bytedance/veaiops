@@ -13,11 +13,10 @@
 // limitations under the License.
 
 import { Badge, Space, Tabs } from '@arco-design/web-react';
-import { DATA_SOURCE_TYPES } from '@datasource/lib';
-import type { DataSource } from '@veaiops/api-client';
-import { MonitorTable } from '../../components';
-import { getTableRef } from '../config';
-import type { DataSourceConfig, TableRefMap } from '../types';
+import { DATA_SOURCE_TYPES, getTableRef } from '@datasource/lib';
+import type { DataSource, DataSourceConfig, TableRefMap } from '@datasource/lib';
+import type { DataSource as ApiDataSource } from '@veaiops/api-client';
+import { MonitorTable } from '../../tables';
 
 const { TabPane } = Tabs;
 

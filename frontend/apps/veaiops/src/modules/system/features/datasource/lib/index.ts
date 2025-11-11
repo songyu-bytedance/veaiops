@@ -33,6 +33,8 @@ export * from "./api-service";
 
 // 导出列配置
 export * from "./columns";
+// ✅ 导出 createMonitorTableColumns（从 lib/columns/monitor/ 重新导出）
+export { createMonitorTableColumns } from "./columns/monitor";
 
 // 导出监控表格相关配置
 export * from "./monitor-table-types";

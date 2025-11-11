@@ -15,9 +15,9 @@
 import { Typography } from '@arco-design/web-react';
 import type { ConfigItem } from '@datasource/types';
 import { getFieldTranslation } from '@datasource/lib/utils';
-import { ConfigKeyLabel } from './config-key-label';
-import { ConfigValueContent } from './config-value-content';
-import { ConfigValueRenderer } from './config-value-renderer';
+import { ConfigKeyLabel } from './key-label';
+import { ConfigValueContent } from './value-content';
+import { ConfigValueRenderer } from './value';
 
 const { Text } = Typography;
 

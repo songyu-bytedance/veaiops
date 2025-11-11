@@ -21,6 +21,6 @@
  * - 导出组件和类型接口
  */
 export { AuthGuard } from './guard';
-export { AuthRoutes } from './auth-routes';
+export { AuthRoutes } from './routes';
 export type { AuthGuardProps } from './guard';
-export type { AuthRoutesProps } from './auth-routes';
+export type { AuthRoutesProps } from './routes';

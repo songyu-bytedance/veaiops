@@ -18,7 +18,7 @@
  */
 
 import { EMPTY_CONTENT } from '@veaiops/constants';
-import { extractAllConfigItems } from '../../utils/config-extractor';
+import { extractAllConfigItems } from '@datasource/lib/utils';
 import { CollapsibleConfigItems } from './components';
 import { renderAllConfigItems } from './core';
 
