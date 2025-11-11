@@ -13,12 +13,12 @@
 // limitations under the License.
 
 import { EVENT_LEVEL_OPTIONS } from '@ec/shared';
+import type { FieldItem, HandleFilterProps } from '@veaiops/components';
 import {
   EVENT_SHOW_STATUS_OPTIONS,
   EVENT_STATUS_OPTIONS,
+  AGENT_OPTIONS_EVENT_CENTER_HISTORY,
 } from '@veaiops/constants';
-import type { FieldItem, HandleFilterProps } from '@veaiops/components';
-import { AGENT_OPTIONS_EVENT_CENTER_HISTORY } from '@veaiops/constants';
 import {
   convertLocalTimeRangeToUtc,
   convertUtcTimeRangeToLocal,

@@ -16,4 +16,4 @@ export {
   usePushHistoryManagementLogic,
   usePushHistoryTableConfig,
   usePushHistoryActionConfig,
-} from './use-push-history-management-logic';
+} from './use-management'; // ✅ 简化：移除冗余前缀和 -logic 后缀

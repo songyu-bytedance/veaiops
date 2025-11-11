@@ -23,7 +23,7 @@ import { getPushHistoryFilters } from './filters';
 import {
   usePushHistoryActionConfig,
   usePushHistoryTableConfig,
-} from './hooks/use-push-history-management-logic';
+} from './hooks/use-management'; // ✅ 简化：移除冗余前缀和 -logic 后缀
 import { useTableColumns } from './table-columns';
 
 /**

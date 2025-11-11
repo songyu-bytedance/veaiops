@@ -74,7 +74,7 @@ export const useEventHistoryRequest = ({
 
         // 事件级别
         if (event_level && event_level !== '') {
-          apiParams.eventLevel = event_level as any;
+          apiParams.eventLevel = event_level;
         }
 
         // 状态

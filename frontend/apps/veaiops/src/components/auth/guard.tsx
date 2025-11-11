@@ -32,9 +32,6 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
 
     // 开发模式绕过认证
     if (authConfig.devMode.enabled && authConfig.devMode.bypassAuth) {
-      if (process.env.NODE_ENV === 'development') {
-      }
-
       // 自动设置模拟用户信息
       sessionStorage.setItem(
         authConfig.storageKeys.token,
@@ -44,17 +41,12 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
         authConfig.storageKeys.username,
         authConfig.devMode.mockUser.username,
       );
-
-      if (process.env.NODE_ENV === 'development') {
-      }
       setIsAuthenticated(true);
       return;
     }
 
     // 正常认证流程
     const token = sessionStorage.getItem(authConfig.storageKeys.token);
-    if (process.env.NODE_ENV === 'development') {
-    }
     setIsAuthenticated(Boolean(token));
   }, []);
 

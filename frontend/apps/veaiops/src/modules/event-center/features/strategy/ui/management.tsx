@@ -16,7 +16,7 @@ import { useStrategyManagementLogic } from '@ec/strategy';
 import { logger } from '@veaiops/utils';
 import type React from 'react';
 import { useCallback, useRef } from 'react';
-import { default as StrategyModal } from './components/modal';
+import { StrategyModal } from './components/modal';
 import { StrategyTable, type StrategyTableRef } from './table';
 
 /**

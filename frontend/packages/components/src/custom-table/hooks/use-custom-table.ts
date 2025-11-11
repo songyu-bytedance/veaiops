@@ -639,8 +639,7 @@ export const useCustomTable = <
       data: {
         hookInstanceId: hookInstanceId.current,
         currentQueryKeys: Object.keys(currentQuery),
-        currentQueryDatasourceType: (currentQuery as Record<string, unknown>)
-          .datasource_type,
+        currentQueryDatasourceType: currentQuery.datasource_type,
         initQueryKeys: Object.keys(initQuery),
         initQueryDatasourceType: (initQuery as Record<string, unknown>)
           .datasource_type,

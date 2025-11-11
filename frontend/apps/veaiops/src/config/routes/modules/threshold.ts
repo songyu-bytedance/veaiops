@@ -14,7 +14,9 @@
 
 import type { RouteConfig } from '@/types/route';
 import React from 'react';
-import { ROUTES_PATH_CONFIG, ThresholdPages } from '../config';
+import { ThresholdPages } from '../config';
+// ✅ 直接从 pages.ts 导入（遵循"禁止中转导出"原则）
+import { ROUTES_PATH_CONFIG } from '../pages';
 
 /**
  * Intelligent threshold module route configuration

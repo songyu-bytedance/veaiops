@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // 页面组件导出
-export * from './pages';
+// export * from './pages'; // ❌ 已删除：pages/ 不应该在 modules 内，业务页面应该在 features/ui/
 
 // 功能模块导出
 export * from './features';

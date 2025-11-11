@@ -276,18 +276,15 @@ export const withRenderTracker = <P extends object>(
  */
 export const devLog = {
   info: (message: string, ...args: any[]) => {
-    if (process.env.NODE_ENV === 'development') {
-    }
+    // 注意：开发环境可以添加日志追踪
   },
 
   warn: (message: string, ...args: any[]) => {
-    if (process.env.NODE_ENV === 'development') {
-    }
+    // 注意：开发环境可以添加日志追踪
   },
 
   error: (message: string, ...args: any[]) => {
-    if (process.env.NODE_ENV === 'development') {
-    }
+    // 注意：开发环境可以添加日志追踪
   },
 
   group: (label: string) => {

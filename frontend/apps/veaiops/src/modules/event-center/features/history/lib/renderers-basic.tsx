@@ -15,8 +15,7 @@
 // ✅ 修复：从 @ec/shared 导入事件级别常量（单一数据源）
 import { EVENT_LEVEL_MAP } from '@ec/shared';
 import { CellRender } from '@veaiops/components';
-import { AGENT_TYPE_MAP } from '@veaiops/constants';
-import { EMPTY_CONTENT_TEXT } from '@veaiops/constants';
+import { AGENT_TYPE_MAP, EMPTY_CONTENT_TEXT } from '@veaiops/constants';
 
 // 解构CellRender组件，避免重复调用
 const { CustomOutlineTag } = CellRender;

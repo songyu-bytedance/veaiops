@@ -130,7 +130,6 @@ export const ONCALL_ROUTES_PATH = {
   Config: '/oncall/config',
   History: '/oncall/history',
   Rules: '/oncall/rules',
-  Statistics: '/oncall/statistics',
 } as const;
 
 // Statistics module URL paths

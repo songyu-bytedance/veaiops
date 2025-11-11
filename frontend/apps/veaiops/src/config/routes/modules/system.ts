@@ -15,7 +15,9 @@
 import type { RouteConfig } from '@/types/route';
 import { Navigate, useLocation } from '@modern-js/runtime/router';
 import React from 'react';
-import { ROUTES_PATH_CONFIG, SystemPages } from '../config';
+import { SystemPages } from '../config';
+// ✅ 直接从 pages.ts 导入（遵循"禁止中转导出"原则）
+import { ROUTES_PATH_CONFIG } from '../pages';
 
 /**
  * System configuration module route configuration

@@ -14,5 +14,5 @@
 
 export { useProject } from './use-project';
 export { useProjectTableConfig } from './project-table-config';
-export { useProjectManagement } from './use-management-logic';
+export { useProjectManagement } from './use-management'; // ✅ 简化：移除 -logic 后缀
 export { useProjectTable } from './use-project-table';

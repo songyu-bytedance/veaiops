@@ -87,15 +87,11 @@ export function GenericInstanceSelection<T>({
         uniqueItemsMap.set(uniqueKey, item);
       } else {
         duplicateCount++;
-        // 在开发环境输出警告，便于调试
-        if (process.env.NODE_ENV === 'development') {
-        }
+        // 注意：重复项已被去重，开发环境可以添加日志追踪
       }
     }
 
-    // 在开发环境输出去重统计
-    if (process.env.NODE_ENV === 'development' && duplicateCount > 0) {
-    }
+    // 注意：去重统计信息，开发环境可以添加日志追踪
 
     // 转换 Map 为数组
     const uniqueItems = Array.from(uniqueItemsMap.values());
@@ -133,8 +129,7 @@ export function GenericInstanceSelection<T>({
           return config.dataTransformer(item);
         } catch (error) {
           // 数据转换出错时，记录错误并跳过该项
-          if (process.env.NODE_ENV === 'development') {
-          }
+          // 注意：开发环境可以添加日志追踪
           return null;
         }
       })
@@ -148,9 +143,8 @@ export function GenericInstanceSelection<T>({
           // 边界情况：数据转换函数可能抛出异常，需要捕获
           return config.dataTransformer(item);
         } catch (error) {
-          // 数据转换出错时，记录错误并跳过该项
-          if (process.env.NODE_ENV === 'development') {
-          }
+          // 数据转换出错时，跳过该项
+          // 注意：开发环境可以添加日志记录错误详情
           return null;
         }
       })
@@ -179,8 +173,7 @@ export function GenericInstanceSelection<T>({
         return config.searchFilter(originalItem, searchValue);
       } catch (error) {
         // 搜索过滤出错时，跳过该项（保守策略：不显示错误的项）
-        if (process.env.NODE_ENV === 'development') {
-        }
+        // 注意：开发环境可以添加日志追踪
         return false;
       }
     });
@@ -201,8 +194,7 @@ export function GenericInstanceSelection<T>({
         return config.searchFilter(item, searchValue);
       } catch (error) {
         // 搜索过滤出错时，跳过该项（保守策略：不显示错误的项）
-        if (process.env.NODE_ENV === 'development') {
-        }
+        // 注意：开发环境可以添加日志追踪
         return false;
       }
     });
@@ -219,8 +211,7 @@ export function GenericInstanceSelection<T>({
           return areInstancesEqual(transformedItem, instance);
         } catch (error) {
           // 边界情况：数据转换出错时，跳过该项
-          if (process.env.NODE_ENV === 'development') {
-          }
+          // 注意：开发环境可以添加日志追踪
           return false;
         }
       });
@@ -262,8 +253,7 @@ export function GenericInstanceSelection<T>({
       }
     } catch (error) {
       // 边界情况：整个选择操作出错时，记录错误但不影响其他功能
-      if (process.env.NODE_ENV === 'development') {
-      }
+      // 注意：开发环境可以添加日志追踪
     }
   };
 
@@ -302,8 +292,7 @@ export function GenericInstanceSelection<T>({
                   );
                 } catch (error) {
                   // 边界情况：获取 ID 出错时，跳过该项
-                  if (process.env.NODE_ENV === 'development') {
-                  }
+                  // 注意：开发环境可以添加日志追踪
                   return undefined;
                 }
               })
@@ -320,8 +309,7 @@ export function GenericInstanceSelection<T>({
       }
     } catch (error) {
       // 边界情况：全选操作出错时，记录错误但不影响其他功能
-      if (process.env.NODE_ENV === 'development') {
-      }
+      // 注意：开发环境可以添加日志追踪
     }
   };
 
