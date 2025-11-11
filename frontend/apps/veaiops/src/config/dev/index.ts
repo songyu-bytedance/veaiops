@@ -128,10 +128,6 @@ class DevelopmentTools {
     setInterval(() => {
       const report = performanceMonitor.getPerformanceReport();
       if (report.score < 80) {
-        console.warn(
-          '[Performance] Low performance score detected:',
-          report.score,
-        );
       }
     }, 30000); // 每30秒检查一次
   }
@@ -166,7 +162,6 @@ class DevelopmentTools {
       } catch (error) {
         const errorMessage =
           error instanceof Error ? error.message : String(error);
-        console.error(`[DevTools] 网络请求失败: ${url}`, errorMessage);
 
         // ✅ 正确：将错误转换为 Error 对象再抛出（符合 @typescript-eslint/only-throw-error 规则）
         const errorObj =
@@ -181,14 +176,10 @@ class DevelopmentTools {
    */
   private enableErrorBoundaryDebugging() {
     // 监听未捕获的错误
-    window.addEventListener('error', (event) => {
-      console.error('[DevTools] 未捕获的错误:', event.error);
-    });
+    window.addEventListener('error', (event) => {});
 
     // 监听未处理的 Promise 拒绝
-    window.addEventListener('unhandledrejection', (event) => {
-      console.error('[DevTools] 未处理的 Promise 拒绝:', event.reason);
-    });
+    window.addEventListener('unhandledrejection', (event) => {});
   }
 
   /**
@@ -227,9 +218,6 @@ class DevelopmentTools {
 
     // 如果渲染次数过多，发出警告
     if (count > 10) {
-      console.warn(
-        `[RenderTracker] Component "${componentName}" rendered ${count} times`,
-      );
     }
   }
 
@@ -289,19 +277,16 @@ export const withRenderTracker = <P extends object>(
 export const devLog = {
   info: (message: string, ...args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.info(`[DevLog] ${message}`, ...args);
     }
   },
 
   warn: (message: string, ...args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.warn(`[DevLog] ${message}`, ...args);
     }
   },
 
   error: (message: string, ...args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.error(`[DevLog] ${message}`, ...args);
     }
   },
 

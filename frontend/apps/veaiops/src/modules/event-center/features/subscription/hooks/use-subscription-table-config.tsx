@@ -118,24 +118,11 @@ export const useSubscriptionTableConfig = ({
     () =>
       createTableRequestWithResponseHandler({
         apiCall: async ({ skip, limit, ...otherParams }) => {
-          console.log('[SubscriptionTableConfig] 🔵 API 请求开始', {
-            skip,
-            limit,
-            otherParams,
-            timestamp: Date.now(),
-          });
-
           const response = await subscriptionService.getSubscriptions({
             ...otherParams,
             skip,
             limit,
           } as SubscriptionQueryParams);
-
-          console.log('[SubscriptionTableConfig] ✅ API 请求成功', {
-            dataLength: response.data?.length,
-            total: response.total,
-            timestamp: Date.now(),
-          });
 
           // 类型转换：PaginatedAPIResponseSubscribeRelationList 与 StandardApiResponse<SubscribeRelationWithAttributes[]> 结构兼容
           return response as unknown as StandardApiResponse<
@@ -146,10 +133,6 @@ export const useSubscriptionTableConfig = ({
           errorMessagePrefix: '加载订阅关系列表失败',
           defaultLimit: 10,
           onError: (error) => {
-            console.error('[SubscriptionTableConfig] ❌ API 请求失败', {
-              error: error instanceof Error ? error.message : String(error),
-              timestamp: Date.now(),
-            });
             const errorMessage =
               error instanceof Error
                 ? error.message
@@ -162,16 +145,9 @@ export const useSubscriptionTableConfig = ({
   );
 
   // 添加渲染日志
-  console.log('[SubscriptionTableConfig] 🔄 组件渲染', {
-    hasRequest: Boolean(request),
-    timestamp: Date.now(),
-  });
 
   // 🎯 数据源配置 - 使用工具函数
   const dataSource = useMemo(() => {
-    console.log('[SubscriptionTableConfig] 🔧 创建 dataSource', {
-      timestamp: Date.now(),
-    });
     return createServerPaginationDataSource({ request });
   }, [request]);
 

@@ -28,13 +28,11 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   useEffect(() => {
     if (process.env.NODE_ENV === 'development') {
       // Development mode debug logging
-      console.debug('AuthGuard: Checking authentication status');
     }
 
     // 开发模式绕过认证
     if (authConfig.devMode.enabled && authConfig.devMode.bypassAuth) {
       if (process.env.NODE_ENV === 'development') {
-        console.debug('AuthGuard: Development mode - bypassing authentication');
       }
 
       // 自动设置模拟用户信息
@@ -48,7 +46,6 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
       );
 
       if (process.env.NODE_ENV === 'development') {
-        console.debug('AuthGuard: Mock user set successfully');
       }
       setIsAuthenticated(true);
       return;
@@ -57,7 +54,6 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     // 正常认证流程
     const token = sessionStorage.getItem(authConfig.storageKeys.token);
     if (process.env.NODE_ENV === 'development') {
-      console.debug('AuthGuard: Checking for existing token');
     }
     setIsAuthenticated(Boolean(token));
   }, []);

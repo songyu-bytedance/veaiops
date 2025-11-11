@@ -98,12 +98,7 @@ export const getProjectTableColumns = ({
           title="确认删除"
           content={`确定要删除项目"${record.name}"吗？此操作不可恢复。`}
           onOk={async () => {
-            console.log('[ProjectTableColumns] 🗑️ 确认删除项目', {
-              projectId: record.project_id,
-              projectName: record.name,
-              timestamp: Date.now(),
-            });
-            // Delete operation will automatically refresh through operationWrapper, no manual refresh needed
+                        // Delete operation will automatically refresh through operationWrapper, no manual refresh needed
             await onDelete(record.project_id || '');
           }}
           okText="确认删除"

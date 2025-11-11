@@ -157,9 +157,6 @@ class RoutePerformanceAnalyzer {
 
     // 输出分析结果
     if (issues.length > 0) {
-      console.group(`🔍 [RoutePerformance] ${metric.path} 性能分析`);
-
-      console.groupEnd();
     } else if (metric.loadDuration > 100) {
       // 加载时间超过100ms但没有性能问题，可以在这里添加警告日志
     }
@@ -312,15 +309,7 @@ if (process.env.NODE_ENV === 'development') {
   setInterval(() => {
     const report = routePerformanceAnalyzer.getPerformanceReport();
     if (report.totalRoutes > 0) {
-      console.group('📊 路由性能报告');
-      console.table({
-        总路由数: report.totalRoutes,
-        平均加载时间: `${report.averageLoadTime.toFixed(2)}ms`,
-        最慢路由: report.slowestRoutes[0]?.path || 'N/A',
-        错误最多路由: report.mostErrorProneRoutes[0]?.path || 'N/A',
-      });
       // TODO: 处理性能建议 - if (report.recommendations.length > 0) { ... }
-      console.groupEnd();
     }
   }, 30000); // 每30秒输出一次
 }

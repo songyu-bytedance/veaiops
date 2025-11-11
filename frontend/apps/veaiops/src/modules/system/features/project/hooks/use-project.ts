@@ -210,32 +210,12 @@ export const useProjectCreateLogic = ({
         setCreateDrawerVisible(false);
 
         // ✅ 手动调用表格刷新
-        console.log('[useProject] 🔄 项目创建成功，准备刷新表格', {
-          timestamp: Date.now(),
-          hasTableRef: Boolean(tableRef),
-          hasRefCurrent: Boolean(tableRef?.current),
-          hasRefresh: Boolean(tableRef?.current?.refresh),
-        });
-
         if (tableRef?.current?.refresh) {
           try {
             await tableRef.current.refresh();
-            console.log('[useProject] ✅ 表格刷新成功', {
-              timestamp: Date.now(),
-            });
           } catch (refreshError) {
-            console.error('[useProject] ❌ 表格刷新失败', {
-              error:
-                refreshError instanceof Error
-                  ? refreshError.message
-                  : String(refreshError),
-              timestamp: Date.now(),
-            });
+            // 刷新失败，但不影响创建操作，静默处理
           }
-        } else {
-          console.warn('[useProject] ⚠️ 无法刷新表格：tableRef 不可用', {
-            timestamp: Date.now(),
-          });
         }
 
         return true;
@@ -258,10 +238,6 @@ export const useProjectCreateLogic = ({
    * 打开新建抽屉
    */
   const handleOpenCreateDrawer = () => {
-    console.log('[useProject] 🚪 打开新建项目抽屉', {
-      timestamp: Date.now(),
-      currentVisible: createDrawerVisible,
-    });
     setCreateDrawerVisible(true);
   };
 
@@ -269,10 +245,6 @@ export const useProjectCreateLogic = ({
    * 关闭新建抽屉
    */
   const handleCloseCreateDrawer = () => {
-    console.log('[useProject] 🚪 关闭新建项目抽屉', {
-      timestamp: Date.now(),
-      currentVisible: createDrawerVisible,
-    });
     setCreateDrawerVisible(false);
   };
 
@@ -315,32 +287,12 @@ export const useProjectImportLogic = ({
         setImportDrawerVisible(false);
 
         // ✅ 手动调用表格刷新
-        console.log('[useProject] 🔄 项目导入成功，准备刷新表格', {
-          timestamp: Date.now(),
-          hasTableRef: Boolean(tableRef),
-          hasRefCurrent: Boolean(tableRef?.current),
-          hasRefresh: Boolean(tableRef?.current?.refresh),
-        });
-
         if (tableRef?.current?.refresh) {
           try {
             await tableRef.current.refresh();
-            console.log('[useProject] ✅ 表格刷新成功', {
-              timestamp: Date.now(),
-            });
           } catch (refreshError) {
-            console.error('[useProject] ❌ 表格刷新失败', {
-              error:
-                refreshError instanceof Error
-                  ? refreshError.message
-                  : String(refreshError),
-              timestamp: Date.now(),
-            });
+            // 刷新失败，但不影响导入操作，静默处理
           }
-        } else {
-          console.warn('[useProject] ⚠️ 无法刷新表格：tableRef 不可用', {
-            timestamp: Date.now(),
-          });
         }
 
         return true;
@@ -363,10 +315,6 @@ export const useProjectImportLogic = ({
    * 打开导入抽屉
    */
   const handleOpenImportDrawer = () => {
-    console.log('[useProject] 🚪 打开导入项目抽屉', {
-      timestamp: Date.now(),
-      currentVisible: importDrawerVisible,
-    });
     setImportDrawerVisible(true);
   };
 
@@ -374,10 +322,6 @@ export const useProjectImportLogic = ({
    * 关闭导入抽屉
    */
   const handleCloseImportDrawer = () => {
-    console.log('[useProject] 🚪 关闭导入项目抽屉', {
-      timestamp: Date.now(),
-      currentVisible: importDrawerVisible,
-    });
     setImportDrawerVisible(false);
   };
 

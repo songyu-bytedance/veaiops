@@ -237,7 +237,6 @@ export const clearGuideCache = () => {
       }
     }
   } catch (error) {
-    console.warn('Failed to clear guide cache:', error);
   }
 };
 

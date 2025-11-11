@@ -294,7 +294,6 @@ export class GlobalGuideTracker {
 
       localStorage.setItem('guide_tracking', JSON.stringify(existingData));
     } catch (error) {
-      // console.error 已移除
     }
   }
 
@@ -305,7 +304,6 @@ export class GlobalGuideTracker {
     try {
       return JSON.parse(localStorage.getItem('guide_tracking') || '[]');
     } catch (error) {
-      console.error('Error getting tracking data:', error);
       return [];
     }
   }

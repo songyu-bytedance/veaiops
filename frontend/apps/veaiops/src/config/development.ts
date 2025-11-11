@@ -129,7 +129,6 @@ class DevelopmentTools {
       const report = performanceMonitor.getPerformanceReport();
       if (report.score < 80) {
         // 性能分数低于80时输出警告
-        console.warn('[Performance] Low performance score:', report.score);
       }
     }, 30000); // 每30秒检查一次
   }
@@ -184,19 +183,10 @@ class DevelopmentTools {
    */
   private enableErrorBoundaryDebugging() {
     // 监听未捕获的错误
-    window.addEventListener('error', (event) => {
-      console.error('[DevTools] === 未捕获的错误 ===');
-      console.error('[DevTools] Error:', event.error);
-      console.error('[DevTools] Message:', event.message);
-      console.error('[DevTools] Filename:', event.filename);
-      console.error('[DevTools] Line:', event.lineno);
-    });
+    window.addEventListener('error', (event) => {});
 
     // 监听未处理的 Promise 拒绝
-    window.addEventListener('unhandledrejection', (event) => {
-      console.error('[DevTools] === 未处理的 Promise 拒绝 ===');
-      console.error('[DevTools] Reason:', event.reason);
-    });
+    window.addEventListener('unhandledrejection', (event) => {});
   }
 
   /**
@@ -235,9 +225,6 @@ class DevelopmentTools {
 
     // 如果渲染次数过多，发出警告
     if (count > 10) {
-      console.warn(
-        `[Performance] Component ${componentName} rendered ${count} times`,
-      );
     }
   }
 
@@ -297,21 +284,18 @@ export const withRenderTracker = <P extends object>(
 export const devLog = {
   info: (_message: string, ..._args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.info(`[DevLog] ${_message}`, ..._args);
     }
     // Production environment - no logging
   },
 
   warn: (_message: string, ..._args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.warn(_message, ..._args);
     }
     // Production environment - no logging
   },
 
   error: (_message: string, ..._args: any[]) => {
     if (process.env.NODE_ENV === 'development') {
-      console.error(_message, ..._args);
     }
     // Production environment - no logging
   },

@@ -89,20 +89,12 @@ export function GenericInstanceSelection<T>({
         duplicateCount++;
         // 在开发环境输出警告，便于调试
         if (process.env.NODE_ENV === 'development') {
-          console.warn(`[GenericInstanceSelection] 发现重复实例，已去重:`, {
-            uniqueKey,
-            transformedItem,
-            duplicateCount,
-          });
         }
       }
     }
 
     // 在开发环境输出去重统计
     if (process.env.NODE_ENV === 'development' && duplicateCount > 0) {
-      console.info(
-        `[GenericInstanceSelection] 去重完成: 原始数量=${items.length}, 去重后数量=${uniqueItemsMap.size}, 去除重复=${duplicateCount}`,
-      );
     }
 
     // 转换 Map 为数组
@@ -142,13 +134,6 @@ export function GenericInstanceSelection<T>({
         } catch (error) {
           // 数据转换出错时，记录错误并跳过该项
           if (process.env.NODE_ENV === 'development') {
-            console.warn(
-              '[GenericInstanceSelection] 数据转换函数出错，跳过该项:',
-              {
-                item,
-                error,
-              },
-            );
           }
           return null;
         }
@@ -165,13 +150,6 @@ export function GenericInstanceSelection<T>({
         } catch (error) {
           // 数据转换出错时，记录错误并跳过该项
           if (process.env.NODE_ENV === 'development') {
-            console.warn(
-              '[GenericInstanceSelection] 已选项数据转换函数出错，跳过该项:',
-              {
-                item,
-                error,
-              },
-            );
           }
           return null;
         }
@@ -202,13 +180,6 @@ export function GenericInstanceSelection<T>({
       } catch (error) {
         // 搜索过滤出错时，跳过该项（保守策略：不显示错误的项）
         if (process.env.NODE_ENV === 'development') {
-          console.warn(
-            '[GenericInstanceSelection] 搜索过滤函数出错，跳过该项:',
-            {
-              instance,
-              error,
-            },
-          );
         }
         return false;
       }
@@ -231,13 +202,6 @@ export function GenericInstanceSelection<T>({
       } catch (error) {
         // 搜索过滤出错时，跳过该项（保守策略：不显示错误的项）
         if (process.env.NODE_ENV === 'development') {
-          console.warn(
-            '[GenericInstanceSelection] 搜索过滤函数出错，跳过该项:',
-            {
-              item,
-              error,
-            },
-          );
         }
         return false;
       }
@@ -256,10 +220,6 @@ export function GenericInstanceSelection<T>({
         } catch (error) {
           // 边界情况：数据转换出错时，跳过该项
           if (process.env.NODE_ENV === 'development') {
-            console.warn('[GenericInstanceSelection] 实例选择时数据转换出错:', {
-              item,
-              error,
-            });
           }
           return false;
         }
@@ -303,11 +263,6 @@ export function GenericInstanceSelection<T>({
     } catch (error) {
       // 边界情况：整个选择操作出错时，记录错误但不影响其他功能
       if (process.env.NODE_ENV === 'development') {
-        console.error('[GenericInstanceSelection] 实例选择操作出错:', {
-          instance,
-          checked,
-          error,
-        });
       }
     }
   };
@@ -348,13 +303,6 @@ export function GenericInstanceSelection<T>({
                 } catch (error) {
                   // 边界情况：获取 ID 出错时，跳过该项
                   if (process.env.NODE_ENV === 'development') {
-                    console.warn(
-                      '[GenericInstanceSelection] 全选时获取 ID 出错:',
-                      {
-                        instance,
-                        error,
-                      },
-                    );
                   }
                   return undefined;
                 }
@@ -373,10 +321,6 @@ export function GenericInstanceSelection<T>({
     } catch (error) {
       // 边界情况：全选操作出错时，记录错误但不影响其他功能
       if (process.env.NODE_ENV === 'development') {
-        console.error('[GenericInstanceSelection] 全选操作出错:', {
-          checked,
-          error,
-        });
       }
     }
   };

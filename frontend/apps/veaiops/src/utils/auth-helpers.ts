@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import { Message } from '@arco-design/web-react';
+import { logger } from '@veaiops/utils';
 import { TokenManager } from './api-client';
 
 /**
@@ -48,6 +49,12 @@ export const handleLoginSuccess = (loginResponse: LoginResponse): void => {
     const errorObj = error instanceof Error ? error : new Error(String(error));
     const errorMessage = errorObj.message || '登录状态保存失败';
     Message.error(errorMessage);
+    logger.error({
+      message: '登录状态保存失败',
+      data: { error: errorObj.message, stack: errorObj.stack, errorObj },
+      source: 'auth-helpers',
+      component: 'handleLoginSuccess',
+    });
   }
 };
 
@@ -66,16 +73,15 @@ export const handleLogout = (): void => {
       window.location.href = '/login';
     }, 500);
   } catch (error: unknown) {
-    // 即使出错也要跳转到登录页（静默处理，不记录日志）
+    // 即使出错也要跳转到登录页（静默处理，记录日志）
     // ✅ 注意：这里静默处理是预期的行为，确保用户能够跳转到登录页
-    if (process.env.NODE_ENV === 'development') {
-      const errorObj =
-        error instanceof Error ? error : new Error(String(error));
-      console.warn(
-        '[auth-helpers] 登出处理失败（静默处理）:',
-        errorObj.message,
-      );
-    }
+    const errorObj = error instanceof Error ? error : new Error(String(error));
+    logger.warn({
+      message: '登出处理失败（静默处理）',
+      data: { error: errorObj.message, stack: errorObj.stack, errorObj },
+      source: 'auth-helpers',
+      component: 'handleLogout',
+    });
     window.location.href = '/login';
   }
 };
@@ -90,14 +96,13 @@ export const isUserLoggedIn = (): boolean => {
   } catch (error: unknown) {
     // Token 检查失败，返回 false（静默处理）
     // ✅ 注意：这里静默处理是预期的行为，确保登录状态检查不会因为异常而阻塞
-    if (process.env.NODE_ENV === 'development') {
-      const errorObj =
-        error instanceof Error ? error : new Error(String(error));
-      console.warn(
-        '[auth-helpers] Token 检查失败（静默处理）:',
-        errorObj.message,
-      );
-    }
+    const errorObj = error instanceof Error ? error : new Error(String(error));
+    logger.debug({
+      message: 'Token 检查失败（静默处理）',
+      data: { error: errorObj.message, stack: errorObj.stack, errorObj },
+      source: 'auth-helpers',
+      component: 'isUserLoggedIn',
+    });
     return false;
   }
 };
@@ -111,14 +116,13 @@ export const getCurrentToken = (): string | null => {
   } catch (error: unknown) {
     // 获取 token 失败，返回 null（静默处理）
     // ✅ 注意：这里静默处理是预期的行为，确保不会因为异常而阻塞
-    if (process.env.NODE_ENV === 'development') {
-      const errorObj =
-        error instanceof Error ? error : new Error(String(error));
-      console.warn(
-        '[auth-helpers] 获取 token 失败（静默处理）:',
-        errorObj.message,
-      );
-    }
+    const errorObj = error instanceof Error ? error : new Error(String(error));
+    logger.debug({
+      message: '获取 token 失败（静默处理）',
+      data: { error: errorObj.message, stack: errorObj.stack, errorObj },
+      source: 'auth-helpers',
+      component: 'getCurrentToken',
+    });
     return null;
   }
 };
@@ -135,14 +139,13 @@ export const forceRefreshToken = async (): Promise<string | null> => {
   } catch (error: unknown) {
     // Token 刷新失败，返回 null（静默处理）
     // ✅ 注意：这里静默处理是预期的行为，确保不会因为异常而阻塞
-    if (process.env.NODE_ENV === 'development') {
-      const errorObj =
-        error instanceof Error ? error : new Error(String(error));
-      console.warn(
-        '[auth-helpers] Token 刷新失败（静默处理）:',
-        errorObj.message,
-      );
-    }
+    const errorObj = error instanceof Error ? error : new Error(String(error));
+    logger.warn({
+      message: 'Token 刷新失败（静默处理）',
+      data: { error: errorObj.message, stack: errorObj.stack, errorObj },
+      source: 'auth-helpers',
+      component: 'forceRefreshToken',
+    });
     return null;
   }
 };

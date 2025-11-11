@@ -30,53 +30,29 @@ export const getProjectTableActions = ({
 
   // Handle new project button click
   const handleCreateClick = (e: React.MouseEvent<HTMLElement>) => {
-    console.log('[ProjectTableActions] 🆕 新建项目按钮被点击', {
-      timestamp: Date.now(),
-      eventType: e.type,
-      defaultPrevented: e.defaultPrevented,
-    });
 
     // ✅ Step 1: Immediately prevent all default behaviors
     e.preventDefault();
     e.stopPropagation();
 
-    console.log('[ProjectTableActions] ✅ 已阻止默认行为', {
-      timestamp: Date.now(),
-      defaultPrevented: e.defaultPrevented,
-    });
 
     // ✅ Step 2: Execute callback in next event loop to avoid potential side effects from synchronous execution
     setTimeout(() => {
-      console.log('[ProjectTableActions] 📞 调用 onCreate 回调', {
-        timestamp: Date.now(),
-      });
-      onCreate?.();
+            onCreate?.();
     }, 0);
   };
 
   // Handle import project button click
   const handleImportClick = (e: React.MouseEvent<HTMLElement>) => {
-    console.log('[ProjectTableActions] 📥 导入项目按钮被点击', {
-      timestamp: Date.now(),
-      eventType: e.type,
-      defaultPrevented: e.defaultPrevented,
-    });
 
     // ✅ Step 1: Immediately prevent all default behaviors
     e.preventDefault();
     e.stopPropagation();
 
-    console.log('[ProjectTableActions] ✅ 已阻止默认行为', {
-      timestamp: Date.now(),
-      defaultPrevented: e.defaultPrevented,
-    });
 
     // ✅ Step 2: Execute callback in next event loop to avoid potential side effects from synchronous execution
     setTimeout(() => {
-      console.log('[ProjectTableActions] 📞 调用 onImport 回调', {
-        timestamp: Date.now(),
-      });
-      onImport?.();
+            onImport?.();
     }, 0);
   };
 

@@ -67,25 +67,12 @@ export const useProjectTableConfig = ({
     () =>
       createTableRequestWithResponseHandler<Project[]>({
         apiCall: async ({ skip, limit, name }) => {
-          console.log('[ProjectTableConfig] 🔵 API 请求开始', {
-            skip,
-            limit,
-            name,
-            timestamp: Date.now(),
-          });
-
           const response =
             await apiClient.projects.getApisV1ManagerSystemConfigProjects({
               skip,
               limit,
               name: name as string | undefined,
             });
-
-          console.log('[ProjectTableConfig] ✅ API 请求成功', {
-            dataLength: response.data?.length,
-            total: response.total,
-            timestamp: Date.now(),
-          });
 
           // 强制类型兼容：PaginatedAPIResponseProjectList -> StandardApiResponse<Project[]>
           // 保证 code 为 number，满足 StandardApiResponse 要求
@@ -102,10 +89,6 @@ export const useProjectTableConfig = ({
           errorMessagePrefix: '获取项目列表失败',
           defaultLimit: PROJECT_MANAGEMENT_CONFIG.pageSize,
           onError: (error) => {
-            console.error('[ProjectTableConfig] ❌ API 请求失败', {
-              error: error instanceof Error ? error.message : String(error),
-              timestamp: Date.now(),
-            });
             const errorMessage =
               error instanceof Error
                 ? error.message
@@ -118,16 +101,9 @@ export const useProjectTableConfig = ({
   );
 
   // 添加渲染日志
-  console.log('[ProjectTableConfig] 🔄 组件渲染', {
-    hasRequest: Boolean(request),
-    timestamp: Date.now(),
-  });
 
   // 🎯 数据源配置 - 使用工具函数
   const dataSource = useMemo(() => {
-    console.log('[ProjectTableConfig] 🔧 创建 dataSource', {
-      timestamp: Date.now(),
-    });
     return createServerPaginationDataSource({ request });
   }, [request]);
 
@@ -149,17 +125,8 @@ export const useProjectTableConfig = ({
     tableProps,
     handlers: {
       delete: async (id: string) => {
-        console.log('[ProjectTableConfig] 🗑️ 执行删除操作（包装前）', {
-          projectId: id,
-          timestamp: Date.now(),
-        });
         if (onDelete) {
           const result = await onDelete(id);
-          console.log('[ProjectTableConfig] ✅ 删除操作完成', {
-            projectId: id,
-            success: result,
-            timestamp: Date.now(),
-          });
           return result;
         }
         return false;
@@ -176,11 +143,6 @@ export const useProjectTableConfig = ({
   // 🎯 使用包装后的删除函数
   const wrappedOnDelete = useCallback(
     async (id: string): Promise<boolean> => {
-      console.log('[ProjectTableConfig] 📞 调用包装后的删除函数', {
-        projectId: id,
-        hasWrappedDelete: Boolean(wrappedHandlers?.delete),
-        timestamp: Date.now(),
-      });
       if (wrappedHandlers?.delete) {
         return await wrappedHandlers.delete(id);
       }
