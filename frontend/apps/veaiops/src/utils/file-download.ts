@@ -115,7 +115,10 @@ export const downloadCardTemplateWithCallback = async (
   onError?: (error: Error) => void,
 ): Promise<boolean> => {
   // ✅ Use absolute path (from root directory), nginx has configured .card as static resource
-  const url = '/VeAIOps.card';
-
-  return downloadFileWithCallback(url, 'VeAIOps.card', onSuccess, onError);
+  return downloadFileWithCallback(
+    CARD_TEMPLATE_URL,
+    CARD_TEMPLATE_FILENAME,
+    onSuccess,
+    onError,
+  );
 };

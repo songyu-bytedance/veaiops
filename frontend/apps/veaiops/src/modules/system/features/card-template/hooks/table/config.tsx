@@ -546,7 +546,7 @@ export const useCardTemplateTableConfig = ({
     // Table configuration
     customTableProps,
     customOperations: operations,
-    tableRef: tableActionRef, // ⭐ 返回 ref，必须传递给 CustomTable
+    tableRef: tableActionRef, // ⭐ Return ref, must be passed to CustomTable
     handleColumns,
     handleFilters,
     renderActions,

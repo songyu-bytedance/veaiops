@@ -34,7 +34,7 @@ import type {
 import type React from 'react';
 
 /**
- * Card Template 表格配置 Hook 的选项类型
+ * Options type for Card Template table config Hook
  */
 export interface UseCardTemplateTableConfigOptions {
   onEdit?: (record: AgentTemplate) => Promise<boolean>;
@@ -42,20 +42,20 @@ export interface UseCardTemplateTableConfigOptions {
   onCreate?: () => Promise<boolean>;
   onToggleStatus?: (templateId: string, status: boolean) => Promise<boolean>;
   /**
-   * 表格 ref，用于刷新操作
-   * 如果不传入，会在内部创建新的 ref
+   * Table ref, used for refresh operations
+   * If not provided, a new ref will be created internally
    */
   ref?: React.RefObject<CustomTableActionType<AgentTemplate, BaseQuery>>;
 }
 
 /**
- * Card Template 表格配置 Hook 的返回值类型
+ * Return type for Card Template table config Hook
  */
 export interface UseCardTemplateTableConfigReturn {
-  // 表格配置
+  // Table configuration
   customTableProps: Record<string, unknown>;
   customOperations: ReturnType<typeof useBusinessTable>['customOperations'];
-  tableRef: React.RefObject<CustomTableActionType<AgentTemplate, BaseQuery>>; // ⭐ 添加 ref，必须传递给 CustomTable
+  tableRef: React.RefObject<CustomTableActionType<AgentTemplate, BaseQuery>>; // ⭐ Add ref, must be passed to CustomTable
   handleColumns: (
     props?: Record<string, unknown>,
   ) => ModernTableColumnProps<AgentTemplate>[];
@@ -63,14 +63,14 @@ export interface UseCardTemplateTableConfigReturn {
   renderActions: (props?: Record<string, unknown>) => React.ReactNode[];
   queryFormat: QueryFormat;
 
-  // 业务逻辑状态
+  // Business logic state
   modalVisible: boolean;
   editingTemplate: AgentTemplate | null;
   form: ReturnType<typeof Form.useForm>[0];
 
-  // 业务逻辑处理器
-  handleEdit: (template: AgentTemplate) => void; // 只负责打开弹窗，不需要返回值
-  handleAdd: () => void; // 只负责打开弹窗，不需要返回值
+  // Business logic handlers
+  handleEdit: (template: AgentTemplate) => void; // Only responsible for opening modal, no return value needed
+  handleAdd: () => void; // Only responsible for opening modal, no return value needed
   handleCancel: () => void;
   handleSubmit: (
     values: AgentTemplateCreateRequest | AgentTemplateUpdateRequest,

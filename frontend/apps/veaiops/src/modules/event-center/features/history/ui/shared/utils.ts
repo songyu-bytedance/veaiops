@@ -17,11 +17,11 @@ import { logger, safeCopyToClipboard } from '@veaiops/utils';
 import type { Event } from 'api-generate';
 
 /**
- * 复制文本到剪贴板
+ * Copy text to clipboard
  *
- * 使用 safeCopyToClipboard 工具（基于 copy-to-clipboard 包）
- * - 更好的浏览器兼容性
- * - 统一的错误处理
+ * Uses safeCopyToClipboard utility (based on copy-to-clipboard package)
+ * - Better browser compatibility
+ * - Unified error handling
  */
 export const copyToClipboard = async (
   text: string,
