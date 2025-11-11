@@ -15,5 +15,5 @@
 export { useAlarmDrawer, useCreateAlarmCallback } from './use-alarm-drawer';
 export { useRerunDrawer } from './use-rerun-drawer';
 export { useTaskVersionTableRenderer } from './use-table';
-export { useTaskVersionTableConfig } from '../../../hooks/use-version-table';
+export { useTaskVersionTableConfig } from '../../../hooks/table/version';
 export type { TaskVersionTableRendererProps } from './use-table';

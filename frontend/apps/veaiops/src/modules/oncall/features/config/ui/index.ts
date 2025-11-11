@@ -26,3 +26,6 @@ export * from './table';
 export * from './drawer';
 export * from './info';
 export * from './components';
+
+// ✅ 向后兼容：导出别名 OncallConfigPage
+export { ConfigPage as OncallConfigPage } from './management';
