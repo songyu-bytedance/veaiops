@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { ModuleType } from '@/types/module';
+import apiClient from '@/utils/api-client';
+import { Message } from '@arco-design/web-react';
 import {
   AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,
   AGENT_OPTIONS_ONCALL_SUBSCRIPTION,
   AGENT_OPTIONS_THRESHOLD_FILTER,
-} from '@/pages/event-center/card-template/types';
-import { ModuleType } from '@/types/module';
-import apiClient from '@/utils/api-client';
-import { Message } from '@arco-design/web-react';
+} from '@veaiops/constants';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import type { InformStrategy } from 'api-generate';
 import { useEffect, useMemo, useState } from 'react';

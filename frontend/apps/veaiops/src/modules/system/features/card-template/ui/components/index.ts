@@ -17,4 +17,5 @@ export { CardTemplateGuide as Guide } from './guide';
 export { default as StepCard } from './step-card';
 
 // 模态框组件导出
+export { default as CardTemplateDrawer } from './modal';
 export * from './modal';

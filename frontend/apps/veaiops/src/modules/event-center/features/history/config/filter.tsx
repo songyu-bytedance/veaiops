@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AGENT_OPTIONS_EVENT_CENTER_HISTORY } from '@/pages/event-center/card-template/types';
 import {
   EVENT_LEVEL_OPTIONS,
   EVENT_SHOW_STATUS_OPTIONS,
   EVENT_STATUS_OPTIONS,
 } from '@ec/subscription';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
+import { AGENT_OPTIONS_EVENT_CENTER_HISTORY } from '@veaiops/constants';
 import {
   convertLocalTimeRangeToUtc,
   convertUtcTimeRangeToLocal,

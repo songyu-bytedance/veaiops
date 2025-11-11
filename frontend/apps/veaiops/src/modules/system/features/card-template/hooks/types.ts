@@ -19,6 +19,7 @@
 import type { Form } from '@arco-design/web-react';
 import type {
   BaseQuery,
+  CustomTableActionType,
   FieldItem,
   HandleFilterProps,
   ModernTableColumnProps,
@@ -44,12 +45,7 @@ export interface UseCardTemplateTableConfigOptions {
    * 表格 ref，用于刷新操作
    * 如果不传入，会在内部创建新的 ref
    */
-  ref?: React.RefObject<
-    import('@veaiops/components').CustomTableActionType<
-      AgentTemplate,
-      BaseQuery
-    >
-  >;
+  ref?: React.RefObject<CustomTableActionType<AgentTemplate, BaseQuery>>;
 }
 
 /**
@@ -59,6 +55,7 @@ export interface UseCardTemplateTableConfigReturn {
   // 表格配置
   customTableProps: Record<string, unknown>;
   customOperations: ReturnType<typeof useBusinessTable>['customOperations'];
+  tableRef: React.RefObject<CustomTableActionType<AgentTemplate, BaseQuery>>; // ⭐ 添加 ref，必须传递给 CustomTable
   handleColumns: (
     props?: Record<string, unknown>,
   ) => ModernTableColumnProps<AgentTemplate>[];

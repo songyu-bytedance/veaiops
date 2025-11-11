@@ -17,9 +17,9 @@
  */
 
 import { channelTypeOptions } from '@/modules/event-center/features/strategy/constants/options';
-import { AGENT_TYPE_OPTIONS } from '@/pages/event-center/card-template/types';
+import { AGENT_TYPE_OPTIONS } from '@veaiops/constants';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
-import { AgentTemplateQuery } from '@/pages/system/card-template/types';
+import type { AgentTemplateQuery } from '../types';
 
 /**
  * 卡片模板过滤器配置

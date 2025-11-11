@@ -16,12 +16,12 @@ import {
   EVENT_LEVEL_OPTIONS,
   EVENT_SHOW_STATUS_OPTIONS,
 } from '@/modules/event-center/features/subscription/constants/options';
+import { Message } from '@arco-design/web-react';
+import type { FieldItem, HandleFilterProps } from '@veaiops/components';
 import {
   AGENT_OPTIONS_ONCALL_HISTORY,
   AGENT_OPTIONS_THRESHOLD_FILTER,
-} from '@/pages/event-center/card-template/types';
-import { Message } from '@arco-design/web-react';
-import type { FieldItem, HandleFilterProps } from '@veaiops/components';
+} from '@veaiops/constants';
 import { ModuleType } from '@veaiops/types';
 import type { EventShowStatus } from 'api-generate';
 

@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AGENT_OPTIONS_FILTER } from '@/pages/event-center/card-template/types';
 import { ModuleType } from '@/types/module';
 import apiClient from '@/utils/api-client';
 import { Button, Message } from '@arco-design/web-react';
 import { IconRefresh } from '@arco-design/web-react/icon';
+import { AGENT_OPTIONS_FILTER } from '@veaiops/constants';
 import { useManagementRefresh } from '@veaiops/hooks';
 import {
   type ApiPaginationParams,

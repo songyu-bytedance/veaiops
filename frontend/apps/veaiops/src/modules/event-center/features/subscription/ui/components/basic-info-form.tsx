@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {
-  AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,
-  AGENT_OPTIONS_ONCALL_SUBSCRIPTION,
-  AGENT_OPTIONS_THRESHOLD_FILTER,
-} from '@/pages/event-center/card-template/types';
 import { ModuleType } from '@/types/module';
 import { Card, Form, Input, Select } from '@arco-design/web-react';
 import type { FormInstance } from '@arco-design/web-react';
 import { RangePicker } from '@veaiops/components';
+import {
+  AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,
+  AGENT_OPTIONS_ONCALL_SUBSCRIPTION,
+  AGENT_OPTIONS_THRESHOLD_FILTER,
+} from '@veaiops/constants';
 import type React from 'react';
 
 const FormItem = Form.Item;

@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export {
-  useCardTemplateManagementLogic,
-  useCardTemplateTableConfig,
-  type UseCardTemplateManagementLogicReturn,
-} from './use-card-template';
+import { CardTemplateManagement } from '@/modules/system/features/card-template';
 
-// useCardTemplateActionConfig 从 ./use-card-template.tsx 导出（包含 JSX）
-export { useCardTemplatePage } from './use-card-template-page';
-export type { UseCardTemplatePageReturn } from './use-card-template-page';
+/**
+ * 卡片模版管理页面 - 路由入口
+ * @description 提供消息卡片模版的创建、管理和配置功能
+ *
+ * ✅ 使用 CardTemplateManagement（正确使用 {...customTableProps}，支持自动刷新）
+ */
+export default function CardTemplatePage() {
+  return <CardTemplateManagement />;
+}

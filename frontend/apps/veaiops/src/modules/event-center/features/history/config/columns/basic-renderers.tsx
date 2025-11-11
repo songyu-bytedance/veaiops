@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { AGENT_TYPE_MAP } from '@/pages/event-center/card-template/types';
 import { EVENT_LEVEL_MAP } from '@ec/subscription';
 import { CellRender } from '@veaiops/components';
+import { AGENT_TYPE_MAP } from '@veaiops/constants';
 import { EMPTY_CONTENT_TEXT } from '@veaiops/constants';
 
 // 解构CellRender组件，避免重复调用

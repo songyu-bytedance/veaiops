@@ -37,6 +37,7 @@ export const CardTemplateManagement: React.FC = () => {
   const {
     // 表格配置
     customTableProps,
+    tableRef, // ⭐ 获取 ref，用于传递给 CustomTable
     handleColumns,
     handleFilters,
     renderActions,
@@ -104,6 +105,7 @@ export const CardTemplateManagement: React.FC = () => {
   return (
     <div className="page-container">
       <CustomTable
+        ref={tableRef} // ⭐ 必须传递 ref，用于刷新机制
         title="卡片模版管理"
         handleColumns={handleColumns}
         handleFilters={handleFilters}

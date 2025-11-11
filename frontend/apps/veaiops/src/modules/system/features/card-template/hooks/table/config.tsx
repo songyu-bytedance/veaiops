@@ -46,12 +46,6 @@ import type {
   UseCardTemplateTableConfigReturn,
 } from '../types';
 
-// Re-export types
-export type {
-  UseCardTemplateTableConfigOptions,
-  UseCardTemplateTableConfigReturn,
-} from './types';
-
 /**
  * Get card template table column configuration parameters interface
  */
@@ -268,11 +262,10 @@ export const useCardTemplateTableConfig = ({
   // Delete operation refresh logic has been handled in handleDeleteWithRefresh
   const handlers = useMemo(() => {
     logger.info({
-      message: '🟡 [useCardTemplateTableConfig] handlers created (deprecated)',
+      message: '🟡 [useCardTemplateTableConfig] handlers created',
       data: {
         timestamp: Date.now(),
         renderCount: renderCountRef.current,
-        note: 'handlers no longer used for delete operation, delete logic moved to handleDeleteWithRefresh',
       },
       source: 'useCardTemplateTableConfig',
       component: 'handlers-useMemo',
@@ -301,9 +294,12 @@ export const useCardTemplateTableConfig = ({
         // Actual update logic is handled in handleSubmit
         // This is just a placeholder, real refresh will be triggered through afterUpdate after handleSubmit succeeds
       },
-      // ✅ Delete operation moved to handleDeleteWithRefresh, no longer used here
+      // ✅ Delete operation: must be included for auto refresh to work
+      delete: async (id: string) => {
+        return await crud.handleDelete(id);
+      },
     };
-  }, []);
+  }, [crud.handleDelete]);
 
   // 🔍 Log: Monitor handlers reference changes
   const handlersRef = useRef(handlers);
@@ -550,6 +546,7 @@ export const useCardTemplateTableConfig = ({
     // Table configuration
     customTableProps,
     customOperations: operations,
+    tableRef: tableActionRef, // ⭐ 返回 ref，必须传递给 CustomTable
     handleColumns,
     handleFilters,
     renderActions,

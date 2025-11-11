@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import { ModuleType } from '@/types/module';
 import {
   AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,
   AGENT_OPTIONS_ONCALL_SUBSCRIPTION,
   AGENT_OPTIONS_THRESHOLD_FILTER,
-} from '@/pages/event-center/card-template/types';
-import { ModuleType } from '@/types/module';
+} from '@veaiops/constants';
 import type { InformStrategy } from 'api-generate';
 import { useMemo, useState } from 'react';
 
