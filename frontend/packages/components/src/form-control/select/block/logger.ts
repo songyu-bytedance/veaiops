@@ -355,19 +355,14 @@ export class SelectBlockLogger {
 
     switch (entry.level) {
       case LogLevel.DEBUG:
-        console.debug(formattedMessage, entry.data);
         break;
       case LogLevel.INFO:
-        console.info(formattedMessage, entry.data);
         break;
       case LogLevel.WARN:
-        console.warn(formattedMessage, entry.data);
         break;
       case LogLevel.ERROR:
-        console.error(formattedMessage, entry.data, entry.error);
         break;
       default:
-        console.log(formattedMessage, entry.data);
         break;
     }
   }
@@ -845,18 +840,10 @@ if (typeof window !== 'undefined') {
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-
-      console.log('📊 日志导出成功:', allLogs.metadata);
-      if (loopAnalysis.suspiciousPatterns.length > 0) {
-        console.warn(
-          '🚨 检测到可疑的循环模式:',
-          loopAnalysis.suspiciousPatterns,
-        );
-      }
       return allLogs;
-    } catch (error) {
-      console.error('日志导出失败:', error);
-      throw error;
+    } catch (error: unknown) {
+      // Silently fail on export error, don't interrupt logging
+      return null;
     }
   };
 
@@ -878,12 +865,6 @@ if (typeof window !== 'undefined') {
       }
       messageStats[log.message] = (messageStats[log.message] || 0) + 1;
     });
-
-    console.group('🔍 SelectBlock 循环检测报告（最近100条日志）');
-    console.log('📊 模块调用统计:', moduleStats);
-    console.log('📊 方法调用统计:', methodStats);
-    console.log('📊 消息统计:', messageStats);
-
     // Find high-frequency calls
     const highFrequencyThreshold = 10;
     const highFrequencyMessages = Object.entries(messageStats)
@@ -891,10 +872,7 @@ if (typeof window !== 'undefined') {
       .sort((a, b) => b[1] - a[1]);
 
     if (highFrequencyMessages.length > 0) {
-      console.warn('⚠️ 高频消息（可能的循环点）:', highFrequencyMessages);
     }
-    console.groupEnd();
-
     return {
       moduleStats,
       methodStats,

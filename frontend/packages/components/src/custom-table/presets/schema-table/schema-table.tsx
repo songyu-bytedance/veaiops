@@ -62,7 +62,6 @@ export const SchemaTable = forwardRef<SchemaTableInstance, SchemaTableProps>(
       if (!validation.valid) {
         // Schema validation failed - log in development
         if (process.env.NODE_ENV === 'development') {
-          console.warn('Schema validation warnings:', validation.errors);
         }
       }
     }, [schema]);

@@ -60,7 +60,6 @@ const CascaderBlock: FC<CascaderBlockProps> = (props: CascaderBlockProps) => {
       // 记录错误但不中断流程，级联选择器的数据加载失败不应影响整体
       const errorObj =
         error instanceof Error ? error : new Error(String(error));
-      console.error('[CascaderBlock] 数据源加载失败:', errorObj);
     } finally {
       setLoading(false);
     }

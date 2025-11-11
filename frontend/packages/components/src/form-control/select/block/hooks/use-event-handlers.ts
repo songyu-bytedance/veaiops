@@ -25,6 +25,69 @@ import type { SelectOption, veArchSelectBlockProps } from '../types/interface';
 import type { SelectBlockState } from '../types/plugin';
 
 /**
+ * Check if dropdown should fetch options
+ * Reduces cognitive complexity
+ */
+function shouldFetchOptionsOnVisibilityChange(
+  visible: boolean,
+  hasOptions: boolean,
+  canFetch: boolean,
+): boolean {
+  return visible && !hasOptions && canFetch;
+}
+
+/**
+ * Check if dropdown has existing options
+ * Reduces cognitive complexity
+ */
+function hasExistingOptions(fetchOptions: any): boolean {
+  return fetchOptions && Object.keys(fetchOptions).length > 0;
+}
+
+/**
+ * Extract visibility change debug information
+ * This helper function reduces cognitive complexity of handleVisibleChange
+ */
+function extractVisibilityChangeInfo(
+  props: veArchSelectBlockProps,
+  currentState: SelectBlockState,
+  instanceId: string,
+) {
+  const dataSourceInfo =
+    props.dataSource && typeof props.dataSource === 'object'
+      ? {
+          api: (props.dataSource as any).api,
+          hasServiceInstance: 'serviceInstance' in props.dataSource,
+          responseEntityKey: (props.dataSource as any).responseEntityKey,
+        }
+      : null;
+
+  const dependencyInfo = {
+    dependency: props.dependency,
+    dependencyString: JSON.stringify(props.dependency),
+    dependencyType: typeof props.dependency,
+    dependencyIsArray: Array.isArray(props.dependency),
+    dependencyLength: Array.isArray(props.dependency)
+      ? props.dependency.length
+      : 0,
+    dependencyFirstItem: Array.isArray(props.dependency)
+      ? props.dependency[0]
+      : undefined,
+  };
+
+  return {
+    dataSourceInfo,
+    dependencyInfo,
+    logData: {
+      instanceId,
+      dataSourceInfo,
+      ...dependencyInfo,
+      lastDataSourceApi: currentState?.lastDataSourceApi,
+    },
+  };
+}
+
+/**
  * Event handlers Hook
  * Handles search, paste, visibility change, scroll and other events
  */
@@ -308,45 +371,25 @@ export function useEventHandlers(
       const instanceId =
         props.id || (props as any).formItemProps?.field || 'unknown';
 
-      // 🔍 Extract complete dataSource information
-      const dataSourceInfo =
-        props.dataSource && typeof props.dataSource === 'object'
-          ? {
-              api: (props.dataSource as any).api,
-              hasServiceInstance: 'serviceInstance' in props.dataSource,
-              responseEntityKey: (props.dataSource as any).responseEntityKey,
-            }
-          : null;
-
-      // 🔍 Extract complete dependency information
-      const dependencyInfo = {
-        dependency: props.dependency,
-        dependencyString: JSON.stringify(props.dependency),
-        dependencyType: typeof props.dependency,
-        dependencyIsArray: Array.isArray(props.dependency),
-        dependencyLength: Array.isArray(props.dependency)
-          ? props.dependency.length
-          : 0,
-        dependencyFirstItem: Array.isArray(props.dependency)
-          ? props.dependency[0]
-          : undefined,
-      };
+      // Use helper function to extract debug info and reduce complexity
+      const { dataSourceInfo, dependencyInfo } = extractVisibilityChangeInfo(
+        props,
+        currentState,
+        instanceId,
+      );
 
       logger.info(
         'UseEventHandlers',
         'Visibility changed',
         {
-          instanceId, // 🔍 Instance identifier
+          instanceId,
           visible,
           hasFetchOptions: !isEmpty(currentState?.fetchOptions),
           fetchOptionsCount: currentState?.fetchOptions?.length || 0,
           _canFetch,
-          // 🔍 Complete dataSource information
           dataSourceInfo,
           dataSourceApi: dataSourceInfo?.api,
-          // 🔍 Complete dependency information
           ...dependencyInfo,
-          // 🔍 Current status information
           lastDataSourceApi: currentState?.lastDataSourceApi,
         },
         'handleVisibleChange',
@@ -354,7 +397,13 @@ export function useEventHandlers(
 
       addDebugLog('VISIBLE_CHANGE', { visible });
 
-      if (visible && isEmpty(currentState?.fetchOptions) && _canFetch) {
+      const shouldFetch = shouldFetchOptionsOnVisibilityChange(
+        visible,
+        !isEmpty(currentState?.fetchOptions),
+        _canFetch,
+      );
+
+      if (shouldFetch) {
         // 🔧 Fix: Update PluginManager's context.props before fetching data
         // Ensure debounced function captures the latest props (especially dataSource)
         if (pluginManagerRef.current) {
@@ -385,7 +434,7 @@ export function useEventHandlers(
           'handleVisibleChange',
         );
         _fetchOptions();
-      } else if (visible && !isEmpty(currentState?.fetchOptions)) {
+      } else if (visible && hasExistingOptions(currentState?.fetchOptions)) {
         // 🔧 Fix: Check if dataSource has changed (by comparing api field)
         // When dependency changes, dataSource also changes, old options may no longer be applicable
 
@@ -623,9 +672,6 @@ export function useEventHandlers(
 
       // Defensive check: Ensure target exists
       if (!target) {
-        console.warn(
-          '[ScrollHandler] Event target is undefined, skipping scroll handling',
-        );
         return;
       }
 

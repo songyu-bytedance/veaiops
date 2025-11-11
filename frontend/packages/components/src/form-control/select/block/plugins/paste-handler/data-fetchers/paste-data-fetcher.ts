@@ -29,7 +29,6 @@ export class PasteDataFetcher {
   ): Promise<void> {
     // 🔧 防御性检查：确保context存在
     if (!this.context) {
-      console.warn('[PasteDataFetcher] context已被销毁，跳过数据获取');
       return;
     }
 
@@ -94,7 +93,6 @@ export class PasteDataFetcher {
         });
       }
     } catch (error) {
-      console.warn('[PasteDataFetcher] 粘贴后数据获取失败:', error);
       // 不显示错误消息，因为这是后台操作
     }
   }

@@ -186,10 +186,6 @@ function resolveContainerElement(
     if (process.env.NODE_ENV === 'development') {
       const errorObj =
         error instanceof Error ? error : new Error(String(error));
-      console.warn(
-        '[ColumnWidthPersistence] 获取根DOM节点失败',
-        errorObj.message,
-      );
     }
     return null;
   }

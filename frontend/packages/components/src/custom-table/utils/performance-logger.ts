@@ -273,12 +273,9 @@ class CustomTablePerformanceLogger {
    * 打印性能摘要
    */
   private printSummary(report: PerformanceMetrics): void {
-    console.group('[CustomTable Performance] 📊 性能摘要');
-
-    Object.entries(report.componentBreakdown).forEach(([component, count]) => {
-      console.log(`  ${component}: ${count} 次渲染`);
-    });
-    console.groupEnd();
+    Object.entries(report.componentBreakdown).forEach(
+      ([component, count]) => {},
+    );
   }
 
   /**

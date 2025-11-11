@@ -188,14 +188,8 @@ if (typeof window !== 'undefined') {
   // 🚀 新增：统一日志导出接口
   if (!(window as any).exportAllComponentLogs) {
     (window as any).exportAllComponentLogs = () => {
-      console.group('📦 收集所有组件日志');
-
       const filtersLogs = (window as any).getFiltersLogs?.() || [];
-      console.log(`✅ Filters日志: ${filtersLogs.length} 条`);
-
       const tableFilterLogs = (window as any).getTableFilterLogs?.() || [];
-      console.log(`✅ TableFilterPlugin日志: ${tableFilterLogs.length} 条`);
-
       // 🔍 按时间排序所有日志
       const allLogsArray = [
         ...filtersLogs.map((log: any) => ({ ...log, source: 'Filters' })),
@@ -230,9 +224,6 @@ if (typeof window !== 'undefined') {
           timeline: allLogsArray, // 按时间排序的所有日志
         },
       };
-
-      console.groupEnd();
-
       // 导出到文件
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const filename = `route-filter-debug-logs-${timestamp}.json`;
@@ -247,14 +238,8 @@ if (typeof window !== 'undefined') {
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-
-      console.log(`✅ 路由筛选项调试日志已导出: ${filename}`);
-      console.table(allLogs.metadata);
-
       return allLogs;
     };
-
-    console.log('✅ exportAllComponentLogs 函数已注册到 window 对象');
   }
 }
 

@@ -443,8 +443,6 @@ export class ResetLogAnalyzer {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
-
-    console.log(`[ResetLogAnalyzer] 分析报告已导出: ${filename}`);
   }
 }
 

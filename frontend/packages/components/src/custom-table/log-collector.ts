@@ -406,7 +406,6 @@ export class CustomTableLogCollector {
   }: { stage: string; error: unknown; context?: unknown }): void {
     // Use type guard to validate error object
     if (!this.isErrorLike(error)) {
-      console.error('logError called with non-Error object:', error);
       return;
     }
 

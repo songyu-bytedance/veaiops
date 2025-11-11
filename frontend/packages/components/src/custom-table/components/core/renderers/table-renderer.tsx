@@ -354,7 +354,6 @@ export const createTableRenderer = <
           error instanceof Error ? error : new Error(String(error));
         // 仅在开发环境记录警告
         if (process.env.NODE_ENV === 'development') {
-          console.warn('[TableRenderer] 预览函数执行失败', errorObj.message);
         }
       }
       return {

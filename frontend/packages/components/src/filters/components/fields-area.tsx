@@ -35,17 +35,6 @@ const FieldsArea: FC<FieldsAreaProps> = ({
   renderFieldItem,
   actionsArea,
 }) => {
-  // 🔧 添加详细日志：追踪 FieldsArea 渲染
-  if (process.env.NODE_ENV === 'development') {
-    console.info('[Filters/FieldsArea] FieldsArea 渲染', {
-      configLength: config.length,
-      configReference: config,
-      configHash: JSON.stringify(config).substring(0, 200),
-      configTypes: config.map((item) => item.type),
-      timestamp: Date.now(),
-    });
-  }
-
   return (
     <div className={`${commonClassName} w-full`}>
       {/* 渲染字段列表 */}
@@ -60,28 +49,6 @@ const FieldsArea: FC<FieldsAreaProps> = ({
           ...item,
           field: fieldKey,
         };
-
-        // 🔧 添加详细日志：追踪每个字段的渲染
-        if (process.env.NODE_ENV === 'development') {
-          const isSelectType = item.type === 'select' || item.type === 'Select';
-          if (isSelectType) {
-            const hasOptions =
-              item.componentProps && 'options' in item.componentProps;
-            const options = hasOptions
-              ? (item.componentProps as any).options
-              : undefined;
-
-            console.info('[Filters/FieldsArea] 渲染 Select 字段', {
-              index,
-              fieldKey,
-              type: item.type,
-              hasOptions,
-              optionsReference: options,
-              optionsLength: Array.isArray(options) ? options.length : 0,
-              timestamp: Date.now(),
-            });
-          }
-        }
 
         return (
           <Fragment key={fieldKey}>{renderFieldItem(fieldWithKey)}</Fragment>

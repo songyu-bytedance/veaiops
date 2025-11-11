@@ -39,42 +39,8 @@ export const renderField = (
   // ✅ 步骤 1: 处理 label 到 addBefore/prefix 的转换
   const processedComponentProps = processLabelAsComponentProp(field);
 
-  // 添加详细日志
-  if (process.env.NODE_ENV === 'development') {
-    const isSelectType = type === 'select' || type === 'Select';
-    const hasOptions =
-      processedComponentProps && 'options' in processedComponentProps;
-    const options = hasOptions ? processedComponentProps.options : undefined;
-
-    console.info('[Filters/renderField] 渲染字段', {
-      type,
-      field: field.field,
-      label: field.label,
-      labelAs: field.labelAs,
-      hasComponentProps: Boolean(processedComponentProps),
-      componentPropsKeys: processedComponentProps
-        ? Object.keys(processedComponentProps)
-        : [],
-      // 🔧 特别追踪 label 转换结果
-      addBefore: processedComponentProps?.addBefore,
-      prefix: processedComponentProps?.prefix,
-      addAfter: processedComponentProps?.addAfter,
-      suffix: processedComponentProps?.suffix,
-      // 🔧 特别追踪 Select 组件的 options
-      isSelectType,
-      hasOptions,
-      optionsLength: Array.isArray(options) ? options.length : 0,
-      optionsReference: options,
-      optionsHash: options
-        ? JSON.stringify(options).substring(0, 150)
-        : undefined,
-      timestamp: Date.now(),
-    });
-  }
-
   // 验证字段类型
   if (!type) {
-    console.error('[Filters/renderField] 字段类型缺失', { field });
     return (
       <CustomOutlineTag>{ERROR_MESSAGES.FIELD_TYPE_REQUIRED}</CustomOutlineTag>
     );
@@ -91,13 +57,6 @@ export const renderField = (
   const plugin = filterPluginRegistry.get(pluginType);
 
   if (!plugin) {
-    console.error('[Filters/renderField] 插件未找到', {
-      pluginType,
-      type,
-      field: field.field,
-      availablePlugins: Array.from(filterPluginRegistry.getAll().keys()),
-    });
-
     // 使用 Unsupported 插件作为 fallback
     const fallbackPlugin = filterPluginRegistry.get('Unsupported');
     if (fallbackPlugin) {
@@ -113,14 +72,6 @@ export const renderField = (
     return (
       <CustomOutlineTag>{ERROR_MESSAGES.PLUGIN_NOT_FOUND}</CustomOutlineTag>
     );
-  }
-
-  if (process.env.NODE_ENV === 'development') {
-    console.info('[Filters/renderField] 找到插件', {
-      pluginType,
-      pluginName: plugin.name,
-      pluginVersion: plugin.version,
-    });
   }
 
   try {
