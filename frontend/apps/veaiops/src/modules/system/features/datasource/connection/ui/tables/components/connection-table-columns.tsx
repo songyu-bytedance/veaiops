@@ -27,7 +27,7 @@ import {
   IconPlus,
 } from '@arco-design/web-react/icon';
 import { CellRender } from '@veaiops/components';
-import type { Connect } from 'api-generate';
+import type { Connect } from '@veaiops/api-client';
 import { useCallback } from 'react';
 
 // 解构CellRender组件，避免重复调用

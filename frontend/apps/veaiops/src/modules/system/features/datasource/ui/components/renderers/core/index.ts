@@ -21,10 +21,13 @@
 export type { ConfigItem } from '@datasource/types';
 
 // 导出核心渲染函数
-export { renderAllConfigItems } from './render-functions';
+export { renderAllConfigItems } from './functions';
+export { renderTargets } from './target';
+export { renderInstances } from './instance';
+export { renderComplexObject } from './object';
 
 // 导出核心组件
-export { ConfigKeyLabel } from './config-key-label';
-export { ConfigValueRenderer } from './config-value-renderer';
-export { ConfigValueContent } from './config-value-content';
-export { ConfigItemRenderer } from './config-item-renderer';
+export { ConfigKeyLabel } from './key-label';
+export { ConfigValueRenderer } from './value';
+export { ConfigValueContent } from './value-content';
+export { ConfigItemRenderer } from './item';

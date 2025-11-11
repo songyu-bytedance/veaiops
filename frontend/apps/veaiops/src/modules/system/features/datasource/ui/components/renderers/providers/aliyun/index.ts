@@ -15,4 +15,4 @@
 export {
   renderAliyunDimension,
   renderAliyunInstancesList,
-} from './dimension-renderer';
+} from './dimension';

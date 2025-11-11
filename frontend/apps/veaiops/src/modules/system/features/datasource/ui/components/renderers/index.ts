@@ -23,7 +23,7 @@
  */
 
 // 导出主要业务函数
-export { renderDataSourceConfig } from './render-data-source-config';
+export { renderDataSourceConfig } from './data-source-config';
 
 // 导出组件
 export { CollapsibleConfigItems } from './components';
@@ -35,6 +35,9 @@ export {
   ConfigValueRenderer,
   ConfigValueContent,
   ConfigItemRenderer,
+  renderTargets,
+  renderInstances,
+  renderComplexObject,
 } from './core';
 
 // 导出类型

@@ -33,7 +33,7 @@ import type {
   HandleFilterProps,
   ModernTableColumnProps,
 } from '@veaiops/components';
-import type { DataSource, DataSourceType } from 'api-generate';
+import type { DataSource, DataSourceType } from '@veaiops/api-client';
 
 /**
  * 监控配置表格配置 Hook 的选项类型

@@ -18,10 +18,10 @@
 
 import { Modal } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import type { ConnectCreateRequest } from 'api-generate';
+import type { ConnectCreateRequest } from '@veaiops/api-client';
 import type React from 'react';
 import { useEffect, useRef, useState } from 'react';
-import type { ConnectTestModalProps } from '../../../connection/lib';
+import type { ConnectTestModalProps } from '../../lib';
 import type { PasswordFormRef } from './components';
 import {
   ModalFooter,

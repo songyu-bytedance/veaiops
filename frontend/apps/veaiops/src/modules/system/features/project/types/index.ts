@@ -13,8 +13,14 @@
 // limitations under the License.
 
 /**
- * Project 模块类型定义导出
- * 统一从types.ts导出所有类型
+ * Project 模块类型定义统一导出
  */
 
-export type * from '../types';
+// 业务类型
+export type * from './business';
+
+// Hook 类型
+export type * from './hooks';
+
+// 表格类型
+export type * from './table';

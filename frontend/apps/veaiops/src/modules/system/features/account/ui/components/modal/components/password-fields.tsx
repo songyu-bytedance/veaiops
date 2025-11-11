@@ -14,8 +14,7 @@
 
 import { Form, Input, Space } from '@arco-design/web-react';
 import { IconInfoCircleFill, IconLock } from '@arco-design/web-react/icon';
-import type React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import type { ValidationRule } from '../lib';
 import { PasswordStrengthIndicator } from './password-strength-indicator';
 

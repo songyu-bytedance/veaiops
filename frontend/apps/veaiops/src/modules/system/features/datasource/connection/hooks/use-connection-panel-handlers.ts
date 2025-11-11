@@ -21,7 +21,7 @@ import type {
   Connect,
   ConnectCreateRequest,
   ConnectUpdateRequest,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import { getErrorMessage } from '../lib/error-handler';
 
 /**

@@ -14,7 +14,6 @@
 
 // 主页面组件
 export { TaskManagement } from './management';
-export * from './pages';
 
 // 任务相关
 export * from './task';

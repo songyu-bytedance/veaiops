@@ -451,12 +451,12 @@ check-deps-frontend: ## Check frontend dependency version consistency
 		echo "⚠️  Frontend environment not available, cannot check dependency versions..."; \
 	fi
 
-prettier-frontend: ## Run frontend Prettier formatting
+format-frontend: ## Run frontend Biome formatting (⚠️ 使用 Biome，不是 Prettier)
 	@if [ -d "$(FRONTEND_DIR)" ] && command -v pnpm >/dev/null 2>&1; then \
-		echo "--> Running Prettier formatting..."; \
-		(cd $(FRONTEND_DIR) && pnpm prettier --write . --ignore-path .prettierignore); \
+		echo "--> Running Biome formatting..."; \
+		(cd $(FRONTEND_DIR) && pnpm format); \
 	else \
-		echo "⚠️  Frontend environment not available, cannot run Prettier..."; \
+		echo "⚠️  Frontend environment not available, cannot run Biome..."; \
 	fi
 
 # TypeScript compilation check

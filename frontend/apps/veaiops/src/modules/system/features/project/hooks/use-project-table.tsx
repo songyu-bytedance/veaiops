@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Button, Popconfirm } from '@arco-design/web-react';
-import type { TableProps } from '@arco-design/web-react';
+import { Button, Popconfirm, type TableProps } from '@arco-design/web-react';
 import { IconDelete, IconPlus, IconUpload } from '@arco-design/web-react/icon';
 import { PROJECT_MANAGEMENT_CONFIG, getProjectList } from '@project';
 import {

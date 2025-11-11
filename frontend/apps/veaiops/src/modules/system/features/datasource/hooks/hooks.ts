@@ -17,7 +17,7 @@
  */
 
 import { Message } from '@arco-design/web-react';
-import { DataSourceType } from 'api-generate';
+import { DataSourceType } from '@veaiops/api-client';
 import { useCallback, useState } from 'react';
 import { DataSourceApiService } from '../lib/api-service';
 import type { MonitorItem } from '../lib/types';

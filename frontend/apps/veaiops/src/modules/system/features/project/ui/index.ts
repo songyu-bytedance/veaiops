@@ -13,17 +13,12 @@
 // limitations under the License.
 
 /**
- * ✅ 修复：创建 components/index.ts 统一导出
- * - 避免深层路径导入
- * - 遵循 Feature-Based 架构规范
+ * Project UI 组件统一导出
  */
 
-export * from './management';
 export { ProjectManagement } from './management';
-export * from './create-drawer';
-export * from './detail-drawer';
+export { ProjectCreateDrawer } from './create-drawer';
+export { ProjectDetailDrawer } from './detail-drawer';
 export { ProjectImportDrawer } from './import-drawer';
-export * from './modal';
-export * from './table';
-export * from './table-config';
-export * from './components';
+export { ProjectModal } from './modal';
+export { ProjectTable } from './table';

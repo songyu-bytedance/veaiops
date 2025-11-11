@@ -17,7 +17,7 @@
 export {
   AccountManagement,
   AccountModal,
-  useAccountManagementLogic,
+  useAccountManagement,
 } from './account';
 export type {
   UserStatus as AccountStatus,

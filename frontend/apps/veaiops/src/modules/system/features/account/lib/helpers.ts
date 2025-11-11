@@ -213,3 +213,27 @@ export const getUserStats = (users: User[]) => {
 
   return stats;
 };
+
+/**
+ * 转换用户数据为表格数据
+ *
+ * @param user - API 返回的用户数据（api-generate 中的 User 类型）
+ * @returns 转换后的用户表格数据
+ */
+export const transformUserToTableData = (
+  user: import('@veaiops/api-client').User,
+): import('./types').UserTableData => {
+  const now = new Date().toISOString();
+  return {
+    ...user,
+    id: user._id || `temp-${Date.now()}-${Math.random()}`,
+    key: user._id || `temp-${Date.now()}-${Math.random()}`,
+    // 将 API 字段映射到本地字段
+    role: user.is_supervisor ? 'admin' : 'user',
+    status: user.is_active ? 'active' : 'inactive',
+    is_system_admin: user.is_supervisor || false,
+    // 确保时间戳字段有默认值
+    created_at: user.created_at || now,
+    updated_at: user.updated_at || now,
+  };
+};

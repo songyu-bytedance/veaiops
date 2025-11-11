@@ -16,13 +16,16 @@
  * Account Hooks 统一导出
  *
  * ✅ 按照 .cursorrules 规范：
- * - 使用 export * 统一导出，避免中转导出
- * - 每个 Hook 只在源文件中定义一次
+ * - 使用职能分层模式（management、table、actions）
+ * - 每个职能目录只包含相关的 Hooks
+ * - types 和 utils 已移至 feature/lib/
  */
 
-// ✅ 选择性导出，避免 transformUserToTableData 冲突（遵循单一数据源原则）
-// 从 use-account-management-logic 只导出 Hook，不导出工具函数
-export { useAccountManagementLogic } from './use-account-management-logic';
+// ==================== Management 职能 ====================
+export * from './management';
 
-// 从 use-account 导出（包含 transformUserToTableData）
-export * from './use-account';
+// ==================== Table 职能 ====================
+export * from './table';
+
+// ==================== Actions 职能 ====================
+export * from './actions';

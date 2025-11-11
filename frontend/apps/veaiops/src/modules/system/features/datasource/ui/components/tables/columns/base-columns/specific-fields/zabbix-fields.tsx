@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { DataSourceType } from '@/modules/system/features/datasource/lib';
+import type { DataSourceType } from '@datasource/lib';
 import type { ModernTableColumnProps } from '@veaiops/components';
-import { CellRender } from '@veaiops/components';
-import type { DataSource } from 'api-generate';
-import { renderTargets } from '../../../../renderers/core/target-renderer';
+import type { DataSource } from '@veaiops/api-client';
+import { renderTargets } from '@datasource/ui';
 import { getConfigData } from '../utils';
 
 /**

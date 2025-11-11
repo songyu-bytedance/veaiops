@@ -17,8 +17,7 @@
  */
 
 import { exportLogsToFile as utilsExportLogsToFile } from "@veaiops/utils";
-import type { Project } from "api-generate";
-import type { ProjectFormData, ProjectStatus, ProjectPriority } from '@project/types';
+import type { Project, ProjectFormData, ProjectStatus, ProjectPriority } from '@project/types';
 import {
   createProject as apiCreateProject,
   deleteProject as apiDeleteProject,
@@ -170,5 +169,6 @@ export const importProjects = async (file: File): Promise<boolean> => {
 };
 
 // 导出表格配置相关
-export * from "./table-columns";
-export * from "./table-config";
+export * from "./columns";
+export * from "./filters";
+export * from "./actions";

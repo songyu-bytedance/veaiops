@@ -13,9 +13,9 @@
 // limitations under the License.
 
 export { useAutoRefreshOperations } from './use-auto-refresh-operations';
-export { createOperationWrapper } from './lib/operation-wrapper';
-export type {
-  AutoRefreshOperations,
-  UseAutoRefreshOperationsParams,
-  CreateOperationWrapperParams,
-} from './lib/types';
+export {
+  createOperationWrapper,
+  type AutoRefreshOperations,
+  type UseAutoRefreshOperationsParams,
+  type CreateOperationWrapperParams,
+} from '../../lib';

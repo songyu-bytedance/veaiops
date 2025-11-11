@@ -17,4 +17,4 @@
  * 职责：提供渲染器相关的UI组件
  */
 
-export { CollapsibleConfigItems } from './collapsible-config-items';
+export { CollapsibleConfigItems } from './collapsible-items';

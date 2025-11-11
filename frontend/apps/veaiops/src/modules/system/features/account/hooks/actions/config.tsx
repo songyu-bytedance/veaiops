@@ -1,0 +1,49 @@
+// Copyright 2025 Beijing Volcano Engine Technology Co., Ltd. and/or its affiliates
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import { Button } from '@arco-design/web-react';
+import { IconPlus } from '@arco-design/web-react/icon';
+
+/**
+ * 账号操作按钮配置Hook参数接口
+ */
+export interface UseAccountActionConfigParams {
+  onAdd?: () => void;
+  isSupervisor?: boolean;
+}
+
+/**
+ * 账号操作按钮配置Hook
+ *
+ * 提供表格工具栏操作按钮配置
+ *
+ * ✅ 符合规范：使用对象解构参数（2个或以上参数时）
+ */
+export const useAccountActionConfig = ({
+  onAdd,
+  isSupervisor,
+}: UseAccountActionConfigParams) => {
+  const actions = [];
+
+  // 只有管理员才能新增用户
+  if (onAdd && isSupervisor) {
+    actions.push(
+      <Button key="add" type="primary" icon={<IconPlus />} onClick={onAdd}>
+        新增用户
+      </Button>,
+    );
+  }
+
+  return { actions };
+};

@@ -17,6 +17,7 @@
  * 每个子目录对应一个路由
  */
 
-export * from './config';
-export * from './history';
-export * from './stats';
+// Config - 对应 /oncall/config（规则配置管理）
+export { OncallConfigPage } from './config';
+// History - 对应 /oncall/history（历史事件）
+export { OncallHistoryPage } from './history';

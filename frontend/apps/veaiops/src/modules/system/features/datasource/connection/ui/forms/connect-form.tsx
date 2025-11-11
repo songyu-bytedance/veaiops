@@ -26,10 +26,10 @@ import {
   Switch,
 } from '@arco-design/web-react';
 import { IconClose, IconSave } from '@arco-design/web-react/icon';
-import { DataSourceType } from 'api-generate';
+import { DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 // 使用从lib/types导入的ConnectFormProps类型
-import type { ConnectFormProps } from '../../../connection/lib';
+import type { ConnectFormProps } from '../../lib';
 import { useConnectionTestLogic } from '../../hooks/use-connection-test-logic';
 import { useFormSubmission } from '../../hooks/use-form-submission';
 import { ConnectTestModal } from '../connect-test/connect-test-modal';

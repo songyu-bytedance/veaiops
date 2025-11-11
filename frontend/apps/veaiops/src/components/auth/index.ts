@@ -12,6 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// 认证组件统一导出
-export { AuthGuard } from './auth-guard';
+/**
+ * 认证组件统一导出
+ *
+ * ✅ 符合规范：
+ * - 单一数据源原则（删除重复文件）
+ * - 使用路径别名导入
+ * - 导出组件和类型接口
+ */
+export { AuthGuard } from './guard';
 export { AuthRoutes } from './auth-routes';
+export type { AuthGuardProps } from './guard';
+export type { AuthRoutesProps } from './auth-routes';

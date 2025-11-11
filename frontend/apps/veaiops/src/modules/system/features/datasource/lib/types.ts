@@ -119,3 +119,33 @@ export type ViewHandler = (item: DataSource) => void;
  * 监控项类型（别名，用于兼容旧代码）
  */
 export type MonitorItem = DataSource;
+
+/**
+ * 配置项类型（从 ui/types/column-types.ts 合并）
+ */
+export interface ConfigItem {
+  configKey: string;
+  value: unknown;
+}
+
+/**
+ * 数据源配置类型（用于页面配置）
+ */
+export interface DataSourceConfig {
+  key: string;
+  type: DataSourceType;
+  deleteHandler: (
+    monitorId: string,
+    dataSourceType?: DataSourceType,
+  ) => Promise<boolean>;
+  tableRefKey: 'volcengineTableRef' | 'aliyunTableRef' | 'zabbixTableRef';
+}
+
+/**
+ * 表格引用映射类型
+ */
+export interface TableRefMap {
+  volcengineTableRef: React.RefObject<unknown>;
+  aliyunTableRef: React.RefObject<unknown>;
+  zabbixTableRef: React.RefObject<unknown>;
+}

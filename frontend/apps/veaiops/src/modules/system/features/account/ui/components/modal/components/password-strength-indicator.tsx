@@ -15,8 +15,7 @@
 import { validatePassword } from '@/modules/system/features/account/lib';
 import { Divider, Progress, Tag } from '@arco-design/web-react';
 import { IconInfoCircleFill } from '@arco-design/web-react/icon';
-import type React from 'react';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { PasswordRequirementItem } from './password-requirement-item';
 
 /**

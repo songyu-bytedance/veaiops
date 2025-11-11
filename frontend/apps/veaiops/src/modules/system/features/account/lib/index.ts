@@ -16,11 +16,14 @@
  * 账号管理lib层统一导出
  */
 
+// 导出类型定义
+export * from './types';
+
 // 导出常量
-export * from "@veaiops/constants";
+export * from '@veaiops/constants';
 
 // 导出工具函数
-export * from "./utils";
+export * from './utils';
 
 // 导出API服务
-export * from "./api";
+export * from './api';

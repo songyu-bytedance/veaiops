@@ -18,7 +18,7 @@
 
 import { useConnectionTest } from '@/hooks/use-connection-test';
 import { Message } from '@arco-design/web-react';
-import { type ConnectCreateRequest, DataSourceType } from 'api-generate';
+import { type ConnectCreateRequest, DataSourceType } from '@veaiops/api-client';
 import { useCallback } from 'react';
 
 interface UseConnectionTestLogicProps {

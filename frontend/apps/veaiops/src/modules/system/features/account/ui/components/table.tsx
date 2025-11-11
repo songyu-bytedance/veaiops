@@ -25,7 +25,7 @@ import { authConfig } from '@/config/auth';
 import { useAccountActionConfig, useAccountTableConfig } from '@account/hooks';
 import { Message } from '@arco-design/web-react';
 import { IconDelete } from '@arco-design/web-react/icon';
-import type { User } from 'api-generate';
+import type { User } from '@veaiops/api-client';
 import { forwardRef, useCallback } from 'react';
 
 // ✅ 使用 api-generate 中的 User 类型（单一数据源原则）
@@ -178,7 +178,7 @@ export const AccountTable = forwardRef<any, AccountTableProps>(
     });
 
     // 操作按钮配置
-    const { actions } = useAccountActionConfig(onAdd, isSupervisor);
+    const { actions } = useAccountActionConfig({ onAdd, isSupervisor });
 
     // 创建 handleColumns 函数，传递操作回调给列配置
     const handleColumns = useCallback(

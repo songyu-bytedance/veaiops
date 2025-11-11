@@ -40,10 +40,4 @@ export const oncallRoutes: RouteConfig[] = [
     title: 'Oncall异动历史',
     requireAuth: true,
   },
-  {
-    path: ROUTES_PATH_CONFIG.oncall.Statistics,
-    element: React.createElement(OncallPages.Statistics),
-    title: 'Oncall异动统计',
-    requireAuth: true,
-  },
 ];

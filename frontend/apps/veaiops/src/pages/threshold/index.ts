@@ -16,4 +16,3 @@ export { default as ThresholdConfigPage } from './config';
 export { default as ThresholdHistoryPage } from './history';
 export { default as ThresholdSubscriptionPage } from './subscription';
 export { default as ThresholdTemplatePage } from './template';
-export { default as ThresholdTaskConfigPage } from './config';

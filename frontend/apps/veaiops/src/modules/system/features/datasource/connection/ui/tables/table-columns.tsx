@@ -34,14 +34,14 @@ import {
   CustomOutlineTag,
   type ModernTableColumnProps,
 } from '@veaiops/components';
-import type { Connect } from 'api-generate';
+import type { Connect } from '@veaiops/api-client';
 import {
   ACTION_TEXTS,
   COLUMN_WIDTHS,
   CONFIRM_TEXTS,
   type TableColumnsProps,
   formatConnectionTime,
-} from '../../../connection/lib';
+} from '../../lib';
 import { MaskedRenderer } from '../components/masked-renderer';
 
 const { Text } = Typography;

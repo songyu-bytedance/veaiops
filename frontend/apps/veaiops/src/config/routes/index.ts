@@ -47,7 +47,7 @@ export const routesConfig: RouteConfig[] = [
   ...baseRoutes,
   ...statisticsRoutes, // 统计概览
   ...systemRoutes, // 系统配置
-  ...oncallRoutes, // Oncall异动
+  ...oncallRoutes, // ChatOps
   ...thresholdRoutes, // 智能阈值
   ...eventCenterRoutes, // 事件中心
   notFoundRoute, // 404 兜底路由 - 必须放在最后

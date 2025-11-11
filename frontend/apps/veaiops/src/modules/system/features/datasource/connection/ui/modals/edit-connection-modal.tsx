@@ -22,7 +22,7 @@ import type {
   Connect,
   ConnectUpdateRequest,
   DataSourceType,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import type React from 'react';
 import { ConnectForm } from '../forms/connect-form';
 

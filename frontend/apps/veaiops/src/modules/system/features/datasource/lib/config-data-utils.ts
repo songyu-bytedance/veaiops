@@ -26,7 +26,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { DataSource, DataSourceType } from 'api-generate';
+import type { DataSource, DataSourceType } from '@veaiops/api-client';
 
 /**
  * 数据源记录扩展类型（包含特定配置字段）

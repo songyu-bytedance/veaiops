@@ -23,7 +23,7 @@ import {
 import { Button, Card, Space, Typography } from '@arco-design/web-react';
 import { IconPlus, IconRefresh } from '@arco-design/web-react/icon';
 import { logger } from '@veaiops/utils';
-import type { DataSourceType } from 'api-generate';
+import type { DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { useEffect } from 'react';
 

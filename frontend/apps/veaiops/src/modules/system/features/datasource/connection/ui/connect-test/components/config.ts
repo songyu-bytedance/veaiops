@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { DataSourceType } from 'api-generate';
+import type { DataSourceType } from '@veaiops/api-client';
 import type { FormFieldConfig } from './types';
 
 // 表单字段配置常量

@@ -19,7 +19,7 @@
 import { useConnections } from '@/hooks/use-connections';
 import { Alert, Button } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import type { Connect, DataSourceType } from 'api-generate';
+import type { Connect, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { useConnectionPanelHandlers } from '../../hooks/use-connection-panel-handlers';

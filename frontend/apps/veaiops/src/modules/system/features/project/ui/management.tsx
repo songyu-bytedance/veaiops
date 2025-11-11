@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import { useProject } from '@project';
-import type React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { ProjectCreateDrawer } from './create-drawer';
 import { ProjectImportDrawer } from './import-drawer';
 import { ProjectModal } from './modal';

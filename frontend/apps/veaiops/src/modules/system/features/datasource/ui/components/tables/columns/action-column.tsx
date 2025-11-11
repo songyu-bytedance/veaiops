@@ -33,7 +33,7 @@ import {
 import type { DeleteHandler, EditHandler } from '@datasource/types';
 import type { ModernTableColumnProps } from '@veaiops/components';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
-import type { DataSource } from 'api-generate';
+import type { DataSource } from '@veaiops/api-client';
 
 /**
  * 获取操作列配置

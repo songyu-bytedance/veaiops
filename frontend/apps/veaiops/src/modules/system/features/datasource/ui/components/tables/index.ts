@@ -18,9 +18,9 @@
  */
 
 // 导出表格组件
-export { DataSourceTable } from './data-source-table';
-export { MonitorTable } from './monitor-table';
-export type { MonitorTableRef } from './monitor-table';
+export { DataSourceTable } from './data-source';
+export { MonitorTable } from './monitor';
+export type { MonitorTableRef } from './monitor';
 
 // 导出列配置
 export {

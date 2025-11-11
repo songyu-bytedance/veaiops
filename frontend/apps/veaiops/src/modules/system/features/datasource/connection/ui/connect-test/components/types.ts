@@ -16,7 +16,7 @@ import type {
   Connect,
   ConnectCreateRequest,
   DataSourceType,
-} from 'api-generate';
+} from '@veaiops/api-client';
 
 // 表单字段配置类型
 export interface FormFieldConfig {

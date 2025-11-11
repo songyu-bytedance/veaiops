@@ -18,7 +18,7 @@
 
 import { Form } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import type { DataSourceType } from 'api-generate';
+import type { DataSourceType } from '@veaiops/api-client';
 import { forwardRef, useImperativeHandle } from 'react';
 import { FormActions } from './form-actions';
 import { FormFieldsList } from './form-fields-list';

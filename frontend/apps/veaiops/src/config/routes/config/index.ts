@@ -21,5 +21,3 @@
  */
 
 export * from './lazy';
-// ❌ 禁止中转导出：不从 ../pages.ts 导出 ROUTES_PATH_CONFIG
-// ✅ 使用方应该直接导入：import { ROUTES_PATH_CONFIG } from '../pages';

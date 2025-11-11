@@ -17,7 +17,7 @@
  */
 
 import { Message } from '@arco-design/web-react';
-import type { DataSourceType } from 'api-generate';
+import type { DataSourceType } from '@veaiops/api-client';
 import { useCallback, useState } from 'react';
 import { useConnectionTestLogic } from './use-connection-test-logic';
 

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { MonitorAccessManagement } from '@/modules/system/features/datasource';
+import { DataSourceManagement } from '@/modules/system/features/datasource';
 import type React from 'react';
 
 /**
@@ -20,7 +20,7 @@ import type React from 'react';
  * @description 复用通用监控接入组件
  */
 const Monitor: React.FC = () => {
-  return <MonitorAccessManagement />;
+  return <DataSourceManagement />;
 };
 
 export default Monitor;

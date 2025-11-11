@@ -23,7 +23,7 @@ import {
   createLocalDataSource,
   createStandardTableProps,
 } from '@veaiops/utils';
-import type { Connect } from 'api-generate';
+import type { Connect } from '@veaiops/api-client';
 import { useMemo } from 'react';
 import { useConnectionTableActions } from '../ui/tables/components/connection-table-actions';
 import { useConnectionTableColumns } from '../ui/tables/components/connection-table-columns';

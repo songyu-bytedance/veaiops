@@ -18,5 +18,5 @@ export {
   getStatusColumn,
   getCreatedAtColumn,
   getUpdatedAtColumn,
-} from './common-columns';
-export { getConfigColumns } from './config-columns';
+} from './common';
+export { getConfigColumns } from './config';

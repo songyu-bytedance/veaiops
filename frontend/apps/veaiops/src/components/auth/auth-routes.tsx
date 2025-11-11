@@ -19,25 +19,28 @@ import {
   Routes,
   useLocation,
 } from '@modern-js/runtime/router';
-import type React from 'react';
-import { Suspense } from 'react';
+import { type FC, Suspense } from 'react';
 
+import { AppLayout, LoadingFallback, themeConfig } from '@/components';
 import { authConfig } from '@/config/auth';
+import { routesConfig } from '@/config/routes';
 import { LoginPage } from '@/modules/auth';
 
-import { routesConfig } from '@/config/routes';
-import type { RouteConfig } from '@/types/route';
-import { AppLayout } from '../common/app-layout';
-import { themeConfig } from '../config/theme-config';
-import { LoadingFallback } from '../ui/loading-fallback';
-
-// 认证路由组件Props
-interface AuthRoutesProps {
+/**
+ * 认证路由组件Props
+ */
+export interface AuthRoutesProps {
   isAuthenticated: boolean;
 }
 
-// 认证路由组件
-export const AuthRoutes: React.FC<AuthRoutesProps> = ({ isAuthenticated }) => {
+/**
+ * 认证路由组件
+ *
+ * 根据用户认证状态渲染不同的路由：
+ * - 未认证：显示登录页或重定向到登录页
+ * - 已认证：显示完整的应用布局和路由
+ */
+export const AuthRoutes: FC<AuthRoutesProps> = ({ isAuthenticated }) => {
   const location = useLocation();
 
   // 如果未认证且不在登录页面，重定向到登录页
@@ -65,7 +68,7 @@ export const AuthRoutes: React.FC<AuthRoutesProps> = ({ isAuthenticated }) => {
       <AppLayout>
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
-            {routesConfig.map((route: RouteConfig) => (
+            {routesConfig.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}

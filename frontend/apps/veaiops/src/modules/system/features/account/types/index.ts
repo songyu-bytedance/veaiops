@@ -13,8 +13,8 @@
 // limitations under the License.
 
 /**
- * Account 模块类型定义导出
- * 统一从types.ts导出所有类型
+ * Account 模块类型定义统一导出
  */
 
-export type * from '../types';
+// 业务类型
+export type * from './business';

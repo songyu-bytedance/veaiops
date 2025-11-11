@@ -11,5 +11,5 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-// ✅ 修复：直接使用原始组件名 ConfigPage（拒绝中转导出别名）
-export { ConfigPage as default } from '@/modules/oncall';
+// ✅ 修复：使用实际导出的组件名 OncallConfigPage
+export { OncallConfigPage as default } from '@/modules/oncall';

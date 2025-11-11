@@ -20,7 +20,7 @@ import {
   createCreateOperation,
   createDeleteOperation,
   createUpdateOperation,
-} from './lib';
+} from '../../lib';
 
 /**
  * 创建自动刷新CRUD操作的Hook

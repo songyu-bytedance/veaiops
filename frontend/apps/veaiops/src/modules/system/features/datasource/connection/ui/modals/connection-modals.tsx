@@ -21,7 +21,7 @@ import type {
   ConnectCreateRequest,
   ConnectUpdateRequest,
   DataSourceType,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import type React from 'react';
 import { ConnectTestModal } from '../connect-test/connect-test-modal';
 import { CreateConnectionModal } from './create-connection-modal';

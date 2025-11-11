@@ -14,22 +14,30 @@
 
 import { Spin } from '@arco-design/web-react';
 import { Navigate } from '@modern-js/runtime/router';
-import type React from 'react';
-import { useEffect, useState } from 'react';
-import { authConfig } from '../../config/auth';
+import React, { useEffect, useState } from 'react';
+import { authConfig } from '@/config/auth';
 
-interface AuthGuardProps {
+/**
+ * 认证守卫组件Props
+ */
+export interface AuthGuardProps {
   children: React.ReactNode;
 }
 
+/**
+ * 认证守卫组件
+ *
+ * 保护需要认证才能访问的路由：
+ * - 检查用户认证状态
+ * - 未认证用户重定向到登录页
+ * - 支持开发模式绕过认证
+ *
+ * @param children - 需要保护的子组件
+ */
 const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      // Development mode debug logging
-    }
-
     // 开发模式绕过认证
     if (authConfig.devMode.enabled && authConfig.devMode.bypassAuth) {
       // 自动设置模拟用户信息

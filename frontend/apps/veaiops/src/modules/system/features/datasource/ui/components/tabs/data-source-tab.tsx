@@ -14,7 +14,7 @@
 
 import { Badge, Space, Tabs } from '@arco-design/web-react';
 import { DATA_SOURCE_TYPES } from '@datasource/lib';
-import type { DataSource, DataSourceType } from 'api-generate';
+import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { MonitorTable, type MonitorTableRef } from '../tables';
 

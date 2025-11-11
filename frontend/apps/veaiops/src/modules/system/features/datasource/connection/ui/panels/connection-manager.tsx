@@ -19,10 +19,10 @@
 import { useConnections } from '@/hooks/use-connections';
 import { Badge, Drawer, Space, Tabs, Typography } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import { DataSourceType } from 'api-generate';
+import { DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import { DATA_SOURCE_DISPLAY_NAMES } from '../../../connection/lib';
+import { DATA_SOURCE_DISPLAY_NAMES } from '../../lib';
 import { ConnectionPanel } from './connection-panel';
 
 const { Title } = Typography;

@@ -34,11 +34,12 @@ export * from "./api-service";
 // 导出列配置
 export * from "./columns";
 
-
 // 导出监控表格相关配置
 export * from "./monitor-table-types";
 export * from "./monitor-table-request";
 export * from "./monitor-table-config";
-export * from "./monitor-columns";
 export * from "./monitor-filters";
 export * from "./config-data-utils";
+
+// ✅ Step 3 & 4: 导出配置文件（从 ui/pages/config/ 迁移）
+export * from "./config";

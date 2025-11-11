@@ -12,19 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// ==================== 数据源函数导出 ====================
-export {
-  getAliyunContactGroupDataSource,
-  getVolcengineAlertMethodsDataSource,
-  getVolcengineContactGroupDataSource,
-  getZabbixAlertMethodsDataSource,
-  getZabbixContactGroupDataSource,
-  getZabbixMediatypeDataSource,
-} from './lib';
+// 数据源配置
+export * from './aliyun';
+export * from './volcengine';
+export * from './zabbix';
 
-// ==================== 类型导出 ====================
-export type {
-  DataSourceOption,
-  DataSourceSetter,
-  SelectDataSourceProps,
-} from './lib/types';
+// 类型
+export * from './types';

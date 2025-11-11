@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { ConfigManagementPage } from '@/modules/threshold';
+import { TaskManagement } from '@/modules/threshold';
 import type React from 'react';
 
 const Config: React.FC = () => {
-  return <ConfigManagementPage />;
+  return <TaskManagement />;
 };
 
 export default Config;

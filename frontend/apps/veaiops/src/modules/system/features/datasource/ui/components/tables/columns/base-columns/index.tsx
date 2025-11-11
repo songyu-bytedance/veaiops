@@ -14,7 +14,7 @@
 
 import type { DataSourceType } from '@/modules/system/features/datasource/lib';
 import type { ModernTableColumnProps } from '@veaiops/components';
-import type { DataSource } from 'api-generate';
+import type { DataSource } from '@veaiops/api-client';
 import {
   getConfigColumns,
   getCreatedAtColumn,

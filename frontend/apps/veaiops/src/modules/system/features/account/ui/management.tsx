@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { useAccountManagementLogic } from '@account';
+import { useAccountManagement } from '@account/hooks';
 import type { CustomTableActionType } from '@veaiops/components';
 import type { BaseQuery, BaseRecord } from '@veaiops/types';
 import { logger } from '@veaiops/utils';
 import type { User as ApiUser } from 'api-generate';
-import type React from 'react';
 import { useCallback, useRef } from 'react';
+import type React from 'react';
 // 从本地 components 目录导入组件
 import { AccountModal, AccountTable } from './components';
 
@@ -66,21 +66,24 @@ export const AccountManagement: React.FC = () => {
   // 获取表格刷新函数
   const getRefreshTable = useCallback(async (): Promise<boolean> => {
     if (tableRef.current?.refresh) {
-      const result = await tableRef.current.refresh();
-      if (!result.success && result.error) {
+      try {
+        await tableRef.current.refresh();
+        return true;
+      } catch (error: unknown) {
+        const errorObj =
+          error instanceof Error ? error : new Error(String(error));
         logger.warn({
           message: '账户表格刷新失败',
           data: {
-            error: result.error.message,
-            stack: result.error.stack,
-            errorObj: result.error,
+            error: errorObj.message,
+            stack: errorObj.stack,
+            errorObj,
           },
           source: 'AccountManagement',
           component: 'getRefreshTable',
         });
         return false;
       }
-      return true;
     }
     return false;
   }, []);
@@ -98,7 +101,7 @@ export const AccountManagement: React.FC = () => {
     handleCancel,
     handleSubmit,
     handleDelete,
-  } = useAccountManagementLogic(getRefreshTable());
+  } = useAccountManagement({ refreshTable: getRefreshTable });
 
   return (
     <>

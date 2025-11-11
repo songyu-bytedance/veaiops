@@ -32,7 +32,7 @@ import {
   createTableRequestWithResponseHandler,
   type StandardApiResponse,
 } from '@veaiops/utils';
-import type { DataSource, DataSourceType } from 'api-generate';
+import type { DataSource, DataSourceType } from '@veaiops/api-client';
 
 /**
  * 根据数据源类型获取数据请求函数

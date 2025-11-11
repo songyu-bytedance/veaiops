@@ -18,7 +18,7 @@
 
 import type { DeleteHandler, EditHandler } from '@datasource/types';
 import type { ModernTableColumnProps } from '@veaiops/components';
-import { type DataSource, DataSourceType } from 'api-generate';
+import { type DataSource, DataSourceType } from '@veaiops/api-client';
 import { getActionColumn } from './action-column';
 import { getBaseColumns } from './base-columns';
 
@@ -85,3 +85,9 @@ export type {
 // 导出单独的列配置
 export { getBaseColumns } from './base-columns';
 export { getActionColumn } from './action-column';
+
+// ✅ 导出 monitor 列配置 Hook（从 monitor-table-columns.tsx 移入）
+export {
+  useMonitorTableColumns,
+  type MonitorTableColumnsConfig,
+} from './monitor';

@@ -16,7 +16,7 @@
  * 步骤内容组件
  */
 
-import type { Connect, DataSourceType } from 'api-generate';
+import type { Connect, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { TestStep } from '../types';
 import type { TestStatus } from './constants';

@@ -14,15 +14,28 @@
 
 /**
  * 智能阈值任务配置模块 - Hooks 统一导出
+ *
+ * 目录结构按职能分层：
+ * - table/: 表格配置、操作、请求
+ * - management/: 整体管理、操作配置
+ * - form/: 表单处理
+ * - timeseries/: 时序数据
+ * - auto-refresh/: 自动刷新（通用）
  */
 
-// 🎯 表格配置 Hook（推荐使用 - 按照 CUSTOM_TABLE_REFACTOR_TASKS.md 规范）
-export {
-  useTaskTableConfig,
-  type UseTaskTableConfigReturn,
-} from './use-table-config';
+// 表格职能
+export * from './table';
 
-// 🎯 自动刷新CRUD操作 Hook（通用解决方案）
+// 管理职能
+export * from './management';
+
+// 表单职能
+export * from './form';
+
+// 时序数据职能
+export * from './timeseries';
+
+// 自动刷新（通用工具）
 export {
   useAutoRefreshOperations,
   createOperationWrapper,
@@ -31,11 +44,6 @@ export {
   type CreateOperationWrapperParams,
 } from './auto-refresh';
 
-// 其他业务 Hooks
-export { useTaskFormHandlers } from './use-form-handlers';
-export { useTaskOperations } from './use-operations';
-export { useTaskVersionTableConfig } from './use-version-table';
-export { useTimeseriesData } from './use-timeseries-data';
+// 独立功能 Hooks
 export { useUrlParams } from './use-url-params';
-export { useTaskManagementLogic } from './use-management';
 export { useDatasourceDetail } from './use-datasource-detail';

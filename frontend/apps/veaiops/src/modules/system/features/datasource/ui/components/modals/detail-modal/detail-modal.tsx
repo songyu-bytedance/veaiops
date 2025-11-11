@@ -20,7 +20,7 @@ import {
 } from '@/modules/system/features/datasource/lib';
 import { Descriptions, Modal, Typography } from '@arco-design/web-react';
 import { CellRender } from '@veaiops/components';
-import { DataSourceType as ApiDataSourceType } from 'api-generate';
+import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { getDataSourceIcon } from '../../icons';
 import {

@@ -15,10 +15,10 @@
 import { Message } from '@arco-design/web-react';
 import { TAB_KEYS } from '@datasource/lib';
 import { logger, useManagementRefresh } from '@veaiops/utils';
-import type { DataSource } from 'api-generate';
+import type { DataSource } from '@veaiops/api-client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { DataSourceType } from '../lib/types';
-import type { MonitorTableRef } from '../ui/components/tables/monitor-table';
+import type { MonitorTableRef } from '../ui/components/tables/monitor';
 
 /**
  * Delete parameters interface
