@@ -13,7 +13,10 @@
 // limitations under the License.
 
 // 页面组件（同源合并优化）
-export { DetailModal, MonitorTable } from './components';
+export { DetailModal } from './components';
+
+// 表格组件（已提升到 ui/tables/）
+export { MonitorTable, DataSourceTable } from './tables';
 export { default as DataSourceManagement } from './management';
 
 // 图标组件
@@ -31,7 +34,7 @@ export {
   getCommonColumns,
   getVolcengineColumns,
   getZabbixColumns,
-} from './components/tables/columns';
+} from './tables/columns';
 
 // 渲染器
 export * from './components/renderers';

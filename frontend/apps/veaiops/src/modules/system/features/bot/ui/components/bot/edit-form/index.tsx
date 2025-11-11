@@ -20,8 +20,7 @@ import {
 } from '@bot/lib';
 import { logger } from '@veaiops/utils';
 import { VolcCfgPayload } from 'api-generate';
-import type React from 'react';
-import { useEffect, useState } from 'react';
+import { type React, useEffect, useState } from 'react';
 import { BaseConfig, ChatOpsConfig, FormActions } from './sections';
 
 interface BotEditFormProps {

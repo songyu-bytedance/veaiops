@@ -16,8 +16,7 @@ import { useEventHistoryRequest } from '@/hooks/use-event-history-request';
 import { HistoryDetailDrawer } from '@ec/history';
 import type { Event } from '@veaiops/api-client';
 import { EventHistoryTable, HistoryModuleType } from '@veaiops/components';
-import type React from 'react';
-import { useState } from 'react';
+import { type React, useState } from 'react';
 
 /**
  * ChatOps 历史事件页面

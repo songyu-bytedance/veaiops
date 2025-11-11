@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export * from "./columns";
-export * from "./renderers";
-export * from "./types";
+export * from './columns';
+export * from './renderers';
+export * from './types';
+// ✅ 修复：导出格式化工具函数
+export * from './formatters';

@@ -14,8 +14,7 @@
 
 import type { BotTableRef } from '@bot/lib';
 import { logger } from '@veaiops/utils';
-import type { RefObject } from 'react';
-import { useCallback } from 'react';
+import { type RefObject, useCallback } from 'react';
 
 /**
  * 创建机器人表格刷新函数

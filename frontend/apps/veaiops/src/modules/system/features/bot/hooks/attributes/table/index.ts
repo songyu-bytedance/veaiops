@@ -36,3 +36,9 @@ export {
   type UseBotAttributesTableLogicParams,
   type UseBotAttributesTableLogicReturn,
 } from './logic';
+
+// ✅ 修复：从 ui-logic-backup 导出当前使用的版本（向后兼容）
+export {
+  useAttributesTableLogic,
+  type UseAttributesTableLogicReturn,
+} from './ui-logic-backup';

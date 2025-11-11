@@ -13,13 +13,15 @@
 // limitations under the License.
 
 export { default as TaskVersionTable } from './table';
-export * from './columns/index';
+export * from './columns';
 export * from './filters';
 export * from './types';
+
+// ✅ 从 hooks/version 导入（已从 ui/version/hooks 重构至此）
 export {
   useAlarmDrawer,
   useCreateAlarmCallback,
   useRerunDrawer,
   useTaskVersionTableRenderer,
-} from './hooks';
-export type { TaskVersionTableRendererProps } from './hooks';
+  type TaskVersionTableRendererProps,
+} from '../../hooks/version';

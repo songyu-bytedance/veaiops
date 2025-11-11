@@ -17,8 +17,7 @@ import type { CustomTableActionType } from '@veaiops/components';
 import type { BaseQuery, BaseRecord } from '@veaiops/types';
 import { logger } from '@veaiops/utils';
 import type { User as ApiUser } from 'api-generate';
-import { useCallback, useRef } from 'react';
-import type React from 'react';
+import { type React, useCallback, useRef } from 'react';
 // 从本地 components 目录导入组件
 import { AccountModal, AccountTable } from './components';
 

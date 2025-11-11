@@ -13,11 +13,9 @@
 // limitations under the License.
 
 import { useHistoryManagementLogic } from '@ec/history';
-import type React from 'react';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { HistoryDetailDrawer } from './components/detail-drawer';
-import { HistoryTable } from './table';
-import type { HistoryTableRef } from './table';
+import { HistoryTable, type HistoryTableRef } from './table';
 
 /**
  * 历史事件管理页面

@@ -40,5 +40,7 @@ export { ChatManagementDrawer } from './chat/management-drawer';
 // - 避免与 ui/index.ts 的导出冲突
 // export { BotAttributesTable as AttributesTable, default as BotAttributesTable } from './attributes/attributes-table';
 export { AttributeDetailModal } from './attributes/detail-modal';
-export { AttributesTableContent } from './attributes/table-content';
-export type { AttributesTableContentProps } from './attributes/table-content';
+export {
+  AttributesTableContent,
+  type AttributesTableContentProps,
+} from './attributes/table-content';

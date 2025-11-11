@@ -23,10 +23,10 @@ import {
 import type { BotAttributesTableProps } from '@bot/types';
 import { CustomTable, type CustomTableActionType } from '@veaiops/components';
 import type { BotAttribute } from 'api-generate';
-import type React from 'react';
-import { useRef } from 'react';
+import { type React, useRef } from 'react';
 import { BotAttributeFormModal } from '../../bot/attribute-form-modal';
-import { useAttributesTableLogic } from './hooks';
+// ✅ 修复：从 hooks/attributes/table/ 导入（使用路径别名，最短路径）
+import { useAttributesTableLogic } from '@bot/hooks/attributes/table';
 
 /**
  * Bot属性表格组件

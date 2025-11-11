@@ -20,12 +20,11 @@ import type {
   IntelligentThresholdTaskVersion,
   MetricThresholdResult,
 } from 'api-generate';
-import type React from 'react';
-import { useEffect, useState } from 'react';
+import { type React, useEffect, useState } from 'react';
 import { CleaningResultDrawer } from '../cleaning';
 import { MainTaskDrawer, MetricConfigDrawer } from '../components/drawers';
 import { MetricDetailConfig, RerunFormConfig } from '../components/forms';
-import { useVersionHistory } from '../hooks';
+import { useVersionHistory } from '../../hooks';
 
 /**
  * 任务抽屉组件属性接口

@@ -15,8 +15,7 @@
 import { Button } from '@arco-design/web-react';
 import { IconDown, IconUp } from '@arco-design/web-react/icon';
 import type { ConfigItem } from '@datasource/types';
-import type React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { renderAllConfigItems } from '../core';
 
 interface CollapsibleConfigItemsProps {

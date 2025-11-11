@@ -15,8 +15,7 @@
 import { Button, Popconfirm, Tooltip } from '@arco-design/web-react';
 import { IconDelete } from '@arco-design/web-react/icon';
 import type { GetProjectTableColumnsParams } from '@project/types';
-import type { ModernTableColumnProps } from '@veaiops/components';
-import { CellRender } from '@veaiops/components';
+import { CellRender, type ModernTableColumnProps } from '@veaiops/components';
 import type { Project } from 'api-generate';
 
 /**

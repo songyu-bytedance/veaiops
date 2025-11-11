@@ -15,8 +15,7 @@
 import { Alert, Message, Modal, Radio } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useMemo, useState } from 'react';
+import { type React, useMemo, useState } from 'react';
 
 import apiClient from '@/utils/api-client';
 

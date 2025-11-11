@@ -19,8 +19,8 @@
 // 导出类型定义
 export * from './types';
 
-// 导出常量
-export * from '@veaiops/constants';
+// ❌ 移除中转导出：不再从 @veaiops/constants 重新导出
+// 使用方应该直接导入：import { API_RESPONSE_CODE } from '@veaiops/constants';
 
 // 导出工具函数
 export * from './utils';

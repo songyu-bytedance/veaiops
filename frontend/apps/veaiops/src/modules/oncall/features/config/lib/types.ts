@@ -60,3 +60,33 @@ export interface RuleDrawerProps {
   onSubmit: (values: RuleFormData) => void;
   loading?: boolean;
 }
+
+/**
+ * ✅ 修复：从 ui/components/detail-view/types.ts 移动到 lib/types.ts
+ * 详情查看组件属性
+ */
+export interface DetailViewProps {
+  rule: Interest;
+}
+
+/**
+ * ✅ 修复：从 ui/components/edit-form/types.ts 移动到 lib/types.ts
+ * 编辑表单组件属性
+ */
+export interface EditFormProps {
+  form: FormInstance;
+  inspectCategory: Interest['inspect_category'] | undefined;
+  currentSilenceDelta: string | undefined;
+  rule?: Interest;
+  onSilenceDeltaChange: (value: string | undefined) => void;
+}
+
+/**
+ * 示例输入组件属性
+ */
+export interface ExampleInputProps {
+  value?: string;
+  type: 'positive' | 'negative';
+  placeholder?: string;
+  onChange?: (value: string) => void;
+}

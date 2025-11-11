@@ -20,7 +20,7 @@ import {
 import type {
   IntelligentThresholdTask,
   PaginatedAPIResponseIntelligentThresholdTask,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import { useMemo } from 'react';
 import { taskDataSource } from '../../lib';
 

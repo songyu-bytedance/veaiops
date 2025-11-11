@@ -22,7 +22,7 @@ import { Descriptions, Modal, Typography } from '@arco-design/web-react';
 import { CellRender } from '@veaiops/components';
 import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
 import type React from 'react';
-import { getDataSourceIcon } from '../../icons';
+import { getDataSourceIcon } from '@datasource/ui/components/icons';
 import {
   AliyunDetailSection,
   VolcengineDetailSection,

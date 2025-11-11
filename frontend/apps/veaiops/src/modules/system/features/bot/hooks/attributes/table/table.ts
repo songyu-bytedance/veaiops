@@ -16,8 +16,7 @@ import type { BotAttributeFiltersQuery } from '@bot/lib';
 import type { BotAttributeFormData } from '@bot/types';
 import type { CustomTableActionType } from '@veaiops/components';
 import type { BotAttribute } from 'api-generate';
-import type React from 'react';
-import { useCallback, useRef } from 'react';
+import { type React, useCallback, useRef } from 'react';
 import { useBotAttributesTableConfig } from './config';
 import { useBotAttributesTableLogic } from './logic';
 

@@ -14,8 +14,7 @@
 
 import { Button } from '@arco-design/web-react';
 import type { SyncAlarmRulesResponse } from 'api-generate';
-import type React from 'react';
-import { useState } from 'react';
+import { type React, useState } from 'react';
 import { AlarmResultModal } from './alarm-result-modal';
 
 /**

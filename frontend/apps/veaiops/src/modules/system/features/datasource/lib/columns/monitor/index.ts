@@ -25,4 +25,5 @@ export {
 } from './fields';
 
 // ==================== 工具函数导出 ====================
-export { selectFields } from './utils';
+// ✅ 修复：移除重复的导出
+// getSpecificFields 已从 './fields' 导出（第 19-25 行）

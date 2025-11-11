@@ -21,8 +21,7 @@ import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useManagementRefresh } from '@veaiops/hooks';
 import { logger } from '@veaiops/utils';
 import { Interest } from 'api-generate';
-import type React from 'react';
-import { useCallback, useRef, useState } from 'react';
+import { type React, useCallback, useRef, useState } from 'react';
 
 /**
  * Oncall 配置页面

@@ -14,8 +14,7 @@
 
 import { Button } from '@arco-design/web-react';
 import { IconPlus } from '@arco-design/web-react/icon';
-import type { FieldItem, ModernTableColumnProps } from '@veaiops/components';
-import { useBusinessTable } from '@veaiops/components';
+import { type FieldItem, type ModernTableColumnProps, useBusinessTable } from '@veaiops/components';
 import type { HandleFilterProps } from '@veaiops/components/src/custom-table/types';
 import {
   createLocalDataSource,

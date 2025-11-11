@@ -16,8 +16,7 @@ import type { BotAttributeFiltersQuery } from '@bot/lib';
 import type { CustomTableActionType } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
 import type { BotAttribute } from 'api-generate';
-import type React from 'react';
-import { useCallback } from 'react';
+import { type React, useCallback } from 'react';
 
 /**
  * 刷新属性表格的辅助函数Hook

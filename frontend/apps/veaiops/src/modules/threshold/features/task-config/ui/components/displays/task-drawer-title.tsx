@@ -22,8 +22,7 @@ import {
 import { useSearchParams } from '@modern-js/runtime/router';
 import { CellRender } from '@veaiops/components';
 import type { IntelligentThresholdTask } from 'api-generate';
-import type React from 'react';
-import { useMemo } from 'react';
+import { type React, useMemo } from 'react';
 
 // 解构CellRender组件，避免重复调用
 const { CustomOutlineTag } = CellRender;

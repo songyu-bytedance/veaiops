@@ -13,8 +13,14 @@
 // limitations under the License.
 
 import { ModuleType } from '@/types/module';
-import { Card, Form, Input, Select } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+// ✅ 同源合并：@arco-design/web-react
+import {
+  Card,
+  Form,
+  Input,
+  Select,
+  type FormInstance,
+} from '@arco-design/web-react';
 import { RangePicker } from '@veaiops/components';
 import {
   AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,

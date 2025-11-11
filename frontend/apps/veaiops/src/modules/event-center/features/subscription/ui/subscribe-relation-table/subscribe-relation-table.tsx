@@ -18,10 +18,11 @@ import type { SubscribeRelationWithAttributes } from 'api-generate';
 import type React from 'react';
 import { getSubscribeRelationFilters } from './filters';
 import { useTableColumns } from './table-columns';
+// ✅ 修复：从 hooks/table/relation 导入（相对路径，最短路径）
 import {
   useSubscribeRelationActionConfig,
   useSubscribeRelationTableConfig,
-} from './use-relation-table';
+} from '../../hooks/table/relation';
 
 /**
  * 订阅关系表格组件属性接口

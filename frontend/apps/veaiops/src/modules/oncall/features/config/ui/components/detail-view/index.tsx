@@ -15,9 +15,10 @@
 import { Interest } from 'api-generate';
 import type React from 'react';
 
+// ✅ 修复：从 lib 和 hooks 导入（相对路径，最短路径）
+import { useCopy } from '../../../hooks';
+import type { DetailViewProps } from '../../../lib';
 import { BasicInfo, Examples, RegexDisplay } from './components';
-import { useCopy } from './hooks';
-import type { DetailViewProps } from './types';
 
 /**
  * 详情查看组件

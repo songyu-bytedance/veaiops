@@ -15,7 +15,7 @@
 import type {
   IntelligentThresholdTask,
   MetricThresholdResult,
-} from 'api-generate';
+} from '@veaiops/api-client';
 
 /**
  * useTimeseriesData Hook 的参数接口

@@ -15,7 +15,7 @@
 import { CellRender, type ModernTableColumnProps } from '@veaiops/components';
 import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
-import { getConfigData } from '../../config-data-utils';
+import { getConfigData } from '@datasource/lib/utils/config-data';
 
 /**
  * 创建基础配置字段列（所有数据源都有）

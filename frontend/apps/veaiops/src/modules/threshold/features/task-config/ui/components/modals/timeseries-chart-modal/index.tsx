@@ -19,7 +19,7 @@ import { logger } from '@veaiops/utils';
 import type { Dayjs } from 'dayjs';
 import { useEffect, useState } from 'react';
 
-import { useTimeseriesData } from '@task-config/hooks/use-timeseries-data';
+import { useTimeseriesData } from '@task-config/hooks';
 import {
   ChartLegend,
   TimeseriesChart,

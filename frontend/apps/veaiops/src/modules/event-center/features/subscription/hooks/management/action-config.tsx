@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ✅ 保持独立：组件和 icon 来自不同子包
 import { Button } from '@arco-design/web-react';
 import { IconPlus } from '@arco-design/web-react/icon';
 import React from 'react';

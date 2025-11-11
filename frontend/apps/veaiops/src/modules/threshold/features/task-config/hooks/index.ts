@@ -20,6 +20,7 @@
  * - management/: 整体管理、操作配置
  * - form/: 表单处理
  * - timeseries/: 时序数据
+ * - version/: 版本管理（✅ 从 ui/version/hooks 移至此处）
  * - auto-refresh/: 自动刷新（通用）
  */
 
@@ -34,6 +35,12 @@ export * from './form';
 
 // 时序数据职能
 export * from './timeseries';
+
+// 版本管理职能（✅ 已从 ui/version/hooks 重构至此）
+export * from './version';
+
+// Task UI 层 Hooks（✅ 已从 ui/task/hooks 重构至此）
+export * from './task';
 
 // 自动刷新（通用工具）
 export {

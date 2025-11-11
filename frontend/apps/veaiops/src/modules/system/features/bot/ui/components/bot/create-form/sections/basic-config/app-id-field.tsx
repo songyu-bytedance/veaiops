@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Form, Input, Link, Message, Typography } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+import { Form, Input, Link, Message, Typography, type FormInstance } from '@arco-design/web-react';
 import { AutofillBlockerPresets } from '@veaiops/utils';
 import type React from 'react';
 

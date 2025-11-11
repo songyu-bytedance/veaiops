@@ -23,8 +23,7 @@ import {
 import { ChannelType } from '@veaiops/api-client';
 import type { CustomTableActionType } from '@veaiops/components';
 import type { BotAttribute } from 'api-generate';
-import type React from 'react';
-import { useCallback, useMemo, useRef } from 'react';
+import { type React, useCallback, useMemo, useRef } from 'react';
 import { useBotAttributes } from '../main';
 
 /**

@@ -34,8 +34,8 @@ import type {
 import type { BaseRecord } from '@veaiops/types';
 import { logger } from '@veaiops/utils';
 import type { SubscribeRelationWithAttributes } from 'api-generate';
-import type React from 'react';
-import { useCallback, useEffect, useRef } from 'react';
+// ✅ 同源合并：react
+import React, { useCallback, useEffect, useRef } from 'react';
 import { useSubscriptionTableConfig } from './config';
 
 export type RenderActionsType = (

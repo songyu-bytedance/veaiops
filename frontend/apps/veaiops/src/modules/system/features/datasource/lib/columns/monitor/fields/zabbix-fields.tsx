@@ -15,7 +15,7 @@
 import { CellRender, type ModernTableColumnProps } from '@veaiops/components';
 import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
-import { getConfigData } from '../../config-data-utils';
+import { getConfigData } from '@datasource/lib/utils/config-data';
 
 /**
  * 创建 Zabbix 特定字段列

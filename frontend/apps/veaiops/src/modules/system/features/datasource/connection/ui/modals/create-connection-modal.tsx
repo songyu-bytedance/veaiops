@@ -19,8 +19,7 @@
 import { getDataSourceDisplayName } from '@/utils/data-source-utils';
 import { Form, Modal } from '@arco-design/web-react';
 import type { ConnectCreateRequest, DataSourceType } from '@veaiops/api-client';
-import type React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ConnectForm } from '../forms/connect-form';
 
 export interface CreateConnectionModalProps {

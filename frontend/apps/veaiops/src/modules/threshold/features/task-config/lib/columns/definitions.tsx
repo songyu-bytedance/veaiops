@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { ModernTableColumnProps } from "@veaiops/components";
-import { CellRender } from "@veaiops/components";
+import { CellRender, type ModernTableColumnProps } from '@veaiops/components';
 import type { IntelligentThresholdTask } from "api-generate";
 import { EMPTY_CONTENT } from "@veaiops/constants";
 import type { TaskTableActions } from "../types";

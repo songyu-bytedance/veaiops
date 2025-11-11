@@ -38,7 +38,7 @@ export * from './modals';
 export * from './renderers';
 
 // ==================== Tables ====================
-export * from './tables';
+// ✅ 修复：tables 已提升到 ui/ 顶层，从 ui/components 移除导出
 
 // ==================== Tabs ====================
 export * from './tabs';

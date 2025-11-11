@@ -18,8 +18,8 @@ import {
   Switch,
   Tooltip,
   Typography,
+  type FormInstance,
 } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
 import {
   IconEye,
   IconInfoCircle,

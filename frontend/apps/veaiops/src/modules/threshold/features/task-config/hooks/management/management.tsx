@@ -15,7 +15,7 @@
 import { useTaskConfigStore } from '@/stores/task-config-store';
 import { Form } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import type { IntelligentThresholdTask } from 'api-generate';
+import type { IntelligentThresholdTask } from '@veaiops/api-client';
 import { useCallback, useState } from 'react';
 import { TaskOperateType, type TaskTableActions } from '../../lib';
 import { useTaskFormHandlers } from '../form';

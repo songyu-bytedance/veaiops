@@ -28,14 +28,18 @@ import {
   IconClose,
 } from '@arco-design/web-react/icon';
 import { formatSilenceDeltaString } from '@oncall-config/lib';
-import { ALERT_LEVEL_OPTIONS } from '@oncall/lib';
+import { ALERT_LEVEL_OPTIONS } from '@oncall/shared';
 import { CellRender } from '@veaiops/components';
 import { Interest } from 'api-generate';
 import type React from 'react';
 
+// ✅ 修复：从 lib 导入类型和工具函数（相对路径，最短路径）
+import {
+  formatActionCategoryTextWithLabel as formatActionCategoryText,
+  formatInspectCategoryTextWithLabel as formatInspectCategoryText,
+  type EditFormProps,
+} from '../../../lib';
 import { ExampleInput } from './components';
-import type { EditFormProps } from './types';
-import { formatActionCategoryText, formatInspectCategoryText } from './utils';
 
 /**
  * 编辑表单组件
@@ -248,4 +252,4 @@ export const EditForm: React.FC<EditFormProps> = ({
   );
 };
 
-export * from './types';
+export type { EditFormProps } from './types';

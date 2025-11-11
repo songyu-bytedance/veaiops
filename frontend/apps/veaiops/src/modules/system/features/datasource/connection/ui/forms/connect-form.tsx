@@ -29,9 +29,11 @@ import { IconClose, IconSave } from '@arco-design/web-react/icon';
 import { DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 // 使用从lib/types导入的ConnectFormProps类型
-import type { ConnectFormProps } from '../../lib';
-import { useConnectionTestLogic } from '../../hooks/use-connection-test-logic';
-import { useFormSubmission } from '../../hooks/use-form-submission';
+import type { ConnectFormProps } from '@datasource/connection/types';
+import {
+  useConnectionTestLogic,
+  useFormSubmission,
+} from '@datasource/connection/hooks';
 import { ConnectTestModal } from '../connect-test/connect-test-modal';
 import { AliyunCredentialsForm } from './aliyun-credentials-form';
 import { VolcengineCredentialsForm } from './volcengine-credentials-form';

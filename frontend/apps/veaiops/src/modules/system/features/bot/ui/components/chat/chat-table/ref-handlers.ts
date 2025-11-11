@@ -15,8 +15,7 @@
 import type { CustomTableActionType } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
 import type { Chat } from 'api-generate';
-import type { RefObject } from 'react';
-import { useImperativeHandle } from 'react';
+import { type RefObject, useImperativeHandle } from 'react';
 
 export interface ChatTableRef {
   refresh: () => Promise<{ success: boolean; error?: Error }>;

@@ -14,8 +14,7 @@
 
 import type { BotCreateRequest, BotTableRef, BotUpdateRequest } from '@bot';
 import { useBot } from '@bot/hooks';
-import type React from 'react';
-import { useRef } from 'react';
+import { type React, useRef } from 'react';
 import { BotAttributesDrawer } from './components/bot/attributes-drawer';
 import { BotCompleteModal } from './components/bot/complete-modal';
 import { ChatManagementDrawer } from './components/chat/management-drawer';

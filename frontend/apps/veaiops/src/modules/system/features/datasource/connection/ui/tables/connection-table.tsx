@@ -20,9 +20,11 @@ import { Empty } from '@arco-design/web-react';
 import { CustomTable } from '@veaiops/components';
 import { createLocalDataSource } from '@veaiops/utils';
 import type { Connect } from '@veaiops/api-client';
-import type React from 'react';
-import { useMemo } from 'react';
-import { type DataSourceConnectionTableProps, TABLE_CONFIG } from '../../lib';
+import React, { useMemo } from 'react';
+import {
+  type DataSourceConnectionTableProps,
+  TABLE_CONFIG,
+} from '@datasource/connection/types';
 import { getTableColumns } from './table-columns';
 import { getTableFilters } from './table-filters';
 

@@ -14,8 +14,7 @@
 
 import { Tooltip } from '@arco-design/web-react';
 import { IconCheckCircle } from '@arco-design/web-react/icon';
-import type React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './update-tooltip.module.less';
 
 interface UpdateTooltipProps {

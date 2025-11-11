@@ -12,17 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { TASK_CONFIG_MANAGEMENT_CONFIG } from '@task-config/lib';
-import type { TaskFiltersQuery } from '@task-config/lib/filters';
 import {
-  type BaseQuery,
   CustomTable,
+  type BaseQuery,
   type CustomTableActionType,
 } from '@veaiops/components';
-import type { IntelligentThresholdTask } from 'api-generate';
-import { forwardRef, useMemo, useRef } from 'react';
+import type { IntelligentThresholdTask } from '@veaiops/api-client';
+import React, { forwardRef, useMemo, useRef } from 'react';
+import { TASK_CONFIG_MANAGEMENT_CONFIG } from '../../lib';
+import type { TaskFiltersQuery } from '../../lib/filters';
+import {
+  useTableConfig,
+  useTableOperations,
+  useTableRef,
+} from '../../hooks/task';
 import { TASK_TABLE_QUERY_FORMAT } from './config';
-import { useTableConfig, useTableOperations, useTableRef } from './hooks';
 import type { TaskTableProps, TaskTableRef } from './types';
 
 /**

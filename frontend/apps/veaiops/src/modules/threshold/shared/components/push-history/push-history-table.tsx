@@ -12,13 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BaseQuery, HandleFilterProps } from '@veaiops/components';
-import { CustomTable } from '@veaiops/components';
+import { CustomTable, type BaseQuery, type HandleFilterProps } from '@veaiops/components';
 import type { ModuleType } from '@veaiops/types';
 import { queryArrayFormat } from '@veaiops/utils';
 import type { Event as PushHistoryRecord } from 'api-generate';
-import type React from 'react';
-import { useCallback, useMemo } from 'react';
+import { type React, useCallback, useMemo } from 'react';
 import { getPushHistoryFilters } from './filters';
 import {
   usePushHistoryActionConfig,

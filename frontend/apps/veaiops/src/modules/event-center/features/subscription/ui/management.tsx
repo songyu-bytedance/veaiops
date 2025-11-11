@@ -25,8 +25,8 @@ import type {
   SubscribeRelationUpdate,
   SubscribeRelationWithAttributes,
 } from 'api-generate';
-import type React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+// ✅ 同源合并：react
+import React, { useEffect, useMemo, useState } from 'react';
 import { SubscribeRelationForm } from './relation-form';
 import { SubscribeRelationTable } from './subscribe-relation-table/subscribe-relation-table';
 

@@ -12,27 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { useMonitorAccessLogic } from './use-monitor-access-logic';
-export { useMonitorActionConfig } from './use-monitor-action-config';
+/**
+ * 数据源管理模块 - Hooks 统一导出
+ *
+ * 按职能分层（遵循 .cursorrules 模式B）：
+ * - monitor/: 监控管理职能
+ * - datasource/: 数据源管理职能
+ * - pages/: 页面管理职能
+ */
 
-// 导出新的 useMonitorTableConfig（使用 ModernTableColumnProps 和 HandleFilterProps）
-export {
-  useMonitorTableConfig,
-  type UseMonitorTableConfigOptions,
-  type UseMonitorTableConfigReturn,
-} from './use-monitor-table-config';
+// Monitor 职能
+export * from './monitor';
 
-// 数据源处理器 Hook
-export { useDataSourceHandlers } from './use-data-source-handlers';
+// DataSource 职能
+export * from './datasource';
 
-// 从迁移的 hooks 文件导出
-export {
-  useDataSourceManagement,
-  useZabbixDataSource,
-  useAliyunDataSource,
-  useVolcengineDataSource,
-  useDetailView,
-} from './hooks';
-
-// ✅ Step 1: 从 ui/pages/hooks/ 迁移到 hooks/pages/
+// Pages 职能
 export * from './pages';

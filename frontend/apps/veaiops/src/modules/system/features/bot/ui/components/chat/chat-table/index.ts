@@ -14,9 +14,11 @@
 
 // ==================== 组件导出 ====================
 export { default as ChatTable } from './chat-table';
-export type { ChatTableRef } from './ref-handlers';
+export {
+  useChatTableRefHandler,
+  type ChatTableRef,
+} from './ref-handlers';
 
 // ==================== Hook 导出 ====================
 export { useChatTableConfigWrapper } from './config';
 export { useChatTableHandlers } from './handlers';
-export { useChatTableRefHandler } from './ref-handlers';

@@ -13,8 +13,8 @@
 // limitations under the License.
 
 import type { ModuleType } from '@/types/module';
-import { Form, Input } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+// ✅ 同源合并：@arco-design/web-react
+import { Form, Input, type FormInstance } from '@arco-design/web-react';
 import { Select } from '@veaiops/components';
 import type React from 'react';
 

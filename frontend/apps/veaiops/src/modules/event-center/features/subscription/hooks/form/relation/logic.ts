@@ -14,13 +14,32 @@
 
 import { ModuleType } from '@/types/module';
 import { EVENT_LEVEL_OPTIONS } from '@ec/shared';
+// ✅ 同源合并：@arco-design/web-react
+import { Message, type FormInstance } from '@arco-design/web-react';
 import {
   AGENT_OPTIONS_EVENT_CENTER_SUBSCRIPTION,
   AGENT_OPTIONS_ONCALL_SUBSCRIPTION,
   AGENT_OPTIONS_THRESHOLD_FILTER,
 } from '@veaiops/constants';
-import type { InformStrategy } from 'api-generate';
-import { useMemo, useState } from 'react';
+import {
+  convertLocalTimeRangeToUtc,
+  convertUtcTimeRangeToLocal,
+  ensureArray,
+  logger,
+} from '@veaiops/utils';
+import type {
+  InformStrategy,
+  SubscribeRelationCreate,
+  SubscribeRelationUpdate,
+  SubscribeRelationWithAttributes,
+} from 'api-generate';
+import { useCallback, useMemo, useState } from 'react';
+
+/**
+ * Year offset for default time range end time
+ * Used to set the default end time for subscription relations (current time + 100 years)
+ */
+const DEFAULT_END_TIME_YEARS_OFFSET = 100;
 
 /**
  * 订阅关系表单逻辑Hook
@@ -45,5 +64,207 @@ export const useSubscribeRelationFormLogic = (moduleType?: ModuleType) => {
     informStrategies,
     agentTypeOptions,
     eventLevelOptions: EVENT_LEVEL_OPTIONS,
+  };
+};
+
+/**
+ * Form logic Hook parameters
+ */
+interface UseFormLogicParams {
+  form: FormInstance;
+  onSubmit: (
+    data: SubscribeRelationCreate | SubscribeRelationUpdate,
+  ) => Promise<boolean>;
+  onClose: () => void;
+  editData?: SubscribeRelationWithAttributes | null;
+}
+
+/**
+ * Form logic Hook
+ * ✅ 修复：从 ui/relation-form/hooks/ 移动到 hooks/form/relation/
+ */
+export const useFormLogic = ({
+  form,
+  onSubmit,
+  onClose,
+  editData,
+}: UseFormLogicParams) => {
+  const [loading, setLoading] = useState(false);
+
+  // Reset form
+  const resetForm = useCallback(() => {
+    form.resetFields();
+  }, [form]);
+
+  // Handle form submission
+  const handleSubmit = useCallback(async () => {
+    try {
+      const values = await form.validate();
+      setLoading(true);
+
+      // Convert time range from local timezone to UTC ISO 8601 format
+      let start_time: string | undefined;
+      let end_time: string | undefined;
+      if (
+        values.timeRange &&
+        Array.isArray(values.timeRange) &&
+        values.timeRange.length === 2
+      ) {
+        const utcRange = convertLocalTimeRangeToUtc(values.timeRange);
+        if (utcRange) {
+          [start_time, end_time] = utcRange;
+        } else {
+          Message.error('时间范围转换失败，请重新选择');
+          setLoading(false);
+          return;
+        }
+      }
+      let webhookHeaders = {};
+      if (values.enable_webhook && values.webhook_headers) {
+        try {
+          webhookHeaders = JSON.parse(values.webhook_headers);
+        } catch (error: unknown) {
+          // ✅ Correct: Expose actual error information
+          const errorObj =
+            error instanceof Error ? error : new Error(String(error));
+          const errorMessage =
+            errorObj.message || 'Webhook请求头不是有效的JSON格式';
+          Message.error(errorMessage);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // ✅ Fix: Normalize strategy IDs, always pass array (even if empty)
+      const normalizedStrategyIds = ensureArray(
+        (values as Record<string, unknown>)?.inform_strategy_ids,
+      )
+        .map(String)
+        .filter(Boolean);
+
+      const formData: SubscribeRelationCreate | SubscribeRelationUpdate = {
+        ...values,
+        // Map UI field to API field to avoid browser autofill on "name"
+        name:
+          (values as Record<string, unknown>)?.subscribeName ??
+          (values as Record<string, unknown>)?.name,
+        // ✅ Fix: inform_strategy_ids always passes array (even if empty), not undefined
+        inform_strategy_ids: normalizedStrategyIds,
+        start_time,
+        end_time,
+        webhook_headers: webhookHeaders,
+      };
+
+      const success = await onSubmit(formData);
+      if (success) {
+        resetForm();
+        onClose();
+        Message.success(editData ? '订阅关系更新成功' : '事件订阅创建成功');
+      }
+    } catch (error: unknown) {
+      // ✅ Note: Error has been handled in Hook, silent handling here is expected behavior
+      // Use logger to record debug information (logger internally handles development environment check)
+      const errorObj =
+        error instanceof Error ? error : new Error(String(error));
+      logger.debug({
+        message: '表单提交错误（已在 Hook 中处理）',
+        data: {
+          error: errorObj.message,
+          stack: errorObj.stack,
+          errorObj,
+        },
+        source: 'SubscribeRelationForm',
+        component: 'handleSubmit',
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [form, onSubmit, onClose, editData, resetForm]);
+
+  // Handle cancel
+  const handleCancel = useCallback(() => {
+    resetForm();
+    onClose();
+  }, [resetForm, onClose]);
+
+  return {
+    loading,
+    handleSubmit,
+    handleCancel,
+    resetForm,
+  };
+};
+
+/**
+ * Initialize form data
+ * ✅ 修复：从 ui/relation-form/hooks/ 移动到 hooks/form/relation/
+ */
+export const useFormInitializer = ({
+  form,
+  visible,
+  editData,
+}: {
+  form: FormInstance;
+  visible: boolean;
+  editData?: SubscribeRelationWithAttributes | null;
+}) => {
+  const initializeForm = useCallback(() => {
+    if (visible && editData) {
+      const normalizedStrategyIds = ensureArray(editData.inform_strategy_ids)
+        .map(String)
+        .filter(Boolean);
+
+      form.setFieldsValue({
+        subscribeName: editData.name,
+        agent_type: editData.agent_type,
+        interest_products: editData.interest_products || [],
+        interest_projects: editData.interest_projects || [],
+        interest_customers: editData.interest_customers || [],
+        event_level: editData.event_level,
+        // Convert UTC time range to local timezone for display
+        timeRange:
+          editData.start_time && editData.end_time
+            ? (() => {
+                const localRange = convertUtcTimeRangeToLocal([
+                  editData.start_time,
+                  editData.end_time,
+                ]);
+                return localRange
+                  ? [localRange[0].toDate(), localRange[1].toDate()]
+                  : (() => {
+                      const startDate = new Date();
+                      const endDate = new Date();
+                      endDate.setFullYear(
+                        startDate.getFullYear() + DEFAULT_END_TIME_YEARS_OFFSET,
+                      );
+                      return [startDate, endDate];
+                    })();
+              })()
+            : (() => {
+                const startDate = new Date();
+                const endDate = new Date();
+                endDate.setFullYear(
+                  startDate.getFullYear() + DEFAULT_END_TIME_YEARS_OFFSET,
+                );
+                return [startDate, endDate];
+              })(),
+        inform_strategy_ids: normalizedStrategyIds,
+        enable_webhook: editData.enable_webhook,
+        webhook_endpoint: editData.webhook_endpoint,
+        webhook_headers: editData.webhook_headers
+          ? JSON.stringify(editData.webhook_headers, null, 2)
+          : '',
+      });
+    } else if (visible && !editData) {
+      // Reset form and set default values when creating new
+      form.resetFields();
+      form.setFieldsValue({
+        enable_webhook: false,
+      });
+    }
+  }, [visible, editData, form]);
+
+  return {
+    initializeForm,
   };
 };

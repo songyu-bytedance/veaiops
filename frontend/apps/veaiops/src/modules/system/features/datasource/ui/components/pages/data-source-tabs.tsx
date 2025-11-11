@@ -14,9 +14,13 @@
 
 import { Badge, Space, Tabs } from '@arco-design/web-react';
 import { DATA_SOURCE_TYPES, getTableRef } from '@datasource/lib';
-import type { DataSource, DataSourceConfig, TableRefMap } from '@datasource/lib';
+import type {
+  DataSource,
+  DataSourceConfig,
+  TableRefMap,
+} from '@datasource/types';
 import type { DataSource as ApiDataSource } from '@veaiops/api-client';
-import { MonitorTable } from '../../tables';
+import { MonitorTable } from '@datasource/ui/tables';
 
 const { TabPane } = Tabs;
 

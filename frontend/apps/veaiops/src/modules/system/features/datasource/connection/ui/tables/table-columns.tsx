@@ -39,9 +39,9 @@ import {
   ACTION_TEXTS,
   COLUMN_WIDTHS,
   CONFIRM_TEXTS,
-  type TableColumnsProps,
   formatConnectionTime,
-} from '../../lib';
+} from '@datasource/connection/lib';
+import type { TableColumnsProps } from '@datasource/connection/types';
 import { MaskedRenderer } from '../components/masked-renderer';
 
 const { Text } = Typography;

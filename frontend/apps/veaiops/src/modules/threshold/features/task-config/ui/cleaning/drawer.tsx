@@ -19,10 +19,9 @@ import type {
   IntelligentThresholdTaskVersion,
   MetricThresholdResult,
 } from 'api-generate';
-import type React from 'react';
-import { useMemo } from 'react';
+import { type React, useMemo } from 'react';
 import { TaskDrawerTitle } from '../components/displays';
-import { useCleaningResultColumns } from '../hooks';
+import { useCleaningResultColumns } from '../../hooks';
 
 /**
  * 清洗结果抽屉属性接口

@@ -19,6 +19,7 @@ export {
   rerunTask,
   updateTaskResult,
   updateAutoRefreshSwitch,
+  deleteTask,
 } from "./api";
 
 // 导出数据转换函数

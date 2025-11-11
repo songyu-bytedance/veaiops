@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { FormInstance } from '@arco-design/web-react';
-import { Message } from '@arco-design/web-react';
+// ✅ 同源合并：@arco-design/web-react
+import { Message, type FormInstance } from '@arco-design/web-react';
 import { useManagementRefresh } from '@veaiops/hooks';
 import { logger } from '@veaiops/utils';
 import type {

@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { FormInstance } from '@arco-design/web-react';
-import { Form } from '@arco-design/web-react';
+import { Form, type FormInstance } from '@arco-design/web-react';
 import { useFormHandlers } from './handlers';
 import { useBotCreateFormCallbacks } from './main-logic/callbacks';
 import { useBotCreateFormEffects } from './main-logic/effects';

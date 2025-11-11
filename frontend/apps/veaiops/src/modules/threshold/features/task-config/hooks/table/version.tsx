@@ -14,7 +14,7 @@
 
 import type { TableDataSource } from '@veaiops/types';
 import { createServerPaginationDataSource } from '@veaiops/utils';
-import type { IntelligentThresholdTaskVersion } from 'api-generate';
+import type { IntelligentThresholdTaskVersion } from '@veaiops/api-client';
 import { useMemo } from 'react';
 import { createTaskVersionTableRequestWrapper } from '../../lib';
 

@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ✅ 保持独立：组件和 icon 来自不同子包
 import { Button, Popconfirm, Space } from '@arco-design/web-react';
 import { IconDelete, IconEdit } from '@arco-design/web-react/icon';
 // ✅ 修复：从 @ec/shared 导入事件级别常量（单一数据源）
 import { EVENT_LEVEL_MAP } from '@ec/shared';
-import type { BaseQuery, HandleFilterProps } from '@veaiops/components';
-import { CellRender } from '@veaiops/components';
+import { CellRender, type BaseQuery, type HandleFilterProps } from '@veaiops/components';
 import { AGENT_TYPE_MAP } from '@veaiops/constants';
 import type { SubscribeRelationWithAttributes } from 'api-generate';
 

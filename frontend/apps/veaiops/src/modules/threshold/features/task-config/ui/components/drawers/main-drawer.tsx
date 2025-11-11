@@ -20,8 +20,7 @@ import type {
   IntelligentThresholdTask,
   IntelligentThresholdTaskVersion,
 } from 'api-generate';
-import type React from 'react';
-import { useEffect } from 'react';
+import { type React, useEffect } from 'react';
 import { getDrawerTitle, getDrawerWidth, isFormOperation } from '../../utils';
 import { TaskDrawerTitle } from '../displays';
 import { TaskDrawerContent } from './drawer-content';

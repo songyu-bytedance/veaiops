@@ -16,6 +16,7 @@ import { Typography } from '@arco-design/web-react';
 import { STYLES } from '@ec/shared';
 import { CellRender } from '@veaiops/components';
 import type { Event } from 'api-generate';
+// ✅ 同源合并：react
 import type React from 'react';
 
 const { Text } = Typography;

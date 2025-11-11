@@ -21,7 +21,7 @@ import {
   IntelligentThresholdTaskCreateRequest,
   type MetricTemplateValue,
   type SyncAlarmRulesPayload,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import { useCallback } from 'react';
 import { createTask } from '../../lib';
 

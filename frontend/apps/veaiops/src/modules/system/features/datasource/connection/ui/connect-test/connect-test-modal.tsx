@@ -19,9 +19,8 @@
 import { Modal } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
 import type { ConnectCreateRequest } from '@veaiops/api-client';
-import type React from 'react';
-import { useEffect, useRef, useState } from 'react';
-import type { ConnectTestModalProps } from '../../lib';
+import React, { useEffect, useRef, useState } from 'react';
+import type { ConnectTestModalProps } from '@datasource/connection/types';
 import {
   ModalFooter,
   ModalHeader,

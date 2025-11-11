@@ -25,10 +25,11 @@ import type {
   SubscribeRelationUpdate,
   SubscribeRelationWithAttributes,
 } from 'api-generate';
-import type React from 'react';
-import { useEffect } from 'react';
+// ✅ 同源合并：react
+import React, { useEffect } from 'react';
+// ✅ 修复：使用相对路径导入（同一 feature 内，最短路径）
+import { useFormInitializer, useFormLogic } from '../../hooks/form/relation';
 import { BasicFields, InterestFields, WebhookFields } from './components';
-import { useFormInitializer, useFormLogic } from './hooks';
 
 /**
  * 订阅关系表单组件属性

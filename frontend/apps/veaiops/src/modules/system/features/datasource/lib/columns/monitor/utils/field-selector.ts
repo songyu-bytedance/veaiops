@@ -18,7 +18,7 @@ import {
   createVolcengineSpecificFields,
   createAliyunSpecificFields,
   createZabbixSpecificFields,
-} from '../columns';
+} from '../fields';
 
 /**
  * 根据数据源类型获取特定字段列

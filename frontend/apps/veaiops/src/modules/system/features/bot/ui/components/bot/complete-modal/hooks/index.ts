@@ -12,5 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { useBotCompleteSubmit } from './submit';
-export type { UseBotCompleteSubmitParams } from './submit';
+export {
+  useBotCompleteSubmit,
+  type UseBotCompleteSubmitParams,
+} from './submit';

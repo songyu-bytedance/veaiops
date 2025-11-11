@@ -24,8 +24,7 @@ import {
   IconEyeInvisible,
 } from '@arco-design/web-react/icon';
 import { logger, safeCopyToClipboard } from '@veaiops/utils';
-import type React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const { Text } = Typography;
 

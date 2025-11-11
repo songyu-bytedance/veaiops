@@ -18,8 +18,7 @@
 
 import { Typography } from '@arco-design/web-react';
 import type React from 'react';
-import type { TestStatus } from './constants';
-import { STATUS_MESSAGES } from './constants';
+import { STATUS_MESSAGES, type TestStatus } from './constants';
 
 const { Text } = Typography;
 

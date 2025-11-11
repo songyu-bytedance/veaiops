@@ -15,6 +15,7 @@
 // ✅ 从源头导入 UpdateTooltip（event-center/components）
 import { UpdateTooltip } from '@/modules/event-center/components';
 import apiClient from '@/utils/api-client';
+// ✅ 保持独立：组件和 icon 来自不同子包
 import { Alert, Button, Card } from '@arco-design/web-react';
 import { IconPlus } from '@arco-design/web-react/icon';
 import { CardTemplateConfigMessage } from '@ec/strategy';

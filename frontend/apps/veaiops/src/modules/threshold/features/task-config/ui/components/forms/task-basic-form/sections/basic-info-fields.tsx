@@ -24,8 +24,7 @@ import {
   WrapperWithTitle,
 } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useEffect } from 'react';
+import { type React, useEffect } from 'react';
 
 interface BasicInfoFieldsProps {
   form: FormInstance;

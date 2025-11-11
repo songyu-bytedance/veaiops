@@ -22,26 +22,20 @@ export * from "./types";
 // 本地常量定义（模块特定）
 export * from "./constants";
 
-// 共享常量（从 @veaiops/constants 重新导出，向后兼容）
-export * from "@veaiops/constants";
+// ❌ 移除中转导出：不再从 @veaiops/constants 重新导出
+// 使用方应该直接导入：import { API_RESPONSE_CODE } from '@veaiops/constants';
 
 // 导出工具函数
 export * from "./utils";
+
+// 导出配置函数（pages、guide 等，包含 getTableRef、createDataSourceConfigs）
+export * from "./config";
 
 // 导出服务
 export * from "./api-service";
 
 // 导出列配置
 export * from "./columns";
-// ✅ 导出 createMonitorTableColumns（从 lib/columns/monitor/ 重新导出）
-export { createMonitorTableColumns } from "./columns/monitor";
 
-// 导出监控表格相关配置
-export * from "./monitor-table-types";
-export * from "./monitor-table-request";
-export * from "./monitor-table-config";
-export * from "./monitor-filters";
-export * from "./config-data-utils";
-
-// ✅ Step 3 & 4: 导出配置文件（从 ui/pages/config/ 迁移）
-export * from "./config";
+// 导出监控相关配置（整合到 monitor/ 目录）
+export * from "./monitor";

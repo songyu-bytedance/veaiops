@@ -16,8 +16,8 @@
 // ✅ 从源头导入 UpdateTooltip（event-center/components）
 import { UpdateTooltip } from '@/modules/event-center/components';
 import apiClient from '@/utils/api-client';
-import { Form, Space } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+// ✅ 同源合并：@arco-design/web-react
+import { Form, Space, type FormInstance } from '@arco-design/web-react';
 import { Select } from '@veaiops/components';
 import type React from 'react';
 

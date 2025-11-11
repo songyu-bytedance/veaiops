@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import apiClient from '@/utils/api-client';
-import { Message } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+import { Message, type FormInstance } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useCallback, useEffect, useState } from 'react';
 

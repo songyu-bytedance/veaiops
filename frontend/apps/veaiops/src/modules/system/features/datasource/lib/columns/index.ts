@@ -12,5 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// 导出数据源列配置（原 columns.tsx）
+export { getMonitorColumns } from './datasource';
+
 // 导出 Monitor 列配置
 export * from './monitor';
+
+// 导出基础列配置（✅ 从 ui/tables/columns/base-columns 移至此处）
+export * from './base';

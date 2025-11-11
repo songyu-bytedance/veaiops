@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import { ModuleType, getModuleConfig } from '@/types/module';
+// ✅ 同源合并：@arco-design/web-react（但 es/Table 是子包，保持独立）
 import { Button, Popconfirm, Space } from '@arco-design/web-react';
 import type { ColumnProps } from '@arco-design/web-react/es/Table';
 import { CellRender } from '@veaiops/components';

@@ -14,4 +14,6 @@
 
 export * from './constants';
 export * from './types';
-export * from './data-utils';
+
+// ✅ data-utils 已移至 lib/utils/data-processing
+// 使用方应该从 lib/utils/data-processing 导入

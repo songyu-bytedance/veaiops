@@ -18,8 +18,7 @@ import { getChannelTypeTranslation } from '@bot/lib';
 import { CellRender } from '@veaiops/components';
 import { safeCopyToClipboard } from '@veaiops/utils';
 import type { Chat } from 'api-generate';
-import type React from 'react';
-import { useState } from 'react';
+import { type React, useState } from 'react';
 
 const { Text } = Typography;
 

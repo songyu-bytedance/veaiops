@@ -16,5 +16,7 @@ export { getChartConfig } from './config';
 // formatDateTime 已统一到 @veaiops/utils 包中
 export { COLOR_MAP, SERIES_ALIAS_MAP } from './constants';
 export { ChartLegend } from './chart-legend';
-export { TimeseriesChart } from './timeseries-chart';
-export type { TimeseriesChartProps } from './timeseries-chart';
+export {
+  TimeseriesChart,
+  type TimeseriesChartProps,
+} from './timeseries-chart';

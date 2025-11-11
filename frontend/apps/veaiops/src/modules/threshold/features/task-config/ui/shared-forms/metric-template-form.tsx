@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import { FormItemWrapper, Input, WrapperWithTitle } from '@veaiops/components';
-import type { FC } from 'react';
-import { useCallback } from 'react';
+import { type FC, useCallback } from 'react';
 
 interface MetricTemplateFormProps {
   disabled?: boolean;

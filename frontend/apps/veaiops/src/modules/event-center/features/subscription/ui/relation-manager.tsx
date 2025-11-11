@@ -21,8 +21,8 @@ import {
 import { Card, Table, Typography } from '@arco-design/web-react';
 import { useLocation } from '@modern-js/runtime/router';
 import type { SubscribeRelationWithAttributes } from 'api-generate';
-import type React from 'react';
-import { useEffect, useMemo } from 'react';
+// ✅ 同源合并：react
+import React, { useEffect, useMemo } from 'react';
 
 const { Title } = Typography;
 

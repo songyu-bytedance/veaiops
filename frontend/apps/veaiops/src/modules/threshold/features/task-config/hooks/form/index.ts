@@ -14,6 +14,11 @@
 
 /**
  * 表单职能 - 统一导出
+ *
+ * 包含：
+ * - handlers: 表单处理器
+ * - task-basic-form: 任务基础表单相关 Hooks（✅ 已从 ui/components/forms 重构至此）
  */
 
 export { useTaskFormHandlers } from './handlers';
+export * from './task-basic-form';

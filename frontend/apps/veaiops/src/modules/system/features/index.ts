@@ -18,10 +18,8 @@ export {
   AccountManagement,
   AccountModal,
   useAccountManagement,
-} from './account';
-export type {
-  UserStatus as AccountStatus,
-  UserRole as AccountRole,
+  type UserStatus as AccountStatus,
+  type UserRole as AccountRole,
 } from './account';
 
 // Bot 模块：完整导出

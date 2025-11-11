@@ -21,3 +21,6 @@ export {
   getStatusColumn,
   ThresholdConfigColumn,
 } from './table-columns';
+
+// 告警结果组件
+export { AlarmResultModal } from './alarm-result';

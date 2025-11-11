@@ -14,11 +14,11 @@
 
 import { Message } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
+import type { MetricThresholdResult } from '@veaiops/api-client';
 import { logger } from '@veaiops/utils';
-import type { MetricThresholdResult } from 'api-generate';
-import { useCallback, useRef, useState } from 'react';
-import { processDataPoints } from '../../../ui/components/shared/data-utils';
-import type { TimeseriesDataPoint } from '../../../ui/components/shared/types';
+import React, { useCallback, useRef, useState } from 'react';
+import { processDataPoints } from '../../lib/utils/data-processing';
+import type { TimeseriesDataPoint } from '../../ui/components/shared/types';
 import type { RequestParams } from './types';
 import { callTimeseriesApi } from './use-api-call';
 

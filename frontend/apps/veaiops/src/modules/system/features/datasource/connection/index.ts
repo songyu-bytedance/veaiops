@@ -19,8 +19,11 @@
 // UI 组件
 export * from './ui';
 
-// 工具函数和类型
+// 工具函数和类型（lib 会重新导出 types）
 export * from './lib';
+
+// ✅ 推荐：也可以直接从 types 导入类型
+// import type { ... } from '@datasource/connection/types';
 
 // 主要组件的默认导出
 export { ConnectionTable as DataSourceConnectionTable } from './ui/tables/connection-table';

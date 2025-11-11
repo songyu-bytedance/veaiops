@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import { Drawer, Typography } from '@arco-design/web-react';
-import type React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { CollapsibleSection } from './base';
 // Import sub-components

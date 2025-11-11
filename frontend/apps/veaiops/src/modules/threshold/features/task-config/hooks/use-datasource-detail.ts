@@ -16,7 +16,7 @@ import apiClient from '@/utils/api-client';
 import { Message } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { logger } from '@veaiops/utils';
-import type { DataSource } from 'api-generate';
+import type { DataSource } from '@veaiops/api-client';
 import { useCallback, useState } from 'react';
 
 interface FetchDatasourceDetailParams {

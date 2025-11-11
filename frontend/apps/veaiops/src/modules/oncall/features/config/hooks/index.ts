@@ -12,6 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export * from './use-rules-table';
-export * from './use-rules-data';
-export * from './use-rule-drawer';
+export {
+  useRulesTable,
+  type UseRulesTableProps,
+} from './use-rules-table';
+export {
+  useRulesData,
+  type UseRulesDataProps,
+} from './use-rules-data';
+export { useRuleDrawer } from './use-rule-drawer';
+// ✅ 修复：从 ui/components/detail-view/hooks/ 移动到 hooks/
+export { useCopy, type UseCopyParams, type UseCopyReturn } from './use-copy';
+export type {
+  UseRuleDrawerOptions,
+  UseRuleDrawerReturn,
+} from './use-rule-drawer';

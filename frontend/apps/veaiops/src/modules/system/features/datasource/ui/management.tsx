@@ -18,16 +18,18 @@ import {
   useGuide,
   useTabManagement,
   useUrlParamHandlers,
-} from '@datasource/hooks/pages';
-import type { DataSourceType, MonitorAccessProps } from '@datasource/lib';
+} from '@/modules/system/features/datasource/hooks/page';
+import type { DataSourceType, MonitorAccessProps } from '@datasource/types';
 import { createDataSourceConfigs } from '@datasource/lib/config';
 import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
 import { XGuide } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useCallback, useEffect, useMemo } from 'react';
-import { ConnectionManager } from '../../connection/ui/panels/connection-manager';
-import { useDataSourceHandlers, useMonitorAccessLogic } from '../../hooks';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { ConnectionManager } from '@datasource/connection/ui/panels';
+import {
+  useDataSourceHandlers,
+  useMonitorAccessLogic,
+} from '@datasource/hooks';
 import { ManagementHeader, ManagementToolbar } from './components/headers';
 import { renderDataSourceTabs } from './components/pages';
 import style from './management.module.less';

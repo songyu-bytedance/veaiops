@@ -42,8 +42,7 @@ import {
   createTableRequestWithResponseHandler,
 } from '@veaiops/utils';
 import type { Event } from 'api-generate';
-import type React from 'react';
-import { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 /**
  * 历史事件查询参数类型（扩展用于前端表格）

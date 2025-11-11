@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Form, Input, Switch } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+// ✅ 同源合并：@arco-design/web-react
+import { Form, Input, Switch, type FormInstance } from '@arco-design/web-react';
 import type React from 'react';
 
 /**

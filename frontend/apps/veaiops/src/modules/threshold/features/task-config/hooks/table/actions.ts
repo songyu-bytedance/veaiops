@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { logger } from '@veaiops/utils';
-import type { IntelligentThresholdTask } from 'api-generate';
+import type { IntelligentThresholdTask } from '@veaiops/api-client';
 import { useMemo } from 'react';
 import type { TaskTableActions } from '../../lib';
 

@@ -13,9 +13,8 @@
 // limitations under the License.
 
 import type { TableColumnProps } from '@arco-design/web-react';
-import { CellRender } from '@veaiops/components';
+import { ButtonGroupRender, CellRender, type ButtonConfiguration } from '@veaiops/components';
 import { IconDelete } from '@arco-design/web-react/icon';
-import { ButtonGroupRender, type ButtonConfiguration } from '@veaiops/components';
 import type { BotAttribute } from 'api-generate';
 import { ATTRIBUTE_NAME_MAP } from '../types/attributes';
 

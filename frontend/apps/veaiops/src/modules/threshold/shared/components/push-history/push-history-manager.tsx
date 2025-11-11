@@ -16,8 +16,7 @@ import { HistoryDetailDrawer } from '@/modules/event-center/features/history/ui'
 import { detectModuleTypeFromPath } from '@/types/module';
 import { useLocation } from '@modern-js/runtime/router';
 import type { Event } from 'api-generate';
-import type React from 'react';
-import { useCallback, useMemo, useState } from 'react';
+import { type React, useCallback, useMemo, useState } from 'react';
 import { PushHistoryTable } from './push-history-table';
 import type { PushHistoryManagerProps, PushHistoryRecord } from './types';
 

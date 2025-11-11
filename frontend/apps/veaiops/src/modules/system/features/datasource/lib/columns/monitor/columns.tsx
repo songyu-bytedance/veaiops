@@ -16,8 +16,7 @@ import { CellRender, type ModernTableColumnProps } from '@veaiops/components';
 import { EMPTY_CONTENT } from '@veaiops/constants';
 import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
-import { createBaseConfigFields } from './fields/base-fields';
-import { getSpecificFields } from './fields/specific-fields';
+import { createBaseConfigFields, getSpecificFields } from './fields';
 
 /**
  * 创建监控表格列配置

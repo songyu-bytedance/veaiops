@@ -15,14 +15,21 @@
 /**
  * 订阅管理 Hooks 统一导出
  *
- * 职能模块：
- * - table: 表格管理（表格核心逻辑、配置）
- * - form: 表单管理（relation 关系表单、subscription 订阅表单）
- * - webhook: Webhook 管理（请求头管理）
- * - management: 整体管理（CRUD 操作、Modal 状态、操作配置）
+ * 目录结构按职能分层（遵循 .cursorrules 模式B）：
+ * - table/: 表格管理职能
+ * - form/: 表单管理职能
+ * - webhook/: Webhook 管理职能
+ * - management/: 整体管理职能
  */
 
+// 表格职能
 export * from './table';
+
+// 表单职能
 export * from './form';
+
+// Webhook 职能
 export * from './webhook';
+
+// 管理职能
 export * from './management';

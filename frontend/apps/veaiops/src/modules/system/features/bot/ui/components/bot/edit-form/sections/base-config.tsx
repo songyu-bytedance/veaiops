@@ -20,8 +20,8 @@ import {
   Message,
   Tooltip,
   Typography,
+  type FormInstance,
 } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
 import {
   IconCheckCircle,
   IconEye,
@@ -30,8 +30,7 @@ import {
 import { type ExtendedBot, getBotSecret } from '@bot/lib';
 import { CardWithTitle } from '@veaiops/components';
 import { AutofillBlockerPresets } from '@veaiops/utils';
-import type React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { LarkConfigGuide } from '../../lark-config-guide';
 
 const { Text } = Typography;

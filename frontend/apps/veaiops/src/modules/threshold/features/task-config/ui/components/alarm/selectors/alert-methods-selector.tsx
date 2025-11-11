@@ -14,8 +14,7 @@
 
 import { Select } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useMemo, useRef } from 'react';
+import { type React, useMemo, useRef } from 'react';
 import { ALERT_METHODS_OPTIONS } from '../../shared/constants';
 import { getZabbixAlertMethodsDataSource } from './contact-group-datasource';
 

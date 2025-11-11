@@ -14,13 +14,13 @@
 
 import type { CustomTableActionType } from '@veaiops/components';
 import type { BaseQuery, BaseRecord } from '@veaiops/types';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import {
   useAlarmDrawer,
   useRerunDrawer,
   useTaskVersionTableConfig,
   useTaskVersionTableRenderer,
-} from './hooks';
+} from '../../hooks/version';
 import type { TaskVersionTableProps } from './types';
 
 const TaskVersionTable: React.FC<TaskVersionTableProps> = ({

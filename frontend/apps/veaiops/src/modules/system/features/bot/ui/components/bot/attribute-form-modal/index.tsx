@@ -15,8 +15,7 @@
 import { Alert, Form, Modal } from '@arco-design/web-react';
 import type { BotAttributeFormData, ModalType } from '@bot/types';
 import type { BotAttribute } from 'api-generate';
-import type React from 'react';
-import { useState } from 'react';
+import { type React, useState } from 'react';
 import { useAttributeFormModalEffects } from './effects';
 import { useAttributeFormModalHandlers } from './handlers';
 import { useAttributeValues } from './hooks';

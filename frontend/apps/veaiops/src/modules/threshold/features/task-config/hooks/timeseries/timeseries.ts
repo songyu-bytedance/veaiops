@@ -15,7 +15,7 @@
 import type {
   IntelligentThresholdTask,
   MetricThresholdResult,
-} from 'api-generate';
+} from '@veaiops/api-client';
 import { useMemo } from 'react';
 import { prepareRequestParams } from '../../lib';
 import { useDataFetching } from './use-data-fetching';

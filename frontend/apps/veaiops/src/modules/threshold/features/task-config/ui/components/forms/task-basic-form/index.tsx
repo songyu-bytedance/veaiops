@@ -12,13 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Form } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react/es/Form';
+import { Form, type FormInstance } from '@arco-design/web-react';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  useDataSources,
+  useFormInitializer,
+} from '../../../../hooks/form/task-basic-form';
 import { MetricTemplateForm } from '../../../shared-forms';
-import { useDataSources, useFormInitializer } from './hooks';
 import { BasicInfoFields } from './sections';
 import type { TaskBasicFormProps } from './types';
 

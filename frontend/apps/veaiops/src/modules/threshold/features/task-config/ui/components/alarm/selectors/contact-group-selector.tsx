@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import { Select } from '@veaiops/components';
-import type React from 'react';
-import { useMemo } from 'react';
+import { type React, useMemo } from 'react';
 import {
   getAliyunContactGroupDataSource,
   getVolcengineContactGroupDataSource,

@@ -16,8 +16,7 @@ import { Alert, Drawer } from '@arco-design/web-react';
 import type { ChatManagementDrawerProps } from '@bot';
 import { useManagementRefresh } from '@veaiops/hooks';
 import { logger } from '@veaiops/utils';
-import type React from 'react';
-import { useRef } from 'react';
+import { type React, useRef } from 'react';
 import { BotDrawerTitle } from '../bot/drawer-title';
 import { ChatTable, type ChatTableRef } from './chat-table/index';
 

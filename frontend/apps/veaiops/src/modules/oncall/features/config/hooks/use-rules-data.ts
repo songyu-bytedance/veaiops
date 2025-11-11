@@ -26,8 +26,7 @@ import {
   logger,
 } from '@veaiops/utils';
 import type { Bot, Interest } from 'api-generate';
-import type React from 'react';
-import { useMemo } from 'react';
+import { type React, useMemo } from 'react';
 
 export interface UseRulesDataProps {
   bots: Bot[];

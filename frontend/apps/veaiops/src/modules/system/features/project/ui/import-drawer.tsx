@@ -26,8 +26,7 @@ import {
   IconFile,
   IconUpload,
 } from '@arco-design/web-react/icon';
-import type React from 'react';
-import { useState } from 'react';
+import { type React, useState } from 'react';
 
 const { Text, Title } = Typography;
 

@@ -16,5 +16,7 @@ export { MainTaskDrawer } from './main-drawer';
 export { MetricConfigDrawer } from './metric-config-drawer';
 export { TaskDrawerContent } from './drawer-content';
 export { TaskDrawerFooter } from './drawer-footer';
-export { DatasourceDetailDrawer } from './datasource-detail';
-export type { DatasourceDetailDrawerProps } from './datasource-detail';
+export {
+  DatasourceDetailDrawer,
+  type DatasourceDetailDrawerProps,
+} from './datasource-detail';

@@ -16,14 +16,15 @@
  * lib 模块统一导出
  */
 
-// 类型定义
-export type * from "./types";
+// ✅ 修复：类型定义已移至独立的 types/ 目录
+// 为了向后兼容，这里重新导出（但推荐直接从 @datasource/connection/types 导入）
+export type * from "../types";
 
 // 本地常量定义（模块特定）
 export * from "./constants";
 
-// 共享常量（从 @veaiops/constants 重新导出，向后兼容）
-export * from "@veaiops/constants";
+// ❌ 移除中转导出：不再从 @veaiops/constants 重新导出
+// 使用方应该直接导入：import { API_RESPONSE_CODE } from '@veaiops/constants';
 
 // 工具函数
 export * from "./utils";

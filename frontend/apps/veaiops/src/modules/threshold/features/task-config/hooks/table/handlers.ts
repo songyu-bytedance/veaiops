@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import type { FieldItem, ModernTableColumnProps } from '@veaiops/components';
-import type { IntelligentThresholdTask } from 'api-generate';
+import type { IntelligentThresholdTask } from '@veaiops/api-client';
 import { useCallback } from 'react';
 import { getTaskColumns } from '../../lib';
 import type {

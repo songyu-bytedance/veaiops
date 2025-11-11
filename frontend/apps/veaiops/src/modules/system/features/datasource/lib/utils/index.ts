@@ -17,3 +17,18 @@ export { extractAllConfigItems } from './config-extractor';
 
 // 导出字段翻译工具
 export { getFieldTranslation, safeStringify } from './field-translation';
+
+// 导出配置数据工具（原 config-data-utils.ts）
+export { getConfigData } from './config-data';
+
+// 导出 monitor 工具函数（原 utils.ts）
+export {
+  transformDataSourceToMonitorItem,
+  transformMonitorToTableData,
+  getModuleConfig,
+  detectModuleType,
+  formatDateTime,
+  formatMonitorDateTime,
+  getSupportedModuleType,
+  createErrorLog,
+} from './monitor';

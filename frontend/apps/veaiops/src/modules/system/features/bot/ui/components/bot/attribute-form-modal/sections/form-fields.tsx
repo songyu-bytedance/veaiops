@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Form, Link, Select } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+import { Form, Link, Select, type FormInstance } from '@arco-design/web-react';
 import { ATTRIBUTE_OPTIONS, type BotAttributeFormData } from '@bot/types';
 import type React from 'react';
 

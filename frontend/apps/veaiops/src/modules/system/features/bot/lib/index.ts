@@ -28,8 +28,10 @@ export * from "./chat-columns";
 export * from "./columns";
 
 // 属性相关配置（已简化命名：移除 bot- 前缀）
-export { getBotAttributesColumns } from "./attributes-columns";
-export type { BotAttributesColumnsProps } from "./attributes-columns";
+export {
+  getBotAttributesColumns,
+  type BotAttributesColumnsProps,
+} from './attributes-columns';
 export * from "./attributes-filters";
 
 // 工具函数

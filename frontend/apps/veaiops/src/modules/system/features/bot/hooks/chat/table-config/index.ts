@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { CustomTableActionType } from '@veaiops/components';
-import { useBusinessTable } from '@veaiops/components';
+import { type CustomTableActionType, useBusinessTable } from '@veaiops/components';
 import type { Chat } from 'api-generate';
 import type React from 'react';
 import { useChatTableRequest } from './request';

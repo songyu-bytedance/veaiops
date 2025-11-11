@@ -19,6 +19,7 @@
  * 🎯 优先使用标准类型: @veaiops/components 和 api-generate
  */
 
+// ✅ 保持独立：组件和 icon 来自不同子包
 import { Button, Message } from '@arco-design/web-react';
 import { IconPlus, IconRefresh } from '@arco-design/web-react/icon';
 // ✅ 优化：使用最短路径，合并同源导入
@@ -45,8 +46,8 @@ import {
   createTableRequestWithResponseHandler,
 } from '@veaiops/utils';
 import type { SubscribeRelationWithAttributes } from 'api-generate';
-import type React from 'react';
-import { useCallback, useMemo } from 'react';
+// ✅ 同源合并：react
+import React, { useCallback, useMemo } from 'react';
 
 /**
  * 订阅关系查询参数类型 (扩展自 BaseQuery)

@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ✅ 同源合并：@arco-design/web-react（FormInstance 应该合并）
 import {
   Button,
   Card,
@@ -19,8 +20,9 @@ import {
   Input,
   Space,
   Switch,
+  type FormInstance,
 } from '@arco-design/web-react';
-import type { FormInstance } from '@arco-design/web-react';
+// ✅ icon 来自不同子包，保持独立
 import { IconDelete, IconPlus } from '@arco-design/web-react/icon';
 import type React from 'react';
 

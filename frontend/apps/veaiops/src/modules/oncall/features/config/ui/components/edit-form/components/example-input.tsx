@@ -13,8 +13,7 @@
 // limitations under the License.
 
 import { Input, Space } from '@arco-design/web-react';
-import type React from 'react';
-import { useMemo } from 'react';
+import { type React, useMemo } from 'react';
 
 import type { ExampleInputProps } from '../types';
 

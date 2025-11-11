@@ -17,7 +17,7 @@ import apiClient from '@/utils/api-client';
 import { type FormInstance, Message } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { logger } from '@veaiops/utils';
-import type { IntelligentThresholdTask } from 'api-generate';
+import type { IntelligentThresholdTask } from '@veaiops/api-client';
 import { useCallback } from 'react';
 import { TaskOperateType, deleteTask } from '../../lib';
 

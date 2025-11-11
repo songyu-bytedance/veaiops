@@ -18,8 +18,7 @@ import {
   IconThumbDown,
   IconThumbUp,
 } from '@arco-design/web-react/icon';
-import type React from 'react';
-import { useCallback } from 'react';
+import { type React, useCallback } from 'react';
 
 import type { UseCopyReturn } from '../hooks';
 
