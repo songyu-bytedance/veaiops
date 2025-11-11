@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * Card Template Hook 类型定义
+ * Card Template Hook type definitions
  */
 
 import type { Form } from '@arco-design/web-react';
