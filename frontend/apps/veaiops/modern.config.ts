@@ -32,6 +32,8 @@ export default defineConfig({
       'process.env.REACT_APP_API_BASE_URL': process.env.REACT_APP_API_BASE_URL
         ? JSON.stringify(process.env.REACT_APP_API_BASE_URL)
         : undefined,
+      // ✅ Ensure production build uses 'production' environment
+      // Modern.js will automatically serialize the value, so we don't need JSON.stringify
       'process.env.NODE_ENV': process.env.NODE_ENV || 'development',
     },
     transformImport: [

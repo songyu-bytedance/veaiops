@@ -90,6 +90,8 @@ class Logger {
 
   private sessionId: string;
 
+  private hasLoggedEnvOnce = false;
+
   constructor(config: LoggerConfig = {}) {
     this.maxLogs = config.maxLogs || 2000;
     this.enableConsole = config.enableConsole !== false;
@@ -203,7 +205,23 @@ class Logger {
 
     // Output to console (only in development environment)
     // ✅ Non-development environments: only collect logs, do not print to console
-    if (this.enableConsole && process.env.NODE_ENV === 'development') {
+    const shouldOutputToConsole =
+      this.enableConsole && process.env.NODE_ENV === 'development';
+
+    // 🔍 Debug: Log environment check result (only once per session, dev only)
+    if (!this.hasLoggedEnvOnce && process.env.NODE_ENV === 'development') {
+      this.hasLoggedEnvOnce = true;
+      console.log(
+        '[Logger] First log - enableConsole:',
+        this.enableConsole,
+        '| NODE_ENV:',
+        process.env.NODE_ENV,
+        '| shouldOutput:',
+        shouldOutputToConsole,
+      );
+    }
+
+    if (shouldOutputToConsole) {
       const timestamp = formatTimestamp(entry.timestamp);
       const prefix = `[${timestamp}][${entry.source}${
         component ? `/${component}` : ''
@@ -559,6 +577,16 @@ export const logger = new Logger({
 // 🔥 Expose logger instance to window object for log export tools and enhanced collector
 if (typeof window !== 'undefined') {
   (window as any).__veaiopsUtilsLogger = logger;
+
+  // 🔍 Debug: Print environment info on initialization (dev only)
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      '[Logger] Environment:',
+      process.env.NODE_ENV,
+      '| Console output:',
+      'ENABLED',
+    );
+  }
 
   // ✅ Automatically start enhanced collector (development environment)
   if (process.env.NODE_ENV === 'development') {
