@@ -14,17 +14,21 @@
 
 import { DataSourceWizard } from '@/components';
 import { Tabs } from '@arco-design/web-react';
+import {
+  useGuide,
+  useTabManagement,
+  useUrlParamHandlers,
+} from '@datasource/hooks/pages';
 import type { DataSourceType, MonitorAccessProps } from '@datasource/lib';
 import { createDataSourceConfigs } from '@datasource/lib/config';
-import { useGuide, useTabManagement, useUrlParamHandlers } from '@datasource/hooks/pages';
+import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
 import { XGuide } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
-import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
 import type React from 'react';
 import { useCallback, useEffect, useMemo } from 'react';
 import { ConnectionManager } from '../../connection/ui/panels/connection-manager';
 import { useDataSourceHandlers, useMonitorAccessLogic } from '../../hooks';
-import { ManagementHeader, ManagementToolbar } from '../components';
+import { ManagementHeader, ManagementToolbar } from './components/headers';
 import { renderDataSourceTabs } from './components/pages';
 import style from './management.module.less';
 

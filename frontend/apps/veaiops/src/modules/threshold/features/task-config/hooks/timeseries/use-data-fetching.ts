@@ -17,7 +17,7 @@ import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { logger } from '@veaiops/utils';
 import type { MetricThresholdResult } from 'api-generate';
 import { useCallback, useRef, useState } from 'react';
-import { convertTimeseriesData } from '../../../ui/components/shared/data-utils';
+import { processDataPoints } from '../../../ui/components/shared/data-utils';
 import type { TimeseriesDataPoint } from '../../../ui/components/shared/types';
 import type { RequestParams } from './types';
 import { callTimeseriesApi } from './use-api-call';
@@ -208,7 +208,7 @@ export const useDataFetching = ({
             return;
           }
           // metric 已经验证存在，类型为 MetricThresholdResult
-          const chartData = convertTimeseriesData({
+          const chartData = processDataPoints({
             backendData: dataArray,
             metric,
           });
