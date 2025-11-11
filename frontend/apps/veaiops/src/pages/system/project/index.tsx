@@ -13,4 +13,4 @@
 // limitations under the License.
 
 // 重新导出项目管理页面组件
-export { ProjectPage as default } from '@/modules/system';
+export { ProjectManagement as default } from '@/modules/system';

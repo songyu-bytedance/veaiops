@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { useEventHistoryRequest } from '@/hooks/use-event-history-request';
-import { HistoryDetailDrawer } from '@/modules/event-center/features/history/ui/components/table';
+import { HistoryDetailDrawer } from '@ec/history';
 import type { Event } from '@veaiops/api-client';
 import { EventHistoryTable, HistoryModuleType } from '@veaiops/components';
 import type React from 'react';

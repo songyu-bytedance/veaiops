@@ -99,3 +99,27 @@ export const PRIORITY_OPTIONS = [
   { label: '中', value: 'medium', color: 'blue' },
   { label: '低', value: 'low', color: 'gray' },
 ] as const;
+
+/**
+ * 事件显示状态选项
+ * 对应后端 EventShowStatus 枚举（veaiops/schema/types.py）
+ */
+export const EVENT_SHOW_STATUS_OPTIONS = [
+  { label: '等待发送', value: '等待发送' },
+  { label: '发送成功', value: '发送成功' },
+  { label: '未订阅', value: '未订阅' },
+  { label: '未命中规则', value: '未命中规则' },
+  { label: '命中过滤规则', value: '命中过滤规则' },
+  { label: '告警抑制', value: '告警抑制' },
+] as const;
+
+/**
+ * 事件显示状态映射
+ */
+export const EVENT_SHOW_STATUS_MAP = EVENT_SHOW_STATUS_OPTIONS.reduce(
+  (acc, cur) => {
+    acc[cur.value] = cur;
+    return acc;
+  },
+  {} as Record<string, (typeof EVENT_SHOW_STATUS_OPTIONS)[number]>,
+);

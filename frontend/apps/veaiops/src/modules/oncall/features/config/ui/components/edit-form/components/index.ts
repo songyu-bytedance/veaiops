@@ -12,4 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { ExampleInput } from './example-input';
+export * from './example-input';

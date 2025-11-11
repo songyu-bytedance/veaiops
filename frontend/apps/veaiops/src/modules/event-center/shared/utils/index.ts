@@ -13,3 +13,20 @@
 // limitations under the License.
 
 export * from './strategy';
+
+// 重新导出 history 工具函数
+export {
+  copyToClipboard,
+  downloadRawData,
+  toggleSection,
+  formatTimeDisplay,
+  getEventTypeConfig,
+  getEventLevelConfig,
+} from '../../features/history/lib/utils';
+
+// 重新导出 history 常量
+export {
+  EVENT_TYPE_MAP,
+  EVENT_LEVEL_VISUAL_MAP,
+  DEFAULT_EXPANDED_SECTIONS,
+} from '../../features/history/lib/constants';

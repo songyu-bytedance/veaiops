@@ -14,7 +14,15 @@
 
 /**
  * Oncall Config UI 统一导出
+ *
+ * ✅ 遵循 .cursorrules 规范：
+ * - 简化文件名：config-page.tsx → management.tsx（主页面标准命名）
+ * - 拒绝中转导出：不使用别名导出
+ * - 使用方应该直接导入原始组件名 ConfigPage
  */
 
-// 组件导出（包含列渲染组件）
+export * from './management';
+export * from './table';
+export * from './drawer';
+export * from './info';
 export * from './components';

@@ -58,4 +58,4 @@ export const BasicInfoAlert: React.FC<BasicInfoAlertProps> = ({ rule }) => {
   );
 };
 
-export type { BasicInfoAlertProps } from './types';
+export * from './types';

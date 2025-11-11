@@ -61,7 +61,6 @@ export const THRESHOLD_PAGES_PATH = {
 // Event center module page paths
 export const EVENT_CENTER_PAGES_PATH = {
   History: '@/pages/event-center/history',
-  Statistics: '@/pages/event-center/statistics',
   Strategy: '@/pages/event-center/strategy',
   SubscribeRelation: '@/pages/event-center/subscribe-relation',
 } as const;
@@ -131,6 +130,7 @@ export const ONCALL_ROUTES_PATH = {
   Config: '/oncall/config',
   History: '/oncall/history',
   Rules: '/oncall/rules',
+  Statistics: '/oncall/statistics',
 } as const;
 
 // Statistics module URL paths

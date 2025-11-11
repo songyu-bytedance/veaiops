@@ -14,9 +14,31 @@
 
 /**
  * 历史事件 Lib 统一导出
+ *
+ * 按照 Feature-Based 架构规范，lib/ 目录包含：
+ * - API 服务（history-service.ts）
+ * - 类型定义（types.ts）
+ * - 常量配置（constants.ts）
+ * - 列配置（columns.tsx）
+ * - 筛选器配置（filters.tsx）
+ * - 渲染器（renderers-*.tsx）
+ * - 工具函数（utils.ts）
  */
 
-export { historyService } from "./history-service";
+// API 服务
+export { historyService } from './history-service';
 
-// 导出类型定义
-export * from "./types";
+// 类型定义
+export * from './types';
+
+// 常量配置
+export * from './constants';
+
+// 列配置和渲染器
+export * from './columns';
+
+// 筛选器配置
+export * from './filters';
+
+// 工具函数
+export * from './utils';

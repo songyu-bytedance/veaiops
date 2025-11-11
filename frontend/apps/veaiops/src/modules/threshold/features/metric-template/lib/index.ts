@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /**
- * 指标模板模块lib统一导出
+ * Metric Template Module - Library Unified Exports
  */
 
 export * from "./types";
@@ -21,6 +21,6 @@ export * from "./columns";
 export * from "./config";
 export * from "./filters";
 export * from "./utils";
-export * from "./api-service";
-export * from "./metric-template-request";
-export * from "./metric-type-translations";
+export * from "./api";
+export * from "./request";
+export * from "./type-translations";

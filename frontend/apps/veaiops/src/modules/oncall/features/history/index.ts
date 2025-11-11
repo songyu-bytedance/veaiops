@@ -12,4 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { OncallHistoryPage } from './page';
+/**
+ * History 功能模块统一导出
+ * 对应路由: /oncall/history（历史事件）
+ */
+
+export * from './ui';

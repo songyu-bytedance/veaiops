@@ -12,9 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { ProjectManagement } from './project';
-export { default as ProjectCreateDrawer } from './project-create-drawer';
-export { default as ProjectDetailDrawer } from './project-detail-drawer';
-export { default as ProjectImportDrawer } from './project-import-drawer';
-export { ProjectModal } from './project-modal';
-export { ProjectTable } from './project-table';
+/**
+ * ✅ 修复：创建 components/index.ts 统一导出
+ * - 避免深层路径导入
+ * - 遵循 Feature-Based 架构规范
+ */
+
+export * from './management';
+export { ProjectManagement } from './management';
+export * from './create-drawer';
+export * from './detail-drawer';
+export { ProjectImportDrawer } from './import-drawer';
+export * from './modal';
+export * from './table';
+export * from './table-config';
+export * from './components';

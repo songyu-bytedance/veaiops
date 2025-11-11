@@ -22,8 +22,8 @@ import {
 } from '@arco-design/web-react';
 import { DrawerFormContent, useDrawerFormSubmit } from '@veaiops/utils';
 import type { AgentTemplate } from 'api-generate';
-import StepCard from '../step-card';
-import CardTemplateForm from './form';
+import { StepCard } from '../step-card';
+import { CardTemplateForm } from './form';
 
 export interface CardTemplateModalProps {
   visible: boolean;
@@ -78,4 +78,4 @@ const CardTemplateDrawer: React.FC<CardTemplateModalProps> = ({
     </Drawer>
   );
 };
-export default CardTemplateDrawer;
+export { CardTemplateDrawer };

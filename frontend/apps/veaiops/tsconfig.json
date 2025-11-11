@@ -30,6 +30,7 @@
       "@card-template": ["./src/modules/system/features/card-template"],
       "@card-template/*": ["./src/modules/system/features/card-template/*"],
       "@oncall/api": ["./src/modules/oncall/api"],
+      "@oncall/lib": ["./src/modules/oncall/lib"],
       "@oncall/shared": ["./src/modules/oncall/shared"],
       "@oncall-config": ["./src/modules/oncall/features/config"],
       "@oncall-config/*": ["./src/modules/oncall/features/config/*"],

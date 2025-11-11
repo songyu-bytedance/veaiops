@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { renderEventShowStatus } from '@/modules/event-center/features/history/config/columns';
 import { Button, Space } from '@arco-design/web-react';
 import type { ColumnProps } from '@arco-design/web-react/es/Table';
 import { IconEye, IconRedo } from '@arco-design/web-react/icon';
+import { renderEventShowStatus } from '@ec/history';
 import { CellRender } from '@veaiops/components';
 import { AGENT_TYPE_MAP, EMPTY_CONTENT } from '@veaiops/constants';
 import { ModuleType } from '@veaiops/types';

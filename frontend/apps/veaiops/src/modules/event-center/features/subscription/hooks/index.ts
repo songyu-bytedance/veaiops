@@ -14,24 +14,15 @@
 
 /**
  * 订阅管理 Hooks 统一导出
+ *
+ * 职能模块：
+ * - table: 表格管理（表格核心逻辑、配置）
+ * - form: 表单管理（relation 关系表单、subscription 订阅表单）
+ * - webhook: Webhook 管理（请求头管理）
+ * - management: 整体管理（CRUD 操作、Modal 状态、操作配置）
  */
 
-export {
-  useSubscriptionManagementLogic,
-  useSubscriptionTableConfig,
-  useSubscriptionActionConfig,
-  transformSubscriptionToTableData,
-  type SubscriptionTableData,
-} from './subscription-management';
-
-export { useSubscriptionTable } from './use-subscription-table';
-export { useSubscriptionForm } from './use-subscription-form';
-export { useWebhookManagement } from './use-webhook-logic';
-export { useSubscribeRelationFormLogic } from './use-relation-form-logic';
-
-// 导出类型
-export type {
-  SubscriptionQueryParams,
-  UseSubscriptionTableConfigOptions,
-  UseSubscriptionTableConfigReturn,
-} from './use-subscription-table-config';
+export * from './table';
+export * from './form';
+export * from './webhook';
+export * from './management';

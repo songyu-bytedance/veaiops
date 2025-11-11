@@ -15,7 +15,8 @@
 import { Message } from '@arco-design/web-react';
 import { useState } from 'react';
 import { importProjects } from '../../../system/features/project/lib/api';
-import { ProjectImportDrawer } from '../../../system/features/project/ui/project-import-drawer';
+// ✅ 修复：import-drawer 而不是 project-import-drawer
+import { ProjectImportDrawer } from '../../../system/features/project/ui/import-drawer';
 import type {
   UseProjectImportConfig,
   UseProjectImportReturn,

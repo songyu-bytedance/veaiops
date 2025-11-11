@@ -15,34 +15,20 @@
 /**
  * 历史事件功能模块统一导出
  *
- * ✅ 层层导出原则：通过功能模块 index.ts 统一导出所有子目录内容
- * - 从功能模块 index.ts 导入，路径最短（如 `@ec/history`）
- * - 每个子目录通过各自的 index.ts 统一导出
+ * ✅ 按照 Feature-Based 架构规范：
+ * - hooks/: 业务逻辑 Hooks
+ * - lib/: 工具、配置、类型、常量（已合并 config/、ui/shared/）
+ * - ui/: UI 组件（已扁平化 pages/、components/table/）
+ *
+ * ✅ 层层导出原则：
+ * - 使用 export * from 统一导出
+ * - 避免重复导出和跨层级导出
  *
  * 注意：遵循单一数据源原则
  * - 类型定义应直接从 @veaiops/types 或 api-generate 导入
  */
 
-// ==================== UI 组件导出 ====================
-export { HistoryDetailDrawer } from './ui/components/table/history-detail-drawer';
-export { HistoryTable } from './ui/components/table/history-table';
-export { HistoryManagement } from './ui/pages/history-management';
-
-// ==================== Hooks 导出 ====================
-export {
-  useHistoryActionConfig,
-  useHistoryManagementLogic,
-  useHistoryTableConfig,
-  useHistoryTableConfigFromTable,
-  type HistoryFilters,
-} from './hooks';
-
-// ==================== Config 导出 ====================
-export {
-  getHistoryColumns,
-  getHistoryFilters,
-  renderEventStatus,
-} from './config';
-
-// ==================== Lib 导出 ====================
-export { historyService } from './lib';
+// 导出顺序：Hooks → Lib → UI
+export * from './hooks';
+export * from './lib';
+export * from './ui';

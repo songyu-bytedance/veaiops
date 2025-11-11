@@ -12,4 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { useFormLogic, useFormInitializer } from './use-form-logic';
+export * from './use-form-logic';

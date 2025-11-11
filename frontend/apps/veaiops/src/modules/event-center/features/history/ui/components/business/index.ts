@@ -12,12 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * 业务组件导出
- */
-
-export { BasicInfo } from './basic-info';
-export { ChannelMessage } from './channel-message';
-export { EventOverview } from './event-overview';
-export { RawData } from './raw-data';
-export { TimeInfo } from './time-info';
+export * from './basic-info';
+export * from './channel-message';
+export * from './event-overview';
+export * from './raw-data';
+export * from './time-info';

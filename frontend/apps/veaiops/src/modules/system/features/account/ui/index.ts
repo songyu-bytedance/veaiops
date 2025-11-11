@@ -12,6 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { AccountManagement } from './account-management';
-export { transformApiUserToExtendedUser } from './account-management';
-export { AccountModal } from './account-modal';
+export * from './management';
+export * from './components';

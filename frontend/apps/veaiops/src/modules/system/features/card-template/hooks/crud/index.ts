@@ -13,15 +13,10 @@
 // limitations under the License.
 
 /**
- * 卡片模板 CRUD 操作统一导出
+ * Card Template CRUD Operations - Unified Exports
  *
- * 目录结构：
- * - crud.ts  - CRUD 操作 Hook（346 lines）
+ * Directory structure:
+ * - crud.ts  - CRUD operations Hook
  */
 
-// ✅ 简化文件名：use-card-template-crud.ts → crud/crud.ts
-export {
-  useCardTemplateCRUD,
-  type UseCardTemplateCRUDOptions,
-  type UseCardTemplateCRUDReturn,
-} from './crud';
+export * from './crud';

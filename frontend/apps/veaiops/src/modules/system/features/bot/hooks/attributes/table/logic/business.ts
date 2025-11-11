@@ -17,7 +17,7 @@ import { ChannelType } from '@veaiops/api-client';
 import type { AttributeKey } from 'api-generate';
 
 /**
- * Bot属性业务逻辑Hook
+ * Bot属性Business logicHook
  */
 export const useBotAttributesBusinessLogic = ({
   botId,
@@ -26,13 +26,13 @@ export const useBotAttributesBusinessLogic = ({
   botId?: string;
   channel?: string;
 }) => {
-  // 业务逻辑 Hook
-  // 注意：botId 和 channel 可能为 undefined，但 useBotAttributes 需要非 undefined 值
-  // 如果未提供，使用默认值 ChannelType.LARK（实际使用时会通过 API 进行验证）
+  // Business logic Hook
+  // Note: botId 和 channel 可能为 undefined，但 useBotAttributes 需要非 undefined 值
+  // If not provided，use default value ChannelType.LARK（during actual usagewill be validated by API）
   const { loading, createAttribute, updateAttribute, deleteAttribute } =
     useBotAttributes({
       botId: botId || '',
-      channel: (channel || ChannelType.LARK) as ChannelType, // ✅ 使用枚举值而不是硬编码字符串
+      channel: (channel || ChannelType.LARK) as ChannelType, // ✅ Use enum value instead of hardcoded string
     });
 
   return {

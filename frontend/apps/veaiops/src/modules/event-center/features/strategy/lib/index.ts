@@ -15,13 +15,21 @@
 /**
  * 策略管理 Lib 统一导出
  *
- * ✅ 简化导出：
- * - 统一使用 strategyApi（已合并 service 功能）
- * - 简化导出路径
+ * 按照 Feature-Based 架构规范，lib/ 目录包含：
+ * - API 服务（api.ts、service.ts）
+ * - 类型定义（types.ts）
+ * - 常量配置（constants.ts）
+ * - 列配置（columns.tsx）
+ * - 筛选器配置（filters.tsx）
+ *
+ * 注意：避免重复导出
+ * - strategy-config.tsx 已删除（重复导出 columns 和 filters）
  */
-// ✅ 简化导出：统一使用 strategyApi
-export { strategyApi } from './api';
-export { adaptStrategyForEdit } from './types';
-// ✅ 向后兼容：导出 strategyService（如果存在）
-export { strategyService } from './service';
-// InformStrategy 直接从 'api-generate' 导入（符合单一数据源原则）
+
+// 导出所有 lib 内容
+export * from './api';
+export * from './service';
+export * from './types';
+export * from './constants';
+export * from './columns';
+export * from './filters';

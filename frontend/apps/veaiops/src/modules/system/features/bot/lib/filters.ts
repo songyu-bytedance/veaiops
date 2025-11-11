@@ -13,16 +13,16 @@
 // limitations under the License.
 
 /**
- * Bot管理筛选配置
+ * Bot管理Filter configuration
  */
-import { channelTypeOptions } from '@/modules/event-center/features/strategy/constants/options';
+import { channelTypeOptions } from '@ec/strategy';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
 import { ChannelType } from '@veaiops/api-client';
 
 /**
- * 筛选配置接口
+ * Filter configuration接口
  *
- * ✅ 兼容性更新：添加索引签名以兼容 BaseQuery 类型
+ * ✅ Compatibility update：Add index signature to be compatible with BaseQuery 类型
  */
 export interface BotFilters {
   status?: string;
@@ -70,7 +70,7 @@ export const BOT_QUERY_SEARCH_PARAMS_FORMAT = {
 };
 
 /**
- * Bot筛选配置 - CustomTable标准格式
+ * BotFilter configuration - CustomTable标准格式
  */
 export const getBotFilters = ({
   query,

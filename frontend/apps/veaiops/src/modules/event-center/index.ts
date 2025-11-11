@@ -12,32 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// 事件中心模块导出
+/**
+ * 事件中心模块统一导出
+ *
+ * ✅ 遵循 .cursorrules 规范：
+ * - 拒绝中转导出：不导出 shared、components
+ * - 只导出 features 和 pages（业务模块）
+ * - 使用方应该从具体模块导入：
+ *   - 常量：从 @ec/shared 导入
+ *   - 组件：从 @ec/components 或具体 feature 导入
+ * - 避免重复导出冲突
+ */
 
-// 功能模块导出
-export {
-  StrategyManagement,
-  StrategyTable,
-  StrategyModal,
-  StrategyDetailDrawer,
-  useStrategyManagementLogic,
-  SubscriptionManagement,
-  SubscriptionTable,
-  SubscriptionModal,
-  useSubscriptionManagementLogic,
-  SubscribeRelationPage,
-  HistoryManagement,
-  HistoryTable,
-  HistoryDetailDrawer,
-  useHistoryManagementLogic,
-  StatisticsManagement,
-  StatisticsOverview,
-  StatisticsCharts,
-  useStatisticsLogic,
-} from './features';
-
-// 页面级组件导出
+// 导出业务模块
+export * from './features';
 export * from './pages';
 
-// 共享资源导出
-export * from './shared';
+// ❌ 移除：避免重复导出冲突（EVENT_LEVEL_OPTIONS、UpdateTooltip、useSubscribeRelationFormLogic）
+// export * from './shared';
+// export * from './components';

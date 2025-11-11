@@ -13,15 +13,10 @@
 // limitations under the License.
 
 /**
- * 卡片模板管理逻辑统一导出
+ * Card Template Management Logic - Unified Exports
  *
- * 目录结构：
- * - logic.ts  - 管理逻辑 Hook（253 lines）
+ * Directory structure:
+ * - logic.ts  - Management logic Hook
  */
 
-// ✅ 简化文件名：use-management-logic.ts → management/logic.ts
-export {
-  useCardTemplateManagementLogic,
-  type UseCardTemplateManagementLogicParams,
-  type UseCardTemplateManagementLogicReturn,
-} from './logic';
+export * from './logic';

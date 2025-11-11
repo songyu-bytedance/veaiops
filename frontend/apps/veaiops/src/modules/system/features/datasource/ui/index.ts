@@ -12,27 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// 页面组件
-export { DetailModal } from './components/modals/detail-modal';
-export { default as MonitorTable } from './components/tables/monitor-table';
-export * from './pages/management';
+// ✅ 页面组件
+export * from './pages';
 
-// 图标组件
-export {
-  AliyunIcon,
-  getDataSourceIcon,
-  MonitorIcon,
-  VolcengineIcon,
-  ZabbixIcon,
-} from './components/icons';
-
-// 表格列配置
-export {
-  getAliyunColumns,
-  getCommonColumns,
-  getVolcengineColumns,
-  getZabbixColumns,
-} from './components/tables/columns';
-
-// 渲染器
-export * from './components/renderers';
+// ✅ 子组件（通过 components/index.ts 统一导出）
+export * from './components';

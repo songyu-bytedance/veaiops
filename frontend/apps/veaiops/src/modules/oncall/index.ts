@@ -12,13 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Oncall管理模块导出
+/**
+ * Oncall 模块统一导出
+ *
+ * 导出顺序遵循模块常量管理规范：
+ * 1. 模块级别的工具和配置（lib）
+ * 2. 功能模块（features）
+ */
+
+// 模块级别的工具和配置
+export * from './lib';
 
 // 功能模块导出
 export * from './features';
-
-// API导出
-export * from './api';
-
-// 共享资源导出
-export * from './shared';

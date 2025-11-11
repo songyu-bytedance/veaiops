@@ -59,10 +59,10 @@ export const useAccountManagementLogic = (
   };
 };
 
-// ✅ 注意：useAccountTableConfig 和 useAccountActionConfig 已拆分到独立文件
-// - useAccountTableConfig: ./use-account-table-config.ts
-// - useAccountActionConfig: ./use-account-action-config.ts
+// ✅ 注意：遵循单一数据源原则
+// - transformUserToTableData 已在 use-account/utils 中定义和导出
+// - 避免重复导出，此处不再导出
+// - 类型定义也在 use-account 中导出，此处不重复导出
 
-// 导出类型和工具函数
-export type { UserFormData, UpdateUserParams } from './types';
-export { transformUserToTableData } from './utils';
+// ❌ 移除：已在 use-account/types.ts 中定义和导出
+// export type { UserFormData, UpdateUserParams } from './types';

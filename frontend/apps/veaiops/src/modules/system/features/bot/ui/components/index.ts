@@ -35,10 +35,10 @@ export { ChatTable } from './chat/chat-table';
 export { ChatManagementDrawer } from './chat/management-drawer';
 
 // Attribute components
-export {
-  BotAttributesTable as AttributesTable,
-  default as BotAttributesTable,
-} from './attributes/attributes-table';
+// ✅ 修复重复导出：移除 BotAttributesTable 导出
+// - BotAttributesTable 已在 ui/attributes-table.tsx 中导出
+// - 避免与 ui/index.ts 的导出冲突
+// export { BotAttributesTable as AttributesTable, default as BotAttributesTable } from './attributes/attributes-table';
 export { AttributeDetailModal } from './attributes/detail-modal';
 export { AttributesTableContent } from './attributes/table-content';
 export type { AttributesTableContentProps } from './attributes/table-content';

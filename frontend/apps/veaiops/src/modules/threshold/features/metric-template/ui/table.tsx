@@ -17,7 +17,7 @@ import { logger, queryNumberFormat } from '@veaiops/utils';
 import type { MetricTemplate } from 'api-generate';
 import type React from 'react';
 import { useEffect, useRef } from 'react';
-import { useMetricTemplateTableConfig } from '../hooks/use-table-config';
+import { useMetricTemplateTableConfig } from '../hooks/table/config';
 
 const queryFormat = {
   metricType: queryNumberFormat,

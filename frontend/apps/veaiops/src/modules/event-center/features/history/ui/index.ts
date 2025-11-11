@@ -14,20 +14,14 @@
 
 /**
  * 历史事件 UI 组件统一导出
+ *
+ * 按照 Feature-Based 架构规范，UI 目录扁平化：
+ * - 主页面：management.tsx
+ * - 表格组件：table.tsx
+ * - 子组件：components/
  */
 
-export { HistoryManagement } from './pages';
-export { HistoryTable, HistoryDetailDrawer } from './components/table';
-
-// 导出子组件
-export * from './components/base';
-export * from './components/business';
-
-// 导出类型定义
-export * from './shared/types';
-
-// 导出常量
-export * from './shared/constants';
-
-// 导出工具函数
-export * from './shared/utils';
+// 导出所有 UI 组件
+export * from './management';
+export * from './table';
+export * from './components';

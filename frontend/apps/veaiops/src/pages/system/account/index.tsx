@@ -13,4 +13,4 @@
 // limitations under the License.
 
 // 重新导出账号管理页面组件
-export { AccountPage as default } from '@/modules/system';
+export { AccountManagement as default } from '@/modules/system';

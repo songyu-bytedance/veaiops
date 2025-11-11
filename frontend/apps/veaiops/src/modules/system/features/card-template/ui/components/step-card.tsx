@@ -239,4 +239,4 @@ const StepCard = ({ onClose: _onClose }: { onClose?: () => void }) => {
     </Space>
   );
 };
-export default StepCard;
+export { StepCard };

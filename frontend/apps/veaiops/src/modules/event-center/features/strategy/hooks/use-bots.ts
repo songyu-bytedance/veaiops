@@ -16,7 +16,7 @@ import apiClient from '@/utils/api-client';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useRequest } from 'ahooks';
 
-const useBotsList = () => {
+export const useBotsList = () => {
   const options = useRequest(async () => {
     const res = await apiClient.bots.getApisV1ManagerSystemConfigBots({
       skip: 0,
@@ -34,5 +34,3 @@ const useBotsList = () => {
   });
   return { ...options };
 };
-
-export default useBotsList;

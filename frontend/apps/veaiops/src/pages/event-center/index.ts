@@ -13,7 +13,6 @@
 // limitations under the License.
 
 export { default as EventCenterHistoryPage } from './history';
-export { default as EventCenterStatisticsPage } from './statistics';
 export { default as EventCenterStrategyPage } from './strategy';
 export { default as EventCenterSubscribeRelationPage } from './subscribe-relation';
 export { AGENT_OPTIONS_THRESHOLD_FILTER } from '@veaiops/constants';

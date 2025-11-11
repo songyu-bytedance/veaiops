@@ -14,6 +14,7 @@
 
 /**
  * Stats 功能模块统一导出
+ * 对应路由: /oncall/stats（值班统计）
  */
 
-export { OncallStatsPage } from './page';
+export * from './ui';

@@ -22,8 +22,10 @@
 
 // ✅ 优化：统一导出，文件名已简化
 export { useStrategyActionConfig } from './use-actions';
-export { useStrategyForm as useStrategyManagementLogic } from './use-form';
-// ✅ 简化文件名：use-strategy-table-config.tsx → use-table.tsx
+export {
+  useStrategyForm,
+  useStrategyForm as useStrategyManagementLogic,
+} from './use-strategy-form';
 export { useStrategyTableConfig } from './use-table';
 
 // ✅ 优化：统一导出类型（从 use-table.tsx）
@@ -34,9 +36,6 @@ export type {
   UseStrategyTableConfigReturn,
 } from './use-table';
 
-// 数据获取 Hooks
-export { default as useBotsList } from './use-bots';
-export { default as useChartsList, default as useChatsList } from './use-chats';
-
-// ✅ 根据 .cursorrules 规范：直接使用 InformStrategy（api-generate），不导出 StrategyTableData
-// InformStrategy 已满足 BaseRecord 约束（有索引签名），可直接用于 CustomTable
+// 数据获取 Hooks（直接导出，不做中转）
+export * from './use-bots';
+export * from './use-chats';

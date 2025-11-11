@@ -63,4 +63,4 @@ export const DetailView: React.FC<DetailViewProps> = ({ rule }) => {
   );
 };
 
-export type { DetailViewProps } from './types';
+export * from './types';

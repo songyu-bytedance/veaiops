@@ -26,10 +26,21 @@
  *   - attributes/: 属性相关子组件
  */
 
-// 主页面组件
-export { BotManagement, default } from './management';
-export { BotTable, default as BotTableDefault } from './table';
-export { BotAttributesTable } from './attributes-table';
+/**
+ * ✅ 修复重复导出冲突
+ *
+ * 问题：BotAttributesTable 在多处被导出
+ * - ./attributes-table.tsx 导出 BotAttributesTable
+ * - ./components/attributes/attributes-table 也导出 BotAttributesTable
+ *
+ * 解决方案：只从 ./attributes-table.tsx 导出（顶层组件）
+ * 移除从 ./components 的重复导出
+ */
 
-// 子组件（通过 components/index.ts 统一导出）
+// 主页面组件
+export * from './management';
+export * from './table';
+export * from './attributes-table';
+
+// 子组件（通过 components/index.ts 统一导出，避免重复）
 export * from './components';

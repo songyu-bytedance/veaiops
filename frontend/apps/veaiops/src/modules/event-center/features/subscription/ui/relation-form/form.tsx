@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ✅ 从源头导入 UpdateTooltip（event-center/components）
+import { UpdateTooltip } from '@/modules/event-center/components';
 import type { ModuleType } from '@/types/module';
 import apiClient from '@/utils/api-client';
 import { Drawer, Form } from '@arco-design/web-react';
@@ -25,7 +27,6 @@ import type {
 } from 'api-generate';
 import type React from 'react';
 import { useEffect } from 'react';
-import { UpdateTooltip } from '../update-tooltip';
 import { BasicFields, InterestFields, WebhookFields } from './components';
 import { useFormInitializer, useFormLogic } from './hooks';
 
@@ -159,4 +160,6 @@ const SubscribeRelationForm: React.FC<SubscribeRelationFormProps> = ({
   );
 };
 
+// ✅ 添加 named export
+export { SubscribeRelationForm };
 export default SubscribeRelationForm;

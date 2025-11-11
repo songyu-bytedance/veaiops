@@ -21,11 +21,7 @@ import type {
   AgentTemplateUpdateRequest,
 } from 'api-generate';
 import { useCallback, useState } from 'react';
-import {
-  createTemplate,
-  deleteTemplate,
-  updateTemplate,
-} from '../card-template';
+import { createTemplate, deleteTemplate, updateTemplate } from '../../lib/api';
 
 /**
  * 卡片模板管理逻辑Hook参数接口

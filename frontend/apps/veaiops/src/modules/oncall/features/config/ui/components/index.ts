@@ -12,11 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { BasicInfoAlert } from './basic-info-alert';
-export type { BasicInfoAlertProps } from './basic-info-alert';
-export { DetailView } from './detail-view';
-export type { DetailViewProps } from './detail-view';
-export { EditForm } from './edit-form';
-export type { EditFormProps } from './edit-form';
-// 列渲染组件导出
+export * from './basic-info-alert';
+export * from './detail-view';
+export * from './edit-form';
 export * from './columns';

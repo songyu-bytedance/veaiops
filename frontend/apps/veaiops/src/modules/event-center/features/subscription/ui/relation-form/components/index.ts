@@ -12,6 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { BasicFields } from './basic-fields';
-export { InterestFields } from './interest-fields';
-export { WebhookFields } from './webhook-fields';
+export * from './basic-fields';
+export * from './interest-fields';
+export * from './webhook-fields';

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { oncallRuleService } from '@oncall/api';
+import { ruleService } from '@oncall/lib';
 import {
   type CustomTableActionType,
   useBusinessTable,
@@ -68,7 +68,10 @@ export const useRulesData = ({ bots, ref }: UseRulesDataProps) => {
   const request = useMemo(
     () =>
       createTableRequestWithResponseHandler({
-        apiCall: async ({ botId, ...otherParams }) => {
+        apiCall: async ({
+          botId,
+          ...otherParams
+        }: { botId?: unknown; [key: string]: unknown }) => {
           if (!botId || typeof botId !== 'string') {
             return {
               code: API_RESPONSE_CODE.SUCCESS,
@@ -99,7 +102,7 @@ export const useRulesData = ({ bots, ref }: UseRulesDataProps) => {
               channelValue = String(selectedBot.channel);
             }
           }
-          const response = await oncallRuleService.getOncallRulesByAppId(
+          const response = await ruleService.getRulesByAppId(
             channelValue,
             botId,
             otherParams,

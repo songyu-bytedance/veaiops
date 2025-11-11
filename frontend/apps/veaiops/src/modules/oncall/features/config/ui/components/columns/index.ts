@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { RuleNameColumn } from './name';
-export { DescriptionColumn } from './description';
-export { RegexColumn } from './regex';
-export { InspectHistoryColumn } from './inspect-history';
-export { StatusColumn } from './status';
-export { OncallActionsColumn } from './actions';
+export * from './name';
+export * from './description';
+export * from './regex';
+export * from './inspect-history';
+export * from './status';
+export * from './actions';

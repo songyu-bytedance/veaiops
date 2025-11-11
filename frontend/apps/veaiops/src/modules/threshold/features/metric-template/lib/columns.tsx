@@ -28,7 +28,7 @@ import type { MetricTemplate, MetricType } from "api-generate";
 import {
   getMetricTypeTranslation,
   METRIC_TYPE_TRANSLATIONS,
-} from "./metric-type-translations";
+} from "./type-translations";
 
 // 解构CellRender组件，避免重复调用
 const { CustomOutlineTag } = CellRender;

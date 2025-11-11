@@ -19,7 +19,7 @@
 
 import { Modal } from '@arco-design/web-react';
 import type React from 'react';
-import StepCard from './step-card';
+import { StepCard } from './step-card';
 
 interface CardTemplateGuideProps {
   visible: boolean;

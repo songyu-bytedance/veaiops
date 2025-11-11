@@ -19,9 +19,10 @@ import { logger } from '@veaiops/utils';
 import type { SubscribeRelationWithAttributes } from 'api-generate';
 import type React from 'react';
 import { useCallback, useEffect, useRef } from 'react';
+// ✅ 修复：直接使用原始组件名，不使用别名（遵循"拒绝中转导出"原则）
 import {
-  SubscriptionModal,
-  SubscriptionTable,
+  SubscribeRelationForm,
+  SubscribeRelationTable,
   useSubscriptionManagementLogic,
 } from '../features/subscription';
 
@@ -181,7 +182,7 @@ const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
   return (
     <>
       {/* 事件订阅表格 */}
-      <SubscriptionTable
+      <SubscribeRelationTable
         ref={tableRef}
         moduleType={moduleType}
         onEdit={handleEdit}
@@ -191,11 +192,11 @@ const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
       />
 
       {/* 订阅表单弹窗 */}
-      <SubscriptionModal
+      <SubscribeRelationForm
         visible={modalVisible}
-        initialData={editingSubscription}
+        editData={editingSubscription}
         onSubmit={handleSubmit}
-        onCancel={handleCancel}
+        onClose={handleCancel}
         moduleType={moduleType}
         title={editingSubscription ? '编辑订阅' : '新建订阅'}
       />
@@ -210,4 +211,6 @@ const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
   );
 };
 
+// ✅ 添加 named export
+export { EventSubscriptionPage };
 export default EventSubscriptionPage;

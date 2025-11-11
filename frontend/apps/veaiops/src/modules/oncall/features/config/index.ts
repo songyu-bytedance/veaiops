@@ -17,4 +17,11 @@
  * 对应路由: /oncall/config（规则配置管理）
  */
 
-export { default as OncallConfigPage } from './page';
+// Hooks 导出
+export * from './hooks';
+
+// Lib 导出（类型、配置等）
+export * from './lib';
+
+// UI 组件导出
+export * from './ui';

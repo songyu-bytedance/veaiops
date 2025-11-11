@@ -18,6 +18,10 @@
  */
 import { logger } from '@veaiops/utils';
 
+// 卡片模板文件配置
+const CARD_TEMPLATE_FILENAME = 'VeAIOps.card';
+const CARD_TEMPLATE_URL = `/${CARD_TEMPLATE_FILENAME}`;
+
 /**
  * Generic method for downloading files (using fetch + Blob to avoid route interception in production)
  * @param url File URL
@@ -75,11 +79,8 @@ export const downloadFile = async (
  * @returns Promise<boolean> Whether the download was successful
  */
 export const downloadCardTemplate = async (): Promise<boolean> => {
-  const filename = 'VeAIOps.card';
   // ✅ Use absolute path (from root directory), nginx has configured .card as static resource
-  const url = '/VeAIOps.card';
-
-  return downloadFile(url, filename);
+  return downloadFile(CARD_TEMPLATE_URL, CARD_TEMPLATE_FILENAME);
 };
 
 /**
@@ -114,11 +115,13 @@ export const downloadCardTemplateWithCallback = async (
   onSuccess?: () => void,
   onError?: (error: Error) => void,
 ): Promise<boolean> => {
-  // ✅ Use absolute path (from root directory), nginx has configured .card as static resource
-  return downloadFileWithCallback(
-    CARD_TEMPLATE_URL,
-    CARD_TEMPLATE_FILENAME,
-    onSuccess,
-    onError,
-  );
+  // ✅ Reuse downloadCardTemplate, add callback handling
+  const success = await downloadCardTemplate();
+
+  if (success) {
+    onSuccess?.();
+  } else {
+    onError?.(new Error('File download failed'));
+  }
+  return success;
 };

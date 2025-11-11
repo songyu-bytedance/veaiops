@@ -40,7 +40,7 @@ const queryFormat = {
  * - 事件中心历史事件
  *
  * 特点：
- * - 统一的列配置：事件ID、智能体、状态、事件级别、项目、创建时间、更新时间
+ * - 统一的Column configuration：事件ID、智能体、状态、事件级别、项目、创建时间、更新时间
  * - 根据模块类型自动过滤智能体选项
  * - 支持自定义操作列
  * - 通过 props 注入 API 请求函数，避免在组件库层直接依赖应用层代码
@@ -58,7 +58,7 @@ export const EventHistoryTable: React.FC<EventHistoryTableProps> = ({
     throw new Error('EventHistoryTable: request prop is required');
   }
 
-  // 数据源配置
+  // Data source configuration
   const dataSource = useMemo(
     () => createServerPaginationDataSource({ request }),
     [request],
@@ -75,7 +75,7 @@ export const EventHistoryTable: React.FC<EventHistoryTableProps> = ({
     [],
   );
 
-  // 列配置
+  // Column configuration
   const handleColumns = useMemo(() => {
     return () => getEventHistoryColumns({ onViewDetail, customActions });
   }, [onViewDetail, customActions]);

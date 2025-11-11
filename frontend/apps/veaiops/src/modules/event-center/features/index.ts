@@ -13,42 +13,14 @@
 // limitations under the License.
 
 /**
- * 事件中心功能模块统一导出
- * 基于 CustomTable 的模范实践改造
+ * 事件中心所有功能模块统一导出
+ *
+ * ✅ 使用 export * from 统一导出所有 Feature
+ * - 避免重复导出和跨层级导出
+ * - 每个 Feature 通过自己的 index.ts 统一导出
  */
 
-// 策略管理功能
-export {
-  StrategyDetailDrawer,
-  StrategyManagement,
-  StrategyModal,
-  StrategyTable,
-  useStrategyManagementLogic,
-} from './strategy';
-
-// 订阅管理功能
-export {
-  SubscriptionManagement,
-  SubscriptionModal,
-  SubscriptionTable,
-  useSubscriptionManagementLogic,
-} from './subscription';
-
-// 历史事件功能
-export {
-  HistoryDetailDrawer,
-  HistoryManagement,
-  HistoryTable,
-  useHistoryManagementLogic,
-} from './history';
-
-// 统计管理功能
-export {
-  StatisticsCharts,
-  StatisticsManagement,
-  StatisticsOverview,
-  useStatisticsLogic,
-} from './statistics';
-
-// 订阅关系页面组件（单独导出，因为它有默认导出）
-export { default as SubscribeRelationPage } from './subscription/ui/relation-page';
+// 导出所有 Features
+export * from './history';
+export * from './strategy';
+export * from './subscription';

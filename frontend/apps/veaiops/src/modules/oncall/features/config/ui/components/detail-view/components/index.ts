@@ -12,9 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { BasicInfo } from './basic-info';
-export type { BasicInfoProps } from './basic-info';
-export { Examples } from './examples';
-export type { ExamplesProps } from './examples';
-export { RegexDisplay } from './regex-display';
-export type { RegexDisplayProps } from './regex-display';
+export * from './basic-info';
+export * from './examples';
+export * from './regex-display';

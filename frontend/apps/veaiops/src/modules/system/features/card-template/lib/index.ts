@@ -12,8 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { getCardTemplateColumns } from "./columns";
-export { getCardTemplateFilters } from "./filters";
+/**
+ * Card Template Module - Library Unified Exports
+ */
 
-// 注意：CHANNEL_TYPE_OPTIONS 已迁移到 @veaiops/constants，统一使用 CHANNEL_OPTIONS
-// 使用方式: import { CHANNEL_OPTIONS } from '@veaiops/constants';
+// Type definitions
+export * from './types';
+
+// API functions
+export * from './api';
+
+// Utility functions
+export * from './utils';
+
+// Column configurations
+export * from './columns';
+
+// Filter configurations
+export * from './filters';

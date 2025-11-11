@@ -13,48 +13,14 @@
 // limitations under the License.
 
 /**
- * 订阅管理功能统一导出
+ * 事件订阅功能模块统一导出
  *
- * ✅ 层层导出原则：通过功能模块 index.ts 统一导出所有子目录内容
- * - 从功能模块 index.ts 导入，路径最短（如 `@ec/subscription`）
- * - 每个子目录通过各自的 index.ts 统一导出
+ * ✅ 按照 Feature-Based 架构规范：
+ * - 使用 export * from 统一导出
+ * - 避免重复导出和跨层级导出
  */
 
-// ==================== Constants 导出 ====================
-export {
-  EVENT_LEVEL_OPTIONS,
-  EVENT_LEVEL_MAP,
-  EVENT_SHOW_STATUS_OPTIONS,
-  EVENT_SHOW_STATUS_MAP,
-  EVENT_STATUS_OPTIONS,
-  EVENT_STATUS_MAP,
-} from './constants';
-
-// ==================== Hooks 导出 ====================
-export {
-  useSubscribeRelationFormLogic,
-  useSubscriptionActionConfig,
-  useSubscriptionForm,
-  useSubscriptionManagementLogic,
-  useSubscriptionTable,
-  useSubscriptionTableConfig,
-  useWebhookManagement,
-  type SubscriptionQueryParams,
-  type UseSubscriptionTableConfigOptions,
-  type UseSubscriptionTableConfigReturn,
-} from './hooks';
-
-// ==================== Config 导出 ====================
-export { getSubscriptionColumns, getSubscriptionFilters } from './config';
-
-// ==================== Lib 导出 ====================
-export { subscriptionService, SubscriptionService } from './lib';
-
-// ==================== UI 组件导出 ====================
-export { default as SubscriptionTable } from './ui/subscription-table';
-export { default as SubscriptionModal } from './ui/subscription-modal';
-export { default as SubscriptionManagement } from './ui/subscription-management';
-export { SubscribeRelationForm, SubscribeRelationManager } from './ui';
-
-// ==================== 默认导出 ====================
-export { default } from './ui/subscription-management';
+// 导出顺序：Hooks → Lib → UI
+export * from './hooks';
+export * from './lib';
+export * from './ui';

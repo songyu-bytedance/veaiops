@@ -18,7 +18,7 @@ import type {
   HandleFilterProps,
 } from "@veaiops/components";
 import type { MetricTemplateFilterParams } from "./types";
-import { getMetricTypeOptions } from "./metric-type-translations";
+import { getMetricTypeOptions } from "./type-translations";
 
 /**
  * 指标模板筛选配置 - CustomTable标准格式

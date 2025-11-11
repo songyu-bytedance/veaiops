@@ -13,8 +13,17 @@
 // limitations under the License.
 
 /**
- * 指标模板Hooks统一导出
+ * Metric Template Hooks - Unified exports
  */
 
-// 主逻辑 Hook
-export * from './use-management';
+// CRUD operation hooks
+export * from './crud';
+
+// Form hooks
+export * from './form';
+
+// Management hooks
+export * from './management';
+
+// Table hooks
+export * from './table';

@@ -12,6 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { CardTemplateManagement } from './card-template';
-export { CardTemplateManagementConfig } from './card-template-config';
+export * from './management';
+export * from './management-config';
 export * from './components';

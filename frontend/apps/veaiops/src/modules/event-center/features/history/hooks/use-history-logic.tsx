@@ -86,7 +86,15 @@ export const useHistoryManagementLogic = () => {
  * - createServerPaginationDataSource: 创建服务器端分页数据源
  * - createStandardTableProps: 创建标准表格属性
  */
-export const useHistoryTableConfig = ({
+/**
+ * ❌ 移除导出：useHistoryTableConfig 已在 use-table-config.tsx 中定义
+ * - 避免重复导出冲突
+ * - 遵循单一数据源原则
+ *
+ * 注意：此函数仅在 use-history-logic.tsx 内部使用
+ * 如需使用完整的 useHistoryTableConfig，请从 use-table-config.tsx 导入
+ */
+const useHistoryTableConfigInternal = ({
   filters,
 }: {
   filters: HistoryFilters;

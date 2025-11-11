@@ -26,7 +26,7 @@ import { DrawerFormContent, useDrawerFormSubmit } from '@veaiops/utils';
 import type { MetricTemplate } from 'api-generate';
 import type React from 'react';
 import { METRIC_TEMPLATE_MANAGEMENT_CONFIG } from '../lib/config';
-import { getMetricTypeOptions } from '../lib/metric-type-translations';
+import { getMetricTypeOptions } from '../lib/type-translations';
 
 /**
  * 指标模板抽屉组件属性接口

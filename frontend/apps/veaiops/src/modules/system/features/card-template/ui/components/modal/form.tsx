@@ -47,4 +47,4 @@ const CardTemplateForm = ({ form }: { form: FormInstance }) => {
     </Form>
   );
 };
-export default CardTemplateForm;
+export { CardTemplateForm };

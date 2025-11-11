@@ -12,6 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { useCardTemplateManagementLogic } from './management';
-
-export { useCardTemplateTableConfig } from './table';
+export * from './management';
+export * from './table';

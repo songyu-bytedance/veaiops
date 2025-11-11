@@ -12,10 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// 导出 UI 组件
+// 导出 UI 组件（通过 ui/index.ts 统一导出，包含 AccountModal、AccountTable）
 export {
   AccountManagement,
   AccountModal,
+  AccountTable,
   transformApiUserToExtendedUser,
 } from './ui';
 

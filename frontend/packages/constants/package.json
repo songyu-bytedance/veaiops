@@ -6,9 +6,9 @@
   "types": "./src/index.ts",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "clean": "rm -rf dist"
+    "build": "echo 'No build needed - using source files directly'",
+    "dev": "echo 'No dev needed - using source files directly'",
+    "clean": "echo 'No clean needed'"
   },
   "dependencies": {
     "react": "^18.2.0",

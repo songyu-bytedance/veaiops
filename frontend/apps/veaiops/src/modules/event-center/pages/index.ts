@@ -13,7 +13,11 @@
 // limitations under the License.
 
 /**
- * 事件中心页面级组件导出
+ * 事件中心页面统一导出
+ *
+ * ✅ 遵循 .cursorrules 规范：
+ * - 使用 export { default as XXX } 导出默认组件
+ * - 避免重复导出
  */
 
 export { default as EventSubscriptionPage } from './event-subscription-page';

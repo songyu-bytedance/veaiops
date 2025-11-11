@@ -13,14 +13,17 @@
 // limitations under the License.
 
 /**
- * 历史事件 UI 组件统一导出
+ * 历史事件 UI 子组件统一导出
+ *
+ * 注意：仅导出 components/ 目录下的子组件
+ * - detail-drawer、management、table 在 ui/index.ts 中导出
  */
+
+// 导出详情抽屉
+export * from './detail-drawer';
 
 // 导出基础组件
 export * from './base';
 
 // 导出业务组件
 export * from './business';
-
-// 导出表格组件
-export * from './table';

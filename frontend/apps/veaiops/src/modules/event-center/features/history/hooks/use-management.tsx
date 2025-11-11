@@ -26,10 +26,13 @@ import { type AgentType, type Event, EventLevel } from 'api-generate';
 import { useMemo, useState } from 'react';
 
 /**
- * 历史事件管理逻辑Hook
- * 提供历史事件的状态管理和业务逻辑
+ * 历史事件管理逻辑Hook（内部使用）
+ *
+ * ❌ 移除导出：useHistoryManagementLogic 已在 use-history-logic.tsx 中定义
+ * - 避免重复导出冲突
+ * - 遵循单一数据源原则
  */
-export const useHistoryManagementLogic = () => {
+const useHistoryManagementLogicInternal = () => {
   const [filters, setFilters] = useState<HistoryFilters>({});
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [selectedRecord, setSelectedRecord] = useState<Event | null>(null);
@@ -59,10 +62,16 @@ export const useHistoryManagementLogic = () => {
 };
 
 /**
- * 历史事件表格配置Hook
- * 提供CustomTable所需的数据源配置
+ * 历史事件表格配置Hook（内部使用）
+ *
+ * ❌ 移除导出：useHistoryTableConfig 已在 use-table-config.tsx 中定义
+ * - 避免重复导出冲突
+ * - 遵循单一数据源原则
+ *
+ * 注意：此函数仅在 use-management.tsx 内部使用
+ * 如需使用完整的 useHistoryTableConfig，请从 use-table-config.tsx 导入
  */
-export const useHistoryTableConfig = ({
+const useHistoryTableConfigInternal = ({
   filters,
 }: {
   filters: HistoryFilters;
@@ -196,9 +205,13 @@ export const useHistoryTableConfig = ({
 };
 
 /**
- * 历史事件操作按钮配置Hook
+ * 历史事件操作按钮配置Hook（内部使用）
+ *
+ * ❌ 移除导出：useHistoryActionConfig 已在 use-history-logic.tsx 中定义
+ * - 避免重复导出冲突
+ * - 遵循单一数据源原则
  */
-export const useHistoryActionConfig = ({
+const useHistoryActionConfigInternal = ({
   loading = false,
 }: {
   loading?: boolean;

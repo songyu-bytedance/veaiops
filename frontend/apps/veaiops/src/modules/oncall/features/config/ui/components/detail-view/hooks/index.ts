@@ -12,5 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { useCopy } from './use-copy';
-export type { UseCopyParams, UseCopyReturn } from './use-copy';
+export * from './use-copy';

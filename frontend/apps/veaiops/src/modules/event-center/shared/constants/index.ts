@@ -14,3 +14,4 @@
 
 export * from './strategy';
 export * from './event-level';
+export * from './styles';

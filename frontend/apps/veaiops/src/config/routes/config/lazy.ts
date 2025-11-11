@@ -68,7 +68,6 @@ export const ThresholdPages = {
 // Event center module
 export const EventCenterPages = {
   History: lazy(() => import('@/pages/event-center/history')),
-  Statistics: lazy(() => import('@/pages/event-center/statistics')),
   Strategy: lazy(() => import('@/pages/event-center/strategy')),
   SubscribeRelation: lazy(
     () => import('@/pages/event-center/subscribe-relation'),

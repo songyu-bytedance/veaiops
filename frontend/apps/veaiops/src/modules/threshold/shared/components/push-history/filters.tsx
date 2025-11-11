@@ -12,12 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {
-  EVENT_LEVEL_OPTIONS,
-  EVENT_SHOW_STATUS_OPTIONS,
-} from '@/modules/event-center/features/subscription/constants/options';
 import { Message } from '@arco-design/web-react';
+import { EVENT_LEVEL_OPTIONS } from '@ec/shared';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
+import { EVENT_SHOW_STATUS_OPTIONS } from '@veaiops/constants';
 import {
   AGENT_OPTIONS_ONCALL_HISTORY,
   AGENT_OPTIONS_THRESHOLD_FILTER,

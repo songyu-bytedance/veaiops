@@ -14,14 +14,23 @@
 
 /**
  * 订阅管理 UI 组件统一导出
+ *
+ * ✅ 遵循 .cursorrules 规范：
+ * - 拒绝中转导出：不使用别名重新导出
+ * - 单一导出原则：只使用 export * from 统一导出
+ * - 使用方应该直接导入原始组件名
  */
 
-export { default as SubscriptionManagement } from './subscription-management';
-export { default as SubscriptionTable } from './subscription-table';
-export { default as SubscriptionModal } from './subscription-modal';
-export { getSubscriptionTableColumns } from './subscription-table-columns';
-export { useSubscriptionTableFilters } from './subscription-table-filters';
+// 导出所有 UI 组件
+export * from './management';
+export * from './table';
+export * from './relation-manager';
+export * from './relation-page';
+export * from './components';
+export * from './relation-form';
+export * from './subscribe-relation-table';
 
-// 订阅关系页面组件
-export { SubscribeRelationForm } from './relation-form';
-export { default as SubscribeRelationManager } from './relation-manager';
+// ✅ 重新导出 UpdateTooltip（从 event-center/components，用于向后兼容）
+// ❌ 根据 .cursorrules：拒绝中转导出，移除此行
+// 使用方应该从 @/modules/event-center/components 直接导入
+// export { UpdateTooltip } from '@/modules/event-center/components/update-tooltip';

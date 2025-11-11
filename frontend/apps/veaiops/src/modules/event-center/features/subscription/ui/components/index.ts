@@ -13,17 +13,16 @@
 // limitations under the License.
 
 /**
- * 订阅管理UI组件导出
+ * 订阅管理 UI 子组件统一导出
+ *
+ * 按照 .cursorrules 规范：
+ * - 按组件类型分组（configs/、forms/）
+ * - 文件名简洁（移除 -config、-form 后缀）
+ * - 利用目录上下文提供语义
  */
 
-export { UpdateTooltip } from '../update-tooltip';
+// 导出配置类组件
+export * from './configs';
 
-// 导出表单组件
-export { BasicInfoForm } from './basic-info-form';
-export { EventLevelConfig } from './event-level-config';
-export { InterestConfig } from './interest-config';
-export { NotificationConfig } from './notification-config';
-export { WebhookConfig } from './webhook-config';
-
-// 导出表格相关组件
-// export * from './tables'; // TODO: Add tables components if needed
+// 导出表单类组件
+export * from './forms';

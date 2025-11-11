@@ -12,12 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ✅ 修复：使用标准路径别名导入 UpdateTooltip
+// ✅ 从源头导入 UpdateTooltip（event-center/components）
+import { UpdateTooltip } from '@/modules/event-center/components';
 import apiClient from '@/utils/api-client';
 import { Form, Space } from '@arco-design/web-react';
 import type { FormInstance } from '@arco-design/web-react';
 import { Select } from '@veaiops/components';
 import type React from 'react';
-import { UpdateTooltip } from '../../update-tooltip';
 
 /**
  * 关注属性字段组件属性

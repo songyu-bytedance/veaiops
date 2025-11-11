@@ -12,10 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import {
-  ACTION_CATEGORY_LABELS,
-  INSPECT_CATEGORY_LABELS,
-} from '@oncall/shared';
+import { ACTION_CATEGORY_LABELS, INSPECT_CATEGORY_LABELS } from '@oncall/lib';
 import { Interest } from 'api-generate';
 
 /**

@@ -16,10 +16,10 @@
  * 卡片模板过滤器配置
  */
 
-import { channelTypeOptions } from '@/modules/event-center/features/strategy/constants/options';
+import { channelTypeOptions } from '@ec/strategy';
 import { AGENT_TYPE_OPTIONS } from '@veaiops/constants';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
-import type { AgentTemplateQuery } from '../types';
+import type { AgentTemplateQuery } from './types';
 
 /**
  * 卡片模板过滤器配置

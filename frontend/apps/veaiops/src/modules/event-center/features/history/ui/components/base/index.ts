@@ -12,8 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * 基础组件导出
- */
-
-export { CollapsibleSection } from './collapsible-section';
+export * from './collapsible-section';

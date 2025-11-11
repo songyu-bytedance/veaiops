@@ -15,7 +15,7 @@
 import { Message } from '@arco-design/web-react';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useCallback } from 'react';
-import { metricTemplateApi } from '../lib/api-service';
+import { metricTemplateApi } from '../lib/api';
 import type {
   MetricTemplateCreateRequest,
   MetricTemplateUpdateRequest,

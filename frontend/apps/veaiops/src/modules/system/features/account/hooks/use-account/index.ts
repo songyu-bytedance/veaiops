@@ -63,17 +63,8 @@ export const useAccount = (refreshTable?: () => Promise<boolean>) => {
   };
 };
 
-/**
- * 账号表格配置Hook
- * 提供数据源配置等（列配置已移至组件中处理）
- */
-export { useAccountTableConfig } from './hooks';
-
-/**
- * 账号操作按钮配置Hook
- * 提供表格工具栏操作按钮配置
- */
-export { useAccountActionConfig } from './hooks';
+// ✅ 通过 export * 统一导出所有 hooks（包括 useAccountTableConfig、useAccountActionConfig）
+export * from './hooks';
 
 export type {
   UserFormData,

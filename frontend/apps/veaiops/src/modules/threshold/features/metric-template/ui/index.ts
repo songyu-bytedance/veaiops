@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { MetricTemplateDetailDrawer } from './components/metric-template-detail-drawer';
-
 /**
- * 指标模板UI组件统一导出
+ * Metric Template UI Components - Unified Exports
  */
 
+// Export from components
+export * from './components';
 export { MetricTemplateTable } from './table';
 export { MetricTemplateDrawer } from './modal';
 export { default as MetricTemplateManagement } from './management';

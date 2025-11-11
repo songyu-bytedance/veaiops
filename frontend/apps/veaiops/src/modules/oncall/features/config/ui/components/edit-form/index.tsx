@@ -28,7 +28,7 @@ import {
   IconClose,
 } from '@arco-design/web-react/icon';
 import { formatSilenceDeltaString } from '@oncall-config/lib';
-import { ALERT_LEVEL_OPTIONS } from '@oncall/shared';
+import { ALERT_LEVEL_OPTIONS } from '@oncall/lib';
 import { CellRender } from '@veaiops/components';
 import { Interest } from 'api-generate';
 import type React from 'react';
@@ -248,4 +248,4 @@ export const EditForm: React.FC<EditFormProps> = ({
   );
 };
 
-export type { EditFormProps } from './types';
+export * from './types';
