@@ -19,7 +19,7 @@
 import { logger } from '@veaiops/utils';
 
 /**
- * 下载文件的通用方法
+ * 下载文件的通用方法（fetch + Blob 方式，避免线上路由拦截）
  * @param url 文件URL
  * @param filename 下载的文件名
  * @returns Promise<boolean> 下载是否成功
@@ -29,14 +29,26 @@ export const downloadFile = async (
   filename: string,
 ): Promise<boolean> => {
   try {
+    // ✅ 使用 fetch 获取文件内容，避免线上环境路由拦截
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
     const link = document.createElement('a');
-    link.href = url;
+    link.href = blobUrl;
     link.download = filename;
     link.style.display = 'none';
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    // 清理 Blob URL
+    URL.revokeObjectURL(blobUrl);
 
     return true;
   } catch (error: unknown) {
@@ -64,8 +76,11 @@ export const downloadFile = async (
  */
 export const downloadCardTemplate = async (): Promise<boolean> => {
   const filename = 'VeAIOps.card';
+  // ✅ 修复：线上环境使用绝对路径，避免路由拦截
   const url =
-    process.env.NODE_ENV === 'development' ? '/VeAIOps.card' : './VeAIOps.card';
+    process.env.NODE_ENV === 'development'
+      ? '/VeAIOps.card'
+      : `${window.location.origin}/VeAIOps.card`;
 
   return downloadFile(url, filename);
 };
@@ -102,10 +117,11 @@ export const downloadCardTemplateWithCallback = async (
   onSuccess?: () => void,
   onError?: (error: Error) => void,
 ): Promise<boolean> => {
-  return downloadFileWithCallback(
-    process.env.NODE_ENV === 'development' ? '/VeAIOps.card' : './VeAIOps.card',
-    'VeAIOps.card',
-    onSuccess,
-    onError,
-  );
+  // ✅ 修复：线上环境使用绝对路径，避免路由拦截
+  const url =
+    process.env.NODE_ENV === 'development'
+      ? '/VeAIOps.card'
+      : `${window.location.origin}/VeAIOps.card`;
+
+  return downloadFileWithCallback(url, 'VeAIOps.card', onSuccess, onError);
 };
