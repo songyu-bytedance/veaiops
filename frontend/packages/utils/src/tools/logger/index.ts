@@ -32,4 +32,4 @@ export * from './export';
 export * from './log-exporter';
 
 // Export enhanced collector (optional, avoid circular dependency)
-export { enhancedCollector } from './enhanced-collector';
+export { enhancedCollector } from './collector';

@@ -43,7 +43,7 @@ const getEnhancedCollector = () => {
   if (enhancedCollectorInstance === null && typeof window !== 'undefined') {
     try {
       // Lazy import to avoid circular dependency
-      const imported = require('./enhanced-collector');
+      const imported = require('./collector');
       enhancedCollectorInstance = imported.enhancedCollector;
     } catch {
       enhancedCollectorInstance = false;
@@ -89,8 +89,6 @@ class Logger {
   private enableStorage = true;
 
   private sessionId: string;
-
-  private hasLoggedEnvOnce = false;
 
   constructor(config: LoggerConfig = {}) {
     this.maxLogs = config.maxLogs || 2000;
@@ -203,25 +201,14 @@ class Logger {
       this.logs = this.logs.slice(-this.maxLogs);
     }
 
-    // Output to console (only in development environment)
-    // ✅ Non-development environments: only collect logs, do not print to console
-    const shouldOutputToConsole =
-      this.enableConsole && process.env.NODE_ENV === 'development';
-
-    // 🔍 Debug: Log environment check result (only once per session, dev only)
-    if (!this.hasLoggedEnvOnce && process.env.NODE_ENV === 'development') {
-      this.hasLoggedEnvOnce = true;
-      console.log(
-        '[Logger] First log - enableConsole:',
-        this.enableConsole,
-        '| NODE_ENV:',
-        process.env.NODE_ENV,
-        '| shouldOutput:',
-        shouldOutputToConsole,
-      );
-    }
-
-    if (shouldOutputToConsole) {
+    // ✅ Console output disabled by default for all environments
+    // Logs are collected in memory and can be exported via:
+    //   - window.__veaiopsUtilsLogger.exportLogsAsJSON()
+    //   - window.__veaiopsUtilsLogger.exportLogsAsText()
+    //   - window.__veaiopsUtilsLogger.getLogs()
+    // To enable console output temporarily:
+    //   - window.__veaiopsUtilsLogger.configure({ enableConsole: true })
+    if (this.enableConsole) {
       const timestamp = formatTimestamp(entry.timestamp);
       const prefix = `[${timestamp}][${entry.source}${
         component ? `/${component}` : ''
@@ -570,7 +557,7 @@ class Logger {
 // Create global logger instance
 export const logger = new Logger({
   maxLogs: 2000,
-  enableConsole: true,
+  enableConsole: false, // ✅ Disabled by default for all environments (only collect logs)
   enableStorage: false, // Default: local storage not enabled
 });
 
@@ -578,17 +565,7 @@ export const logger = new Logger({
 if (typeof window !== 'undefined') {
   (window as any).__veaiopsUtilsLogger = logger;
 
-  // 🔍 Debug: Print environment info on initialization (dev only)
-  if (process.env.NODE_ENV === 'development') {
-    console.log(
-      '[Logger] Environment:',
-      process.env.NODE_ENV,
-      '| Console output:',
-      'ENABLED',
-    );
-  }
-
-  // ✅ Automatically start enhanced collector (development environment)
+  // ✅ Auto-start enhanced collector in development environment (optional)
   if (process.env.NODE_ENV === 'development') {
     setTimeout(() => {
       try {
@@ -596,14 +573,8 @@ if (typeof window !== 'undefined') {
         if (collector?.startCollection) {
           collector.startCollection();
         }
-      } catch (error) {
+      } catch {
         // If startup fails, silently handle (enhanced collector is optional)
-        if (process.env.NODE_ENV === 'development') {
-          console.warn(
-            '[Logger] Enhanced collector startup failed (optional feature)',
-            error instanceof Error ? error.message : String(error),
-          );
-        }
       }
     }, 0);
   }

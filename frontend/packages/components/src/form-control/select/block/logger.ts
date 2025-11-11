@@ -254,7 +254,7 @@ export class SelectBlockLogger {
   constructor(config: Partial<LoggerConfig> = {}) {
     this.config = {
       level: LogLevel.DEBUG,
-      enableConsole: true,
+      enableConsole: false, // ✅ Disabled by default for all environments (only collect logs)
       enableStorage: true,
       maxEntries: 1000,
       moduleName: 'SelectBlock',
