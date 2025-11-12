@@ -23,12 +23,13 @@ import { CellRender } from '@veaiops/components';
 import type { Interest } from 'api-generate';
 import type React from 'react';
 
-import type { UseCopyReturn } from '../hooks';
+// ✅ 修复：从正确路径导入（detail-view 下没有 hooks 目录）
+import type { UseCopyReturn } from '../../../../hooks';
 import {
   formatActionCategoryText,
   formatInspectCategoryText,
   formatInspectHistory,
-} from '../utils';
+} from '../../../../lib';
 
 const { StampTime } = CellRender;
 

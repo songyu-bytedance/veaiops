@@ -13,11 +13,13 @@
 // limitations under the License.
 
 import type React from 'react';
-import { TaskManagement } from './ui';
+import { TaskManagement } from './management';
 
 /**
  * 智能阈值任务配置页面
  * @description 管理智能阈值任务的创建、执行、监控和告警规则配置
+ *
+ * ✅ 修复：TaskManagement 从 './management' 导入（不是 './ui'）
  */
 export const TaskConfigPage: React.FC = () => {
   return <TaskManagement />;

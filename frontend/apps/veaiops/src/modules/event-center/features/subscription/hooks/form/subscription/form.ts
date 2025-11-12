@@ -45,47 +45,6 @@ export { createDefaultTimeRange, parseTimeRange } from './time-range-utils';
  * @param config - Hook配置参数
  * @returns Hook返回值
  *
- * @example
- * ```tsx
- * function SubscriptionModal({ visible, initialData, onSubmit, onCancel }) {
- *   const { form, loading, handleSubmit } = useSubscriptionForm({
- *     visible,
- *     initialData,
- *     moduleType: 'oncall',
- *   });
- *
- *   const handleFormSubmit = async () => {
- *     const success = await handleSubmit(
- *       onSubmit,
- *       onCancel,
- *       webhookHeaders,
- *       enableWebhook
- *     );
- *
- *     // 可以根据返回值执行后续操作
- *     if (success) {
- *       // 提交成功，可以执行其他操作
- *     } else {
- *       // 提交失败
- *     }
- *   };
- *
- *   return (
- *     <Drawer visible={visible}>
- *       <Form form={form}>
- *         // ... 表单字段
- *       </Form>
- *       <Button
- *         loading={loading}
- *         onClick={handleFormSubmit}
- *       >
- *         提交
- *       </Button>
- *     </Drawer>
- *   );
- * }
- * ```
- *
  * @remarks
  * 这个Hook会在以下情况下重新初始化表单：
  * - visible 状态变化

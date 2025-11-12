@@ -14,16 +14,15 @@
 
 /**
  * Monitor 相关配置统一导出
+ *
+ * ✅ 修复：导出根目录的 monitor-* 文件，而不是子目录文件
  */
 
-// 导出类型定义（原 monitor-table-types.ts）
-export * from './types';
-
 // 导出请求配置（原 monitor-table-request.ts）
-export * from './request';
+export * from '../monitor-request';
 
 // 导出表格配置（原 monitor-table-config.ts）
-export * from './config';
+export * from '../monitor-config';
 
 // 导出筛选器配置（原 monitor-filters.ts）
-export * from './filters';
+export * from '../monitor-filters';

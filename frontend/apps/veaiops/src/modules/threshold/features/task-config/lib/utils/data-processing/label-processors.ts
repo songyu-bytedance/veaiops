@@ -12,12 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { TimeseriesBackendItem } from '../lib/validators';
+// ✅ 修复：从正确路径导入类型
+import type { TimeseriesBackendItem } from './validators';
 
 /**
  * 从 labels 对象中获取指定 key 的值
+ *
+ * ❌ 改为内部函数：避免与 parsers.ts 中的 getLabelValue 冲突
+ * - 遵循单一数据源原则
+ * - parsers.ts 中的 getLabelValue 更通用，被 data-point-processor 使用
+ * - 此处作为内部辅助函数使用
  */
-export const getLabelValue = ({
+const getLabelValue = ({
   obj,
   key,
 }: {

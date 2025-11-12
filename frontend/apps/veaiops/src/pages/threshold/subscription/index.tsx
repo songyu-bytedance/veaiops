@@ -12,21 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { EventSubscriptionPage } from '@/modules/event-center/pages';
 import { ModuleType } from '@/types/module';
+import { SubscriptionManagement } from '@ec/subscription';
 import type React from 'react';
 
 /**
- * 智能阈值 - 事件订阅页面
- * @description 显示智能体订阅规则管理（智能阈值Agent），支持筛选和管理事件订阅
+ * Intelligent threshold - subscription page
  *
- * 功能对照（与 /oncall/rules 保持一致）：
- * - 筛选器：名称、智能体（智能阈值Agent）、事件级别、是否开启WEBHOOK
- * - 表格列：名称、生效开始时间、生效结束时间、事件级别、是否开启WEBHOOK、WEBHOOK地址、操作
+ * @description Display agent subscription rules management (Threshold Agent)
+ *
+ * Features:
+ * - Filters: name, agent (Threshold Agent), event level, webhook enabled
+ * - Columns: name, start time, end time, event level, webhook status, webhook URL, actions
  */
 const ThresholdSubscriptionPage: React.FC = () => {
   return (
-    <EventSubscriptionPage moduleType={ModuleType.INTELLIGENT_THRESHOLD} />
+    <SubscriptionManagement moduleType={ModuleType.INTELLIGENT_THRESHOLD} />
   );
 };
 

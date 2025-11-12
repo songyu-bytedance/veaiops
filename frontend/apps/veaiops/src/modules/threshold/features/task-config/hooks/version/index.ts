@@ -18,11 +18,17 @@
  * ✅ 已从 ui/version/hooks 重构至此处
  *
  * 职能范围：
+ * - history: 版本历史管理
  * - table-renderer: 表格渲染器
  * - alarm-drawer: 告警抽屉管理
  * - rerun-drawer: 重跑抽屉管理
+ * - table-config: 版本表格配置（从 ../table 重新导出）
  */
 
+export {
+  useVersionHistory,
+  type UseVersionHistoryReturn,
+} from './history';
 export {
   useAlarmDrawer,
   useCreateAlarmCallback,
@@ -32,3 +38,7 @@ export {
   useTaskVersionTableRenderer,
   type TaskVersionTableRendererProps,
 } from './table-renderer';
+
+// ✅ 重新导出 useTaskVersionTableConfig（从 table 职能）
+// 用于向后兼容 ui/version/table.tsx 的导入
+export { useTaskVersionTableConfig } from '../table/version';

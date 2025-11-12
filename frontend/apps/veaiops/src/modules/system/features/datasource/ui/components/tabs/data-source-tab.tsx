@@ -14,9 +14,10 @@
 
 import { Badge, Space, Tabs } from '@arco-design/web-react';
 import { DATA_SOURCE_TYPES } from '@datasource/lib';
+// ✅ 修复：tables 在 ui/ 下（从 ui/components/tabs/ 到 ui/tables/）
+import { MonitorTable, type MonitorTableRef } from '@datasource/ui/tables';
 import type { DataSource, DataSourceType } from '@veaiops/api-client';
 import type React from 'react';
-import { MonitorTable, type MonitorTableRef } from '../tables';
 
 const { TabPane } = Tabs;
 

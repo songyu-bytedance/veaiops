@@ -12,21 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { EventSubscriptionPage } from '@/modules/event-center/pages';
 import { ModuleType } from '@/types/module';
+import { SubscriptionManagement } from '@ec/subscription';
 import type React from 'react';
 
 /**
- * 事件中心订阅关系页面
- * @description 显示事件订阅管理（智能体订阅规则），支持筛选和管理
+ * Event center subscription page
  *
- * 功能对照（与 origin/feat/web-v2 保持一致）：
- * - 筛选器：名称、智能体（内容识别Agent + 智能阈值Agent）、事件级别、是否开启WEBHOOK、关注项目
- * - 表格列：名称、智能体、生效开始时间、生效结束时间、事件级别、是否开启WEBHOOK、WEBHOOK地址、操作
- * - 默认筛选：智能体 = 内容识别Agent
+ * @description Display event subscription management (agent subscription rules)
+ *
+ * Features:
+ * - Filters: name, agent (Interest Agent + Threshold Agent), event level, webhook enabled, projects
+ * - Columns: name, agent, start time, end time, event level, webhook status, webhook URL, actions
+ * - Default filter: agent = Interest Agent
  */
 const EventCenterSubscribeRelation: React.FC = () => {
-  return <EventSubscriptionPage moduleType={ModuleType.EVENT_CENTER} />;
+  return <SubscriptionManagement moduleType={ModuleType.EVENT_CENTER} />;
 };
 
 export default EventCenterSubscribeRelation;

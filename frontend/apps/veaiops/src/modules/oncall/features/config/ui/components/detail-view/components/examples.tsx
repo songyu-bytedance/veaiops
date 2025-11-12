@@ -20,7 +20,9 @@ import {
 } from '@arco-design/web-react/icon';
 import { type React, useCallback } from 'react';
 
-import type { UseCopyReturn } from '../hooks';
+// ✅ 修复：从正确路径导入
+// ✅ 优化：使用路径别名替代深层相对路径
+import type { UseCopyReturn } from '@oncall-config/hooks';
 
 /**
  * 示例展示组件属性

@@ -14,8 +14,8 @@
 
 /* generated using openapi-typescript-codegen -- do not edit */
 import type { BaseHttpRequest } from './core/base-http-request';
-import type { OpenAPIConfig } from './core/open-api';
 import { FetchHttpRequest } from './core/fetch-http-request';
+import type { OpenAPIConfig } from './core/open-api';
 import { AgentTemplateService } from './services/agent-template-service';
 import { AuthenticationService } from './services/authentication-service';
 import { BotAttributesService } from './services/bot-attributes-service';

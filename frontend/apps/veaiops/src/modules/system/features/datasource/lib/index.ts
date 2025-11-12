@@ -14,10 +14,11 @@
 
 /**
  * 数据源管理模块工具函数和服务统一导出
+ *
+ * ✅ 修复：移除 types.ts 导出（类型应该从 @datasource/types 导入）
+ * - 遵循单一数据源原则
+ * - lib/ 不应包含类型定义，所有类型在 types/ 目录
  */
-
-// 导出类型定义
-export * from "./types";
 
 // 本地常量定义（模块特定）
 export * from "./constants";

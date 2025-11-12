@@ -17,7 +17,9 @@ import { IconCode, IconCopy } from '@arco-design/web-react/icon';
 import { Interest } from 'api-generate';
 import type React from 'react';
 
-import type { UseCopyReturn } from '../hooks';
+// ✅ 修复：从正确路径导入
+// ✅ 优化：使用路径别名替代深层相对路径
+import type { UseCopyReturn } from '@oncall-config/hooks';
 
 /**
  * 正则表达式展示组件属性

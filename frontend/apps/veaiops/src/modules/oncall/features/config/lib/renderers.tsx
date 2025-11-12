@@ -221,10 +221,15 @@ export const formatRegex = (regex: string) => {
 
 /**
  * 格式化检测历史
+ *
+ * ❌ 移除重复定义：此函数已在 formatters.ts 中定义
+ * - 遵循单一数据源原则
+ * - formatters.ts 的实现更完整（处理 undefined/null）
+ * - 使用方应该从 formatters.ts 导入
  */
-export const formatInspectHistory = (count: number) => {
-  return count ? `${count} 条` : "-";
-};
+// export const formatInspectHistory = (count: number) => {
+//   return count ? `${count} 条` : "-";
+// };
 
 /**
  * 格式化创建时间

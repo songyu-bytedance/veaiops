@@ -13,10 +13,9 @@
 // limitations under the License.
 
 import { Message } from '@arco-design/web-react';
+import { importProjects } from '@project/lib';
+import { ProjectImportDrawer } from '@project/ui';
 import { useState } from 'react';
-import { importProjects } from '../../../system/features/project/lib/api';
-// ✅ 修复：import-drawer 而不是 project-import-drawer
-import { ProjectImportDrawer } from '../../../system/features/project/ui/import-drawer';
 import type {
   UseProjectImportConfig,
   UseProjectImportReturn,

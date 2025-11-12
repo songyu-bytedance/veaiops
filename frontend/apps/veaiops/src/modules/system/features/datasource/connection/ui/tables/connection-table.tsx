@@ -17,14 +17,13 @@
  */
 
 import { Empty } from '@arco-design/web-react';
+import { TABLE_CONFIG } from '@datasource/connection/lib';
+import type { DataSourceConnectionTableProps } from '@datasource/connection/types';
+import type { Connect } from '@veaiops/api-client';
 import { CustomTable } from '@veaiops/components';
 import { createLocalDataSource } from '@veaiops/utils';
-import type { Connect } from '@veaiops/api-client';
-import React, { useMemo } from 'react';
-import {
-  type DataSourceConnectionTableProps,
-  TABLE_CONFIG,
-} from '@datasource/connection/types';
+import type React from 'react';
+import { useMemo } from 'react';
 import { getTableColumns } from './table-columns';
 import { getTableFilters } from './table-filters';
 

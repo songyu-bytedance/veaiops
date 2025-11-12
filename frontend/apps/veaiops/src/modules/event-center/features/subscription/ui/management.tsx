@@ -12,164 +12,200 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { useSubscribeRelation } from '@/hooks/use-subscribe-relation';
-import {
-  type ModuleType,
-  detectModuleTypeFromPath,
-  getModuleConfig,
-} from '@/types/module';
-import { useLocation } from '@modern-js/runtime/router';
+import type { ModuleType } from '@/types/module';
+import { useSubscriptionManagementLogic } from '@ec/subscription/hooks';
+import type { CustomTableActionType } from '@veaiops/components';
+import type { BaseQuery, BaseRecord } from '@veaiops/types';
 import { logger } from '@veaiops/utils';
-import type {
-  SubscribeRelationCreate,
-  SubscribeRelationUpdate,
-  SubscribeRelationWithAttributes,
-} from 'api-generate';
-// ✅ 同源合并：react
-import React, { useEffect, useMemo, useState } from 'react';
-import { SubscribeRelationForm } from './relation-form';
-import { SubscribeRelationTable } from './subscribe-relation-table/subscribe-relation-table';
+import type { SubscribeRelationWithAttributes } from 'api-generate';
+import type React from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import { SubscribeRelationForm } from './form';
+import { SubscriptionTable } from './table';
 
-interface SubscriptionManagementProps {
+/**
+ * Event subscription page props
+ */
+interface EventSubscriptionPageProps {
+  /** Module type (used to filter agent options) */
   moduleType?: ModuleType;
 }
 
 /**
- * 订阅管理页面
- * 提供订阅关系的增删改查功能 - 与 origin/feat/web-v2 保持一致
+ * Event subscription page
  *
- * 架构特点：
- * - 使用 useSubscribeRelation Hook 管理数据
- * - 使用 SubscribeRelationForm 抽屉组件
- * - 使用 SubscribeRelationTable 表格组件
- * - CRUD 操作与 origin/feat/web-v2 完全一致
+ * @description Unified event subscription management page, supports different module types
+ * - Event Center: Display "Interest Agent" + "Threshold Agent"
+ * - Oncall: Display "Interest Agent" only
+ *
+ * Features:
+ * - Agent filtering (display different options based on module type)
+ * - Event level filtering (P0/P1/P2/P3)
+ * - Webhook switch and URL configuration
+ * - Effective time range settings
+ * - Complete CRUD operations
+ *
+ * Components:
+ * - SubscriptionTable: Display event subscriptions
+ * - SubscribeRelationForm: Form modal for create/edit
+ * - useSubscriptionManagementLogic: Business logic hook
  */
-const SubscriptionManagement: React.FC<SubscriptionManagementProps> = ({
+const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
   moduleType,
 }) => {
-  const location = useLocation();
+  // Table component ref (for accessing refresh function)
+  const tableRef = useRef<CustomTableActionType<BaseRecord, BaseQuery>>(null);
 
-  // 根据路由自动判断模块类型
-  const detectedModuleType = useMemo(() => {
-    if (moduleType) {
-      return moduleType;
-    }
+  // Track callback reference changes (for debugging)
+  const prevHandleEditRef = useRef<unknown>(null);
+  const prevHandleDeleteRef = useRef<unknown>(null);
+  const prevHandleAddRef = useRef<unknown>(null);
 
-    return detectModuleTypeFromPath(location.pathname);
-  }, [moduleType, location.pathname]);
-
-  // 根据模块类型设置页面标题
-  const pageTitle = useMemo(() => {
-    const config = getModuleConfig(detectedModuleType);
-    return config.pageTitle;
-  }, [detectedModuleType]);
-
-  // 使用订阅关系管理hook
-  const {
-    loading,
-    fetchSubscribeRelations,
-    createSubscribeRelation,
-    updateSubscribeRelation,
-    deleteSubscribeRelation,
-  } = useSubscribeRelation(detectedModuleType);
-
-  // 表单抽屉状态
-  const [formVisible, setFormVisible] = useState(false);
-  const [editingData, setEditingData] =
-    useState<SubscribeRelationWithAttributes | null>(null);
-
-  /**
-   * 编辑订阅关系
-   */
-  const handleEdit = (record: SubscribeRelationWithAttributes) => {
-    setEditingData(record);
-    setFormVisible(true);
-  };
-
-  /**
-   * 删除订阅关系
-   */
-  const handleDelete = async (id: string) => {
-    await deleteSubscribeRelation(id);
-  };
-
-  /**
-   * 创建新的订阅关系
-   */
-  const handleCreate = () => {
-    setEditingData(null);
-    setFormVisible(true);
-  };
-
-  /**
-   * 处理表单提交
-   */
-  const handleFormSubmit = async (
-    data: SubscribeRelationCreate | SubscribeRelationUpdate,
-  ) => {
+  // Wrap refresh function to ensure it returns Promise<boolean>
+  // useSubscriptionManagementLogic expects () => Promise<boolean>
+  // but tableRef.current?.refresh?.() returns Promise<void> | undefined
+  const refreshTable = useCallback(async (): Promise<boolean> => {
     try {
-      if (editingData?._id) {
-        // 编辑模式
-        return await updateSubscribeRelation({ id: editingData._id, data });
-      } else {
-        // 创建模式
-        return await createSubscribeRelation(data);
-      }
+      await tableRef.current?.refresh?.();
+      return true;
     } catch (error: unknown) {
-      // ✅ 注意：错误已在 Hook 中处理，此处静默处理是预期的行为
-      // 使用 logger 记录调试信息（logger 内部会处理开发环境判断）
       const errorObj =
         error instanceof Error ? error : new Error(String(error));
-      logger.debug({
-        message: '表单提交错误（已在 Hook 中处理）',
+      logger.error({
+        message: '刷新表格失败',
         data: {
           error: errorObj.message,
           stack: errorObj.stack,
           errorObj,
         },
-        source: 'SubscriptionManagement',
-        component: 'handleFormSubmit',
+        source: 'EventSubscriptionPage',
+        component: 'refreshTable',
       });
       return false;
     }
-  };
+  }, []);
 
-  /**
-   * 关闭表单抽屉
-   */
-  const handleFormClose = () => {
-    setFormVisible(false);
-    setEditingData(null);
-  };
+  // Use subscription management logic hook
+  const {
+    modalVisible,
+    editingSubscription,
+    // form is not used, but returned by useSubscriptionManagementLogic, kept for interface consistency
+    form: _form,
+    handleEdit,
+    handleAdd,
+    handleCancel,
+    handleSubmit,
+    handleDelete,
+  } = useSubscriptionManagementLogic(refreshTable);
 
-  // 页面加载时获取订阅关系数据
+  // Track handleEdit reference changes (for debugging)
   useEffect(() => {
-    fetchSubscribeRelations();
-  }, [fetchSubscribeRelations]);
+    if (prevHandleEditRef.current !== handleEdit) {
+      logger.debug({
+        message: '[EventSubscriptionPage] handleEdit reference changed',
+        data: {
+          prevHandleEdit: prevHandleEditRef.current,
+          currentHandleEdit: handleEdit,
+        },
+        source: 'EventSubscriptionPage',
+        component: 'useEffect',
+      });
+      prevHandleEditRef.current = handleEdit;
+    }
+  }, [handleEdit]);
+
+  // Track handleDelete reference changes (for debugging)
+  useEffect(() => {
+    if (prevHandleDeleteRef.current !== handleDelete) {
+      logger.debug({
+        message: '[EventSubscriptionPage] handleDelete reference changed',
+        data: {
+          prevHandleDelete: prevHandleDeleteRef.current,
+          currentHandleDelete: handleDelete,
+        },
+        source: 'EventSubscriptionPage',
+        component: 'useEffect',
+      });
+      prevHandleDeleteRef.current = handleDelete;
+    }
+  }, [handleDelete]);
+
+  // Track handleAdd reference changes (for debugging)
+  useEffect(() => {
+    if (prevHandleAddRef.current !== handleAdd) {
+      logger.debug({
+        message: '[EventSubscriptionPage] handleAdd reference changed',
+        data: {
+          prevHandleAdd: prevHandleAddRef.current,
+          currentHandleAdd: handleAdd,
+        },
+        source: 'EventSubscriptionPage',
+        component: 'useEffect',
+      });
+      prevHandleAddRef.current = handleAdd;
+    }
+  }, [handleAdd]);
+
+  // Track modalVisible changes (changes when clicking add subscription)
+  useEffect(() => {
+    logger.debug({
+      message: '[EventSubscriptionPage] modalVisible changed',
+      data: {
+        modalVisible,
+        hasEditingSubscription: Boolean(editingSubscription),
+      },
+      source: 'EventSubscriptionPage',
+      component: 'useEffect',
+    });
+  }, [modalVisible, editingSubscription]);
+
+  // View subscription details (reserved feature)
+  // Note: Detail drawer feature not yet implemented, only logging here
+  const handleView = useCallback(
+    (subscription: SubscribeRelationWithAttributes) => {
+      logger.debug({
+        message: 'View subscription details (feature pending)',
+        data: {
+          subscriptionId: subscription._id,
+          subscription,
+        },
+        source: 'EventSubscriptionPage',
+        component: 'handleView',
+      });
+    },
+    [],
+  );
 
   return (
     <>
-      <SubscribeRelationTable
-        moduleType={detectedModuleType}
-        title={pageTitle}
-        showModuleTypeColumn={true}
-        onCreate={handleCreate}
+      {/* Event subscription table */}
+      <SubscriptionTable
+        ref={tableRef}
+        moduleType={moduleType}
         onEdit={handleEdit}
         onDelete={handleDelete}
-        onRefresh={() => fetchSubscribeRelations()}
-        loading={loading}
+        onAdd={handleAdd}
+        onView={handleView}
       />
 
-      {/* 订阅关系表单抽屉 */}
+      {/* Subscription form modal */}
       <SubscribeRelationForm
-        visible={formVisible}
-        onClose={handleFormClose}
-        onSubmit={handleFormSubmit}
-        editData={editingData}
-        moduleType={detectedModuleType}
+        visible={modalVisible}
+        initialData={editingSubscription}
+        onSubmit={handleSubmit}
+        onCancel={handleCancel}
+        moduleType={moduleType}
+        title={editingSubscription ? '编辑订阅' : '新建订阅'}
       />
+
+      {/* TODO: Detail drawer - can be added if needed */}
+      {/* <SubscriptionDetailDrawer
+        visible={detailVisible}
+        data={viewingSubscription}
+        onClose={handleDetailClose}
+      /> */}
     </>
   );
 };
 
-export default SubscriptionManagement;
+export default EventSubscriptionPage;

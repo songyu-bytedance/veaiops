@@ -27,9 +27,10 @@
 // limitations under the License.
 
 import { Form } from '@arco-design/web-react';
+// ✅ 优化：使用路径别名替代深层相对路径
+import { useBotCreateForm } from '@bot/hooks/form/create-form';
 import type { BotFormData } from '@bot/types';
 import type React from 'react';
-import { useBotCreateForm } from '../../../../hooks/form/create-form';
 import { ChatOpsConfig } from '../chat-ops-config';
 import { BasicConfig } from './sections/basic-config';
 import { FormActions } from './sections/form-actions';

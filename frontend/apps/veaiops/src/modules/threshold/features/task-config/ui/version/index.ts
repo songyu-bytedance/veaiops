@@ -17,7 +17,9 @@ export * from './columns';
 export * from './filters';
 export * from './types';
 
-// ✅ 从 hooks/version 导入（已从 ui/version/hooks 重构至此）
+// ✅ 从正确的 hooks 子目录导入
+// - hooks/version: 版本历史管理相关
+// - hooks/table: 表格配置相关
 export {
   useAlarmDrawer,
   useCreateAlarmCallback,
@@ -25,3 +27,6 @@ export {
   useTaskVersionTableRenderer,
   type TaskVersionTableRendererProps,
 } from '../../hooks/version';
+
+// ✅ 从 hooks/table 导入表格配置
+export { useTaskVersionTableConfig } from '../../hooks/table';

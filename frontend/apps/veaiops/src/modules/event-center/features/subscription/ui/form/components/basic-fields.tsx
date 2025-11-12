@@ -14,7 +14,7 @@
 
 import type { ModuleType } from '@/types/module';
 // ✅ 同源合并：@arco-design/web-react
-import { Form, Input, type FormInstance } from '@arco-design/web-react';
+import { Form, type FormInstance, Input } from '@arco-design/web-react';
 import { Select } from '@veaiops/components';
 import type React from 'react';
 

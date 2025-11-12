@@ -12,4 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export * from './columns';
+// ✅ 导出清洗结果列配置 Hook
+export { useCleaningResultColumns } from './columns';

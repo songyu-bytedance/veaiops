@@ -13,16 +13,16 @@
 // limitations under the License.
 
 import { convertUtcToLocal, getUserTimezone, logger } from '@veaiops/utils';
-import type { TimeseriesDataPoint } from '../../types';
-import type { ThresholdConfig } from '../lib/threshold-processors';
+import type { TimeseriesDataPoint } from '@task-config/types';
+import type { TimeseriesBackendItem } from '../types';
+import type { ThresholdConfig } from './threshold-processors';
 import { extractThresholdConfig } from './threshold-processors';
+import { getLabelValue, generateSeriesIdentifier } from './label-processors';
+import { parseToNumber } from './parsers';
 import {
-  parseToNumber,
   validateTimestamp,
   validateValueRange,
-} from '../lib/validators';
-import type { TimeseriesBackendItem } from '../lib/validators';
-import { generateSeriesIdentifier } from './label-processors';
+} from './validators';
 
 /**
  * Handle data points for a single time series item

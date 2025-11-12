@@ -12,6 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export * from './filters';
-export * from './subscribe-relation-table';
-export * from './table-columns';
+/**
+ * 订阅关系表单组件导出
+ *
+ * ✅ 遵循单一导出原则：
+ * - 只使用 export * from 统一导出，避免重复
+ * - 拒绝中转导出和多次导出
+ */
+
+// 导出表单组件（包括 SubscribeRelationForm）
+export * from './form';
+
+// 导出子组件
+export * from './components';

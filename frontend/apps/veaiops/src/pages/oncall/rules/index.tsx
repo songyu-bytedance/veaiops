@@ -12,20 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { EventSubscriptionPage } from '@/modules/event-center/pages';
 import { ModuleType } from '@/types/module';
+import { SubscriptionManagement } from '@ec/subscription';
 import type React from 'react';
 
 /**
- * Oncall异动 - 事件订阅页面
- * @description 显示智能体订阅规则管理（内容识别Agent），支持筛选和管理事件订阅
+ * Oncall - subscription page
  *
- * 功能对照（与 origin/feat/web-v2 保持一致）：
- * - 筛选器：名称、智能体（内容识别Agent）、事件级别、是否开启WEBHOOK
- * - 表格列：名称、生效开始时间、生效结束时间、事件级别、是否开启WEBHOOK、WEBHOOK地址、操作
+ * @description Display agent subscription rules management (Interest Agent)
+ *
+ * Features:
+ * - Filters: name, agent (Interest Agent), event level, webhook enabled
+ * - Columns: name, start time, end time, event level, webhook status, webhook URL, actions
  */
 const OncallRulesPage: React.FC = () => {
-  return <EventSubscriptionPage moduleType={ModuleType.ONCALL} />;
+  return <SubscriptionManagement moduleType={ModuleType.ONCALL} />;
 };
 
 export default OncallRulesPage;

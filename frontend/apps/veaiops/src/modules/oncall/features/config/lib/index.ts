@@ -15,5 +15,11 @@
 export * from './columns';
 export * from './renderers';
 export * from './types';
-// ✅ 修复：导出格式化工具函数
-export * from './formatters';
+// ✅ 修复：选择性导出，避免 formatInspectHistory 冲突（renderers 中已注释）
+export {
+  formatActionCategoryText,
+  formatInspectCategoryText,
+  formatInspectHistory,
+  formatActionCategoryTextWithLabel,
+  formatInspectCategoryTextWithLabel,
+} from './formatters';

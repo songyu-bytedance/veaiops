@@ -14,6 +14,8 @@
 
 import { Form } from '@arco-design/web-react';
 import type { FormInstance } from '@arco-design/web-react/es/Form';
+// ✅ 修复：从正确路径导入（hooks 统一导出，包含 version）
+import { useVersionHistory } from '@task-config/hooks';
 import type { TaskOperateType } from '@task-config/lib';
 import type {
   IntelligentThresholdTask,
@@ -24,7 +26,6 @@ import { type React, useEffect, useState } from 'react';
 import { CleaningResultDrawer } from '../cleaning';
 import { MainTaskDrawer, MetricConfigDrawer } from '../components/drawers';
 import { MetricDetailConfig, RerunFormConfig } from '../components/forms';
-import { useVersionHistory } from '../../hooks';
 
 /**
  * 任务抽屉组件属性接口

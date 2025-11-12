@@ -41,3 +41,17 @@ export const validateTimeseriesItem = (
 
   return true;
 };
+
+/**
+ * 验证时间戳有效性
+ */
+export const validateTimestamp = (value: unknown): value is number => {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0;
+};
+
+/**
+ * 验证数值范围
+ */
+export const validateValueRange = (value: number): boolean => {
+  return Number.isFinite(value) && Math.abs(value) < 1e15;
+};

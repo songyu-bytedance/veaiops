@@ -14,7 +14,12 @@
 
 /**
  * Tables - 统一导出入口
- * 职责：导出所有表格组件及其相关配置
+ * 职责：导出所有表格组件和列配置
+ *
+ * ⚠️ 注意：与 upstream/main 保持一致
+ * - 列配置函数定义在 ui/tables/columns/index.ts 中
+ * - 通过此文件统一导出，供 ui/index.ts 使用
+ * - TODO: 未来可重构，将列配置函数移至 lib/columns/ 目录
  */
 
 // 导出表格组件
@@ -24,15 +29,12 @@ export {
   type MonitorTableRef,
 } from './monitor';
 
-// 导出列配置
+// 导出列配置（与 upstream/main 保持一致）
+// ✅ 修复：只导出存在的列配置函数
 export {
   getCommonColumns,
   getZabbixColumns,
   getAliyunColumns,
   getVolcengineColumns,
-  getBaseColumns,
   getActionColumn,
 } from './columns';
-
-// 导出类型
-export type { DeleteHandler, ViewHandler, EditHandler } from './columns';

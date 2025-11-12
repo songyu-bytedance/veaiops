@@ -26,7 +26,8 @@ import type {
   SubscribeRelationWithAttributes,
 } from 'api-generate';
 // ✅ 同源合并：react
-import React, { useEffect } from 'react';
+import type React from 'react';
+import { useEffect } from 'react';
 // ✅ 修复：使用相对路径导入（同一 feature 内，最短路径）
 import { useFormInitializer, useFormLogic } from '../../hooks/form/relation';
 import { BasicFields, InterestFields, WebhookFields } from './components';

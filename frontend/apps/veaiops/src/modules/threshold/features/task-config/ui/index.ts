@@ -15,8 +15,8 @@
 // 主页面组件
 export { TaskManagement } from './management';
 
-// ✅ 修复：page.tsx 已从 feature 根目录移至 ui/
-export { default as TaskConfigPage } from './page';
+// ✅ 修复：page.tsx 使用 named export（不是 default export）
+export { TaskConfigPage } from './page';
 
 // 任务相关
 export * from './task';

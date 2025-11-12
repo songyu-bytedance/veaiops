@@ -15,13 +15,17 @@
 import { Drawer } from '@arco-design/web-react';
 import type { FormInstance } from '@arco-design/web-react/es/Form';
 import type { OperationType } from '@task-config/lib';
+import {
+  getDrawerTitle,
+  getDrawerWidth,
+  isFormOperation,
+} from '@task-config/lib/utils';
 import { DrawerFormContent, logger } from '@veaiops/utils';
 import type {
   IntelligentThresholdTask,
   IntelligentThresholdTaskVersion,
 } from 'api-generate';
 import { type React, useEffect } from 'react';
-import { getDrawerTitle, getDrawerWidth, isFormOperation } from '../../utils';
 import { TaskDrawerTitle } from '../displays';
 import { TaskDrawerContent } from './drawer-content';
 import { TaskDrawerFooter } from './drawer-footer';

@@ -56,19 +56,10 @@ export interface UseTaskTableConfigOptions {
 }
 
 /**
- * 任务配置表格配置返回值
+ * ❌ 移除重复定义：UseTaskTableConfigReturn 已在 table/config.tsx 中定义
+ * - 遵循单一数据源原则
+ * - 使用方应该从 '../table' 或 '@task-config/hooks' 导入：
+ *   import type { UseTaskTableConfigReturn } from '../table';
+ * - table/config.tsx 的类型定义更标准（使用 useBusinessTable）
  */
-export interface UseTaskTableConfigReturn {
-  dataSource: Record<string, unknown>;
-  tableProps: Record<string, unknown>;
-  tableEventHandlers: {
-    onEdit: (task: IntelligentThresholdTask) => void;
-    onRerun: (task: IntelligentThresholdTask) => void;
-    onViewVersions: (task: IntelligentThresholdTask) => void;
-    onCreateAlarm: (task: IntelligentThresholdTask) => void;
-    onCopy: (task: IntelligentThresholdTask) => void;
-    onAdd: () => void;
-    onBatchRerun: () => void;
-  };
-  tableActions: TaskTableActions;
-}
+// export interface UseTaskTableConfigReturn { ... }

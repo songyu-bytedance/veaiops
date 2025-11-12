@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { TimeseriesDataPoint } from '../../types';
-import { parseToNumber } from '../utils';
+import type { TimeseriesDataPoint } from '@task-config/types';
+import { parseToNumber } from './parsers';
 
 /**
  * 处理阈值配置
@@ -48,9 +48,13 @@ export const processThresholds = ({
 };
 
 /**
- * 为所有唯一的时间戳添加阈值线
+ * 为所有唯一的时间戳添加阈值线（内部函数）
+ *
+ * ❌ 改为内部函数：避免与 data-processors.ts 中的 addThresholdLines 冲突
+ * - 遵循单一数据源原则
+ * - data-processors.ts 中的实现是对外导出的版本
  */
-export const addThresholdLines = ({
+const addThresholdLines = ({
   allTimestamps,
   hasUpperBound,
   hasLowerBound,

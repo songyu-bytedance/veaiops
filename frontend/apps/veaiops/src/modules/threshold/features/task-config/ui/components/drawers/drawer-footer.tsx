@@ -15,8 +15,8 @@
 import { Button, Space } from '@arco-design/web-react';
 import type { FormInstance } from '@arco-design/web-react/es/Form';
 import type { OperationType } from '@task-config/lib';
+import { getButtonText, isReadOnlyOperation } from '@task-config/lib/utils';
 import type React from 'react';
-import { getButtonText, isReadOnlyOperation } from '../../utils';
 
 interface TaskDrawerFooterProps {
   operationType: OperationType;

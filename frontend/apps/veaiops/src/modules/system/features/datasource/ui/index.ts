@@ -28,13 +28,9 @@ export {
   ZabbixIcon,
 } from './components/icons';
 
-// 表格列配置
-export {
-  getAliyunColumns,
-  getCommonColumns,
-  getVolcengineColumns,
-  getZabbixColumns,
-} from './tables/columns';
+// ✅ 修复：移除列配置中转导出（遵循 .cursorrules 拒绝中转导出原则）
+// 这些函数定义在 ui/tables/columns/，只在 datasource 模块内部使用
+// 使用方应该直接从 ./tables/columns 导入
 
 // 渲染器
 export * from './components/renderers';

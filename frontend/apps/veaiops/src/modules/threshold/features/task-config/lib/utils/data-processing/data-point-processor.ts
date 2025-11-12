@@ -13,14 +13,18 @@
 // limitations under the License.
 
 import { logger } from '@veaiops/utils';
-import type { TimeseriesDataPoint } from '../../types';
-import type { ConversionStats, TimeseriesBackendItem } from '../types';
-import { getLabelValue, parseToNumber } from '../utils';
+import type { TimeseriesDataPoint } from '@task-config/types';
+import type { ConversionStats, TimeseriesBackendItem } from './types';
+// ✅ 修复：从本地文件导入
+import { parseToNumber } from './parsers';
+import { getLabelValue } from './label-processors';
 
 /**
- * 处理单个数据点
+ * 处理单个数据点（内部函数）
+ *
+ * ❌ 改为内部函数：避免与 data-processors.ts 冲突
  */
-export const processDataPoint = ({
+const processDataPoint = ({
   rawTimestamp,
   rawValue,
   seriesIndex,
@@ -114,9 +118,13 @@ export const processDataPoint = ({
 };
 
 /**
- * 处理时间序列项
+ * 处理时间序列项（内部函数）
+ *
+ * ❌ 改为内部函数：避免与 data-processors.ts 中的 processTimeseriesItem 冲突
+ * - 遵循单一数据源原则
+ * - data-processors.ts 中的实现是对外导出的版本
  */
-export const processTimeseriesItem = ({
+const processTimeseriesItemInternal = ({
   item,
   seriesIndex,
   stats,

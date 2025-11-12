@@ -12,15 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { CustomTableActionType } from '@veaiops/components';
-import type { BaseQuery, BaseRecord } from '@veaiops/types';
-import React, { useRef } from 'react';
+// ✅ 优化：使用路径别名替代相对路径，同源导入合并
 import {
   useAlarmDrawer,
   useRerunDrawer,
   useTaskVersionTableConfig,
   useTaskVersionTableRenderer,
-} from '../../hooks/version';
+} from '@task-config/hooks';
+import type { CustomTableActionType } from '@veaiops/components';
+import type { BaseQuery, BaseRecord } from '@veaiops/types';
+import type React from 'react';
+import { useRef } from 'react';
 import type { TaskVersionTableProps } from './types';
 
 const TaskVersionTable: React.FC<TaskVersionTableProps> = ({

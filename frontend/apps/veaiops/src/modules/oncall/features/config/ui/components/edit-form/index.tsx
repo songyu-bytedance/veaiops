@@ -28,17 +28,17 @@ import {
   IconClose,
 } from '@arco-design/web-react/icon';
 import { formatSilenceDeltaString } from '@oncall-config/lib';
-import { ALERT_LEVEL_OPTIONS } from '@oncall/shared';
+import { ALERT_LEVEL_OPTIONS } from '@oncall/lib';
 import { CellRender } from '@veaiops/components';
 import { Interest } from 'api-generate';
 import type React from 'react';
 
-// ✅ 修复：从 lib 导入类型和工具函数（相对路径，最短路径）
+// ✅ 优化：使用路径别名替代深层相对路径
 import {
+  type EditFormProps,
   formatActionCategoryTextWithLabel as formatActionCategoryText,
   formatInspectCategoryTextWithLabel as formatInspectCategoryText,
-  type EditFormProps,
-} from '../../../lib';
+} from '@oncall-config/lib';
 import { ExampleInput } from './components';
 
 /**

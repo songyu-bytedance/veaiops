@@ -13,8 +13,8 @@
 // limitations under the License.
 
 import apiClient from '@/utils/api-client';
-import { API_RESPONSE_CODE } from '@veaiops/constants';
 import type { IntelligentThresholdTaskVersion } from '@veaiops/api-client';
+import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useEffect, useState } from 'react';
 import type { TaskVersionFiltersQuery } from '../../ui/version/filters';
 
@@ -95,3 +95,8 @@ export const useVersionHistory = (
     refetch: taskId ? () => fetchVersionHistory(taskId, filters) : undefined,
   };
 };
+
+/**
+ * 版本历史 Hook 返回类型
+ */
+export type UseVersionHistoryReturn = ReturnType<typeof useVersionHistory>;

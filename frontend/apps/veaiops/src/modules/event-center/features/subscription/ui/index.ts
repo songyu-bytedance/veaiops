@@ -13,24 +13,22 @@
 // limitations under the License.
 
 /**
- * 订阅管理 UI 组件统一导出
+ * Subscription management UI components export
  *
- * ✅ 遵循 .cursorrules 规范：
- * - 拒绝中转导出：不使用别名重新导出
- * - 单一导出原则：只使用 export * from 统一导出
- * - 使用方应该直接导入原始组件名
+ * Architecture:
+ * - table.tsx: Main subscription list table (SubscriptionTable)
+ * - form/: Subscription relation form (SubscribeRelationForm)
+ * - components/: Shared UI components (configs, forms)
+ *
+ * Usage:
+ * - All components are used by EventSubscriptionPage
+ * - Import via: import { SubscriptionTable, SubscribeRelationForm } from '@ec/subscription'
  */
 
-// 导出所有 UI 组件
-export * from './management';
+// Main components
 export * from './table';
-export * from './relation-manager';
-export * from './relation-page';
-export * from './components';
-export * from './relation-form';
-export * from './subscribe-relation-table';
+export * from './form';
+export { default as SubscriptionManagement } from './management';
 
-// ✅ 重新导出 UpdateTooltip（从 event-center/components，用于向后兼容）
-// ❌ 根据 .cursorrules：拒绝中转导出，移除此行
-// 使用方应该从 @/modules/event-center/components 直接导入
-// export { UpdateTooltip } from '@/modules/event-center/components/update-tooltip';
+// Shared components
+export * from './components';

@@ -12,7 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { StrategyScheduleConfig } from '../../../event-center';
+// ✅ 优化：跨模块导入使用路径别名（threshold → event-center）
+import type { StrategyScheduleConfig } from '@/modules/event-center';
 
 export interface ThresholdRule {
   id: string;

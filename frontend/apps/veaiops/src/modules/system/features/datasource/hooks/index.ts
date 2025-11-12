@@ -17,15 +17,15 @@
  *
  * 按职能分层（遵循 .cursorrules 模式B）：
  * - monitor/: 监控管理职能
- * - datasource/: 数据源管理职能
- * - pages/: 页面管理职能
+ * - management/: 数据源管理职能（原 datasource/）
+ * - page/: 页面管理职能（guide、tab、url-params）
  */
 
 // Monitor 职能
 export * from './monitor';
 
-// DataSource 职能
-export * from './datasource';
+// 数据源管理职能（原 datasource/）
+export * from './management';
 
-// Pages 职能
-export * from './pages';
+// 页面管理职能
+export * from './page';

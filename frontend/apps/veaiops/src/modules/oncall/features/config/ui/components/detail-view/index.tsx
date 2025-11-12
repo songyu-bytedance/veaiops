@@ -15,9 +15,10 @@
 import { Interest } from 'api-generate';
 import type React from 'react';
 
-// ✅ 修复：从 lib 和 hooks 导入（相对路径，最短路径）
-import { useCopy } from '../../../hooks';
-import type { DetailViewProps } from '../../../lib';
+// ✅ 同一 feature 内使用相对路径（符合 .cursorrules 原则1）
+// 使用路径别名：@oncall-config/hooks, @oncall-config/lib
+import { useCopy } from '@oncall-config/hooks';
+import type { DetailViewProps } from '@oncall-config/lib';
 import { BasicInfo, Examples, RegexDisplay } from './components';
 
 /**
@@ -63,5 +64,3 @@ export const DetailView: React.FC<DetailViewProps> = ({ rule }) => {
     </div>
   );
 };
-
-export * from './types';

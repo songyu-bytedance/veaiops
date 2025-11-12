@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { logger } from '@veaiops/utils';
-import type { TimeseriesDataPoint } from '../../types';
+import type { TimeseriesDataPoint } from '@task-config/types';
 import type { ConversionStats } from '../types';
 
 /**

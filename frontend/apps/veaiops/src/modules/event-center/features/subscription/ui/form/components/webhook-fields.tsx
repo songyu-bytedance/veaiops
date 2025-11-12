@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // ✅ 同源合并：@arco-design/web-react
-import { Form, Input, Switch, type FormInstance } from '@arco-design/web-react';
+import { Form, type FormInstance, Input, Switch } from '@arco-design/web-react';
 import type React from 'react';
 
 /**

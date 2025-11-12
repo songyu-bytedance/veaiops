@@ -21,6 +21,7 @@
  * - form/: 表单处理
  * - timeseries/: 时序数据
  * - version/: 版本管理（✅ 从 ui/version/hooks 移至此处）
+ * - cleaning/: 清洗结果表格列配置（✅ 从 ui/cleaning/hooks 移至此处）
  * - auto-refresh/: 自动刷新（通用）
  */
 
@@ -41,6 +42,9 @@ export * from './version';
 
 // Task UI 层 Hooks（✅ 已从 ui/task/hooks 重构至此）
 export * from './task';
+
+// 清洗结果职能（✅ 已从 ui/cleaning/hooks 重构至此）
+export * from './cleaning';
 
 // 自动刷新（通用工具）
 export {

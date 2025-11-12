@@ -15,9 +15,19 @@
 /**
  * Connection 子模块类型定义统一导出
  *
- * ✅ 遵循 .cursorrules 规范：类型独立到 types/ 目录
+ * ✅ 遵循 .cursorrules 规范：
+ * - types/ 目录只包含类型定义
  * - global.ts: 全局类型（原 lib/global-types.ts）
  * - business.ts: 业务类型（原 lib/types.ts）
+ *
+ * ✅ 说明：TABLE_CONFIG 常量已在 lib/constants.ts 中定义
+ * - 通过 connection/lib/index.ts 统一导出（export * from "./constants"）
+ * - 使用方应该从 @datasource/connection/lib 导入：
+ *   import { TABLE_CONFIG } from '@datasource/connection/lib';
+ *
+ * 遵循规范：
+ * - 单层导出：types/index.ts 只导出 types 目录内容
+ * - 拒绝中转导出：不跨层级从 lib/ 重新导出常量
  */
 
 // 全局类型

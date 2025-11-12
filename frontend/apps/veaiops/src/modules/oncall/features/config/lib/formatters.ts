@@ -17,11 +17,13 @@
  * ✅ 修复：从 ui/components/detail-view/utils.ts 和 ui/components/edit-form/utils.ts 合并到 lib/formatters.ts
  */
 
+// ✅ 修复：从正确路径导入常量
+// ACTION_CATEGORY_LABELS 和 INSPECT_CATEGORY_LABELS 在 oncall/lib/constants.ts
+import { Interest } from 'api-generate';
 import {
   ACTION_CATEGORY_LABELS,
   INSPECT_CATEGORY_LABELS,
-} from '@oncall/shared';
-import { Interest } from 'api-generate';
+} from '../../../lib';
 
 /**
  * 格式化告警类别显示文本
