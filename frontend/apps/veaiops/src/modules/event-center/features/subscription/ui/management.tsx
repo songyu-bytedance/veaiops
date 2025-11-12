@@ -24,15 +24,15 @@ import { SubscribeRelationForm } from './form';
 import { SubscriptionTable } from './table';
 
 /**
- * Event subscription page props
+ * Subscription management page props
  */
-interface EventSubscriptionPageProps {
+interface SubscriptionManagementProps {
   /** Module type (used to filter agent options) */
   moduleType?: ModuleType;
 }
 
 /**
- * Event subscription page
+ * Subscription management page
  *
  * @description Unified event subscription management page, supports different module types
  * - Event Center: Display "Interest Agent" + "Threshold Agent"
@@ -50,7 +50,7 @@ interface EventSubscriptionPageProps {
  * - SubscribeRelationForm: Form modal for create/edit
  * - useSubscriptionManagementLogic: Business logic hook
  */
-const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
+export const SubscriptionManagement: React.FC<SubscriptionManagementProps> = ({
   moduleType,
 }) => {
   // Table component ref (for accessing refresh function)
@@ -207,5 +207,3 @@ const EventSubscriptionPage: React.FC<EventSubscriptionPageProps> = ({
     </>
   );
 };
-
-export default EventSubscriptionPage;

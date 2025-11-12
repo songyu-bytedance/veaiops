@@ -28,7 +28,7 @@
 // Main components
 export * from './table';
 export * from './form';
-export { default as SubscriptionManagement } from './management';
+export * from './management';
 
 // Shared components
 export * from './components';
