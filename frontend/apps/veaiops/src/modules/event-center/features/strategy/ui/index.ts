@@ -22,7 +22,7 @@
  */
 
 // 导出所有 UI 组件
-export { default as StrategyManagement } from './management';
+export { StrategyManagement } from './management';
 export * from './table';
 export * from './detail-drawer';
 export * from './form';

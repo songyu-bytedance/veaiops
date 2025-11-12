@@ -262,5 +262,5 @@ export const MonitorAccessManagement: React.FC<MonitorAccessProps> = (
   );
 };
 
-// 默认导出，用于向后兼容
-export default MonitorAccessManagement;
+// Named export (following .cursorrules Named Export standard)
+export { MonitorAccessManagement as DataSourceManagement };

@@ -17,7 +17,7 @@
  */
 
 // 导出主要组件
-export { default as MetricTemplateManagement } from './ui/management';
+export { MetricTemplateManagement } from './ui/management';
 
 // 导出其他UI组件
 export { MetricTemplateTable } from './ui';

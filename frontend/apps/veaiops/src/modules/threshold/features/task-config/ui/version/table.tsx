@@ -61,4 +61,4 @@ const TaskVersionTable: React.FC<TaskVersionTableProps> = ({
   );
 };
 
-export default TaskVersionTable;
+export { TaskVersionTable };

@@ -12,4 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { default as MetricTemplateForm } from './metric-template-form';
+export { MetricTemplateForm } from './metric-template-form';

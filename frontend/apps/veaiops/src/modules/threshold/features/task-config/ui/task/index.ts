@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { default as TaskDrawer, renderRerunForm } from './drawer';
+export { TaskDrawer, renderRerunForm } from './drawer';
 export { TaskTable, type TaskTableRef } from './table';
 export type { TaskTableProps } from './types';
 export * from './config';

@@ -20,8 +20,8 @@ import type {
   MetricThresholdResult,
 } from 'api-generate';
 import { type React, useMemo } from 'react';
-import { TaskDrawerTitle } from '../components/displays';
 import { useCleaningResultColumns } from '../../hooks';
+import { TaskDrawerTitle } from '../components/displays';
 
 /**
  * 清洗结果抽屉属性接口
@@ -124,4 +124,4 @@ const CleaningResultDrawer: React.FC<CleaningResultDrawerProps> = ({
   );
 };
 
-export default CleaningResultDrawer;
+export { CleaningResultDrawer };

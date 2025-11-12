@@ -235,4 +235,4 @@ const MetricTemplateForm: FC<MetricTemplateFormProps> = ({
   );
 };
 
-export default MetricTemplateForm;
+export { MetricTemplateForm };

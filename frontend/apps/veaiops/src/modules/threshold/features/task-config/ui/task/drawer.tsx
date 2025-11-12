@@ -141,4 +141,4 @@ export const TaskDrawer: React.FC<TaskDrawerProps> = ({
   );
 };
 
-export default TaskDrawer;
+export { TaskDrawer };

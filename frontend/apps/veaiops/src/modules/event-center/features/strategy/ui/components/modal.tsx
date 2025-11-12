@@ -91,4 +91,4 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({
   );
 };
 
-export default StrategyModal;
+export { StrategyModal };

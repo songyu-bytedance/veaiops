@@ -178,4 +178,4 @@ export const ChatTable = forwardRef<ChatTableRef, ChatTableProps>(
 
 ChatTable.displayName = 'ChatTable';
 
-export default ChatTable;
+export { ChatTable };

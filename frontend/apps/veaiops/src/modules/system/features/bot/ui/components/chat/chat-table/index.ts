@@ -13,7 +13,7 @@
 // limitations under the License.
 
 // ==================== 组件导出 ====================
-export { default as ChatTable } from './chat-table';
+export { ChatTable } from './chat-table';
 export {
   useChatTableRefHandler,
   type ChatTableRef,

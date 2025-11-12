@@ -20,4 +20,4 @@
 export * from './components';
 export { MetricTemplateTable } from './table';
 export { MetricTemplateDrawer } from './modal';
-export { default as MetricTemplateManagement } from './management';
+export { MetricTemplateManagement } from './management';

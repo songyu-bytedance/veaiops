@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { default as TaskVersionTable } from './table';
+export { TaskVersionTable } from './table';
 export * from './columns';
 export * from './filters';
 export * from './types';

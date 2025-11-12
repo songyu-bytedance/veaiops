@@ -17,7 +17,7 @@ export { DetailModal } from './components';
 
 // 表格组件（已提升到 ui/tables/）
 export { MonitorTable, DataSourceTable } from './tables';
-export { default as DataSourceManagement } from './management';
+export { DataSourceManagement } from './management';
 
 // 图标组件
 export {

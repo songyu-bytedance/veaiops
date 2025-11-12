@@ -104,4 +104,4 @@ const MetricTemplateManagement: React.FC = () => {
   );
 };
 
-export default MetricTemplateManagement;
+export { MetricTemplateManagement };
