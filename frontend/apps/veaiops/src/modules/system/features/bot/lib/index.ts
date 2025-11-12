@@ -38,23 +38,13 @@
 // API 服务
 export * from "./api";
 
-// 列配置（统一从 columns/ 子目录导出）
-// - getBotColumns: Bot 主表列配置
-// - getChatColumns: Chat 表格列配置
-// - getBotAttributesColumns: 属性表格列配置
-// - getTableColumns: 通用表格列配置
+// 列配置
 export * from "./columns";
 
-// 筛选器配置（统一从 filters/ 子目录导出）
-// - getBotFilters: Bot 主表筛选器
-// - getBotAttributeFilters: 属性表格筛选器
-// - getChatFilters: Chat 表格筛选器
+// 筛选器配置
 export * from "./filters";
 
-// 常量配置（统一从 constants/ 子目录导出）⭐ 优化
-// - BOT_MANAGEMENT_CONFIG、BOT_MESSAGES: Bot 管理常量
-// - BOT_ATTRIBUTES_*: 属性专用常量
-// - CHAT_TABLE_QUERY_FORMAT: Chat 表格常量
+// 常量配置
 export * from "./constants";
 
 // 工具函数
@@ -62,3 +52,13 @@ export * from "./utils";
 
 // 翻译配置
 export * from "./translations";
+
+/**
+ * ✅ 说明：NETWORK_TYPE_OPTIONS 和 TOS_REGION_OPTIONS 已在 lib/constants/bot.ts 中定义
+ * 通过 export * from "./constants" 统一导出（第 48 行）
+ *
+ * 遵循 .cursorrules 规范：
+ * - 单层导出：lib/index.ts 只导出 lib 目录内容
+ * - 拒绝中转导出：不跨层级从 types/ 重新导出常量
+ * - 使用方应该从 @bot/lib 导入：import { NETWORK_TYPE_OPTIONS } from '@bot/lib';
+ */

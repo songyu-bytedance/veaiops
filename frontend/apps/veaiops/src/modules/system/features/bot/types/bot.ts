@@ -75,24 +75,14 @@ export interface BotFormData {
 }
 
 /**
- * 火山引擎区域选项配置（与后端tos_region枚举对应）
+ * ✅ 修复：常量已移至 lib/constants/bot.ts
+ * 使用方式：import { NETWORK_TYPE_OPTIONS, TOS_REGION_OPTIONS } from '@bot/lib';
+ *
+ * 遵循 .cursorrules 规范：
+ * - 常量定义在 lib/constants/
+ * - 类型定义在 types/
+ * - 避免重复定义
  */
-export const TOS_REGION_OPTIONS = [
-  { label: '华北2-北京', value: 'cn-beijing' as const },
-  { label: '华东2-上海', value: 'cn-shanghai' as const },
-  { label: '华南1-广州', value: 'cn-guangzhou' as const },
-  { label: '中国香港', value: 'cn-hongkong' as const },
-  { label: '亚太东南（柔佛）', value: 'ap-southeast-1' as const },
-  { label: '亚太东南（雅加达）', value: 'ap-southeast-3' as const },
-] as const;
-
-/**
- * 网络类型选项
- */
-export const NETWORK_TYPE_OPTIONS = [
-  { label: '内网（服务部署于火山引擎）', value: 'internal' },
-  { label: '公网（服务未部署于火山引擎）', value: 'public' },
-] as const;
 
 /**
  * @see frontend/packages/constants/src/channel.ts

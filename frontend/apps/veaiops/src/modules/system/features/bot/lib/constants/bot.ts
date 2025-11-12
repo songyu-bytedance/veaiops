@@ -98,3 +98,23 @@ export const createActionButtons = (onAdd: () => void): React.ReactNode[] => [
 export const getTableProps = () => ({
   ...BOT_MANAGEMENT_CONFIG.table,
 });
+
+/**
+ * 火山引擎 TOS 区域选项
+ */
+export const TOS_REGION_OPTIONS = [
+  { label: '华北（北京）', value: 'cn-beijing' as const },
+  { label: '华东（上海）', value: 'cn-shanghai' as const },
+  { label: '华南（广州）', value: 'cn-guangzhou' as const },
+  { label: '亚太东南（新加坡）', value: 'ap-singapore-1' as const },
+  { label: '亚太东南（柔佛）', value: 'ap-southeast-1' as const },
+  { label: '亚太东南（雅加达）', value: 'ap-southeast-3' as const },
+] as const;
+
+/**
+ * 网络类型选项
+ */
+export const NETWORK_TYPE_OPTIONS = [
+  { label: '内网（服务部署于火山引擎）', value: 'internal' },
+  { label: '公网（服务未部署于火山引擎）', value: 'public' },
+] as const;

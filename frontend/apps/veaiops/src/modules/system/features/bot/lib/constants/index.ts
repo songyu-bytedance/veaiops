@@ -27,6 +27,8 @@ export {
   BOT_MESSAGES,
   createActionButtons,
   getTableProps,
+  TOS_REGION_OPTIONS,
+  NETWORK_TYPE_OPTIONS,
 } from './bot';
 
 // 属性表格常量
