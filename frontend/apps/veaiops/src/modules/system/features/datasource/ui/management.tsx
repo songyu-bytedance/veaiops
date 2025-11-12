@@ -13,25 +13,26 @@
 // limitations under the License.
 
 import { DataSourceWizard } from '@/components';
-import { Tabs } from '@arco-design/web-react';
 import {
   useGuide,
   useTabManagement,
   useUrlParamHandlers,
 } from '@/modules/system/features/datasource/hooks/page';
-import type { DataSourceType, MonitorAccessProps } from '@datasource/types';
-import { createDataSourceConfigs } from '@datasource/lib/config';
-import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
-import { XGuide } from '@veaiops/components';
-import { logger } from '@veaiops/utils';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import { Tabs } from '@arco-design/web-react';
 import { ConnectionManager } from '@datasource/connection/ui/panels';
 import {
   useDataSourceHandlers,
   useMonitorAccessLogic,
 } from '@datasource/hooks';
+import { createDataSourceConfigs } from '@datasource/lib/config';
+import type { DataSourceType, MonitorAccessProps } from '@datasource/types';
+import { DataSourceType as ApiDataSourceType } from '@veaiops/api-client';
+import { XGuide } from '@veaiops/components';
+import { logger } from '@veaiops/utils';
+import type React from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { ManagementHeader, ManagementToolbar } from './components/headers';
-import { renderDataSourceTabs } from './components/pages';
+import { renderDataSourceTabs } from './components/tabs';
 import style from './management.module.less';
 
 /**

@@ -19,8 +19,8 @@ import type {
   DataSourceConfig,
   TableRefMap,
 } from '@datasource/types';
-import type { DataSource as ApiDataSource } from '@veaiops/api-client';
 import { MonitorTable } from '@datasource/ui/tables';
+import type { DataSource as ApiDataSource } from '@veaiops/api-client';
 
 const { TabPane } = Tabs;
 

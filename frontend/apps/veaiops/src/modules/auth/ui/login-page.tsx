@@ -18,9 +18,9 @@ import type React from 'react';
 
 import { AnimatedBackground } from '@/components';
 // 本地组件导入
-import LoginCard from './login-card';
-import LoginForm from './login-form';
-import LoginHeader from './login-header';
+import { LoginCard } from './login-card';
+import { LoginForm } from './login-form';
+import { LoginHeader } from './login-header';
 
 // 使用路径别名导入 - 配置
 import { loginStyles } from '@/modules/auth';
@@ -28,7 +28,7 @@ import { loginStyles } from '@/modules/auth';
 // 使用路径别名导入 - Hooks
 import { useLogin } from '@/hooks';
 
-const LoginPage: React.FC = () => {
+export const LoginPage: React.FC = () => {
   const { form, loading, handleSubmit } = useLogin();
 
   return (
@@ -42,5 +42,3 @@ const LoginPage: React.FC = () => {
     </AnimatedBackground>
   );
 };
-
-export default LoginPage;

@@ -12,10 +12,5 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Tabs - 统一导出入口
- * 职责：导出所有标签页组件
- */
-
-// 导出数据源标签页组件
-export { DataSourceTab } from './data-source-tab';
+export * from './data-source-tabs';
+export * from './guide-content';

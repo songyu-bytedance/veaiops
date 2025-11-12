@@ -46,7 +46,7 @@ export default defineConfig({
     ],
   },
   server: {
-    port: 8000,
+    port: 8001,
   },
   dev: {
     // 确保 SPA 路由正常工作

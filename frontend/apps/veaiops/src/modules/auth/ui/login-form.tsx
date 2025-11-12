@@ -34,7 +34,11 @@ interface LoginFormProps {
     values: LoginFormData,
   ) => Promise<{ success: boolean; error?: Error }>;
 }
-const LoginForm: React.FC<LoginFormProps> = ({ form, loading, onSubmit }) => {
+export const LoginForm: React.FC<LoginFormProps> = ({
+  form,
+  loading,
+  onSubmit,
+}) => {
   // 处理表单提交
   const handleFormSubmit = (values: LoginFormData) => {
     // 确保values不为空
@@ -159,5 +163,3 @@ const LoginForm: React.FC<LoginFormProps> = ({ form, loading, onSubmit }) => {
     </Form>
   );
 };
-
-export default LoginForm;

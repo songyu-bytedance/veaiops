@@ -20,12 +20,10 @@ interface LoginCardProps {
   children: React.ReactNode;
 }
 
-const LoginCard: React.FC<LoginCardProps> = ({ children }) => {
+export const LoginCard: React.FC<LoginCardProps> = ({ children }) => {
   return (
     <Card className={loginStyles.card.container} style={loginStyles.card.style}>
       {children}
     </Card>
   );
 };
-
-export default LoginCard;

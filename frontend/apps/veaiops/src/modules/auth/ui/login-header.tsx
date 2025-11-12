@@ -24,7 +24,7 @@ interface LoginHeaderProps {
   subtitle?: string;
 }
 
-const LoginHeader: React.FC<LoginHeaderProps> = ({
+export const LoginHeader: React.FC<LoginHeaderProps> = ({
   title = 'veaiops',
   subtitle = '火山引擎智能运维平台',
 }) => {
@@ -55,5 +55,3 @@ const LoginHeader: React.FC<LoginHeaderProps> = ({
     </div>
   );
 };
-
-export default LoginHeader;

@@ -16,7 +16,7 @@ import type { IStep } from '@veaiops/components';
 import {
   AddMonitorConfigGuideContent,
   ConnectionManagementGuideContent,
-} from '@datasource/ui/components/pages';
+} from '@datasource/ui/components/tabs';
 
 /**
  * 监控数据源管理管理页面引导步骤配置

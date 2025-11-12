@@ -12,8 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// 登录组件统一导出
-export { default as LoginCard } from './login-card';
-export { default as LoginHeader } from './login-header';
-export { default as LoginForm } from './login-form';
-export { default as LoginPage } from './login-page';
+/**
+ * Login components export
+ *
+ * ✅ Following Named Export standard (no default export)
+ */
+export * from './login-card';
+export * from './login-header';
+export * from './login-form';
+export * from './login-page';
