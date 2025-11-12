@@ -201,14 +201,9 @@ class Logger {
       this.logs = this.logs.slice(-this.maxLogs);
     }
 
-    // ✅ Console output disabled by default for all environments
-    // Logs are collected in memory and can be exported via:
-    //   - window.__veaiopsUtilsLogger.exportLogsAsJSON()
-    //   - window.__veaiopsUtilsLogger.exportLogsAsText()
-    //   - window.__veaiopsUtilsLogger.getLogs()
-    // To enable console output temporarily:
-    //   - window.__veaiopsUtilsLogger.configure({ enableConsole: true })
-    if (this.enableConsole) {
+    // Output to console (only in development environment)
+    // ✅ Non-development environments: only collect logs, do not print to console
+    if (this.enableConsole && process.env.NODE_ENV === 'development') {
       const timestamp = formatTimestamp(entry.timestamp);
       const prefix = `[${timestamp}][${entry.source}${
         component ? `/${component}` : ''

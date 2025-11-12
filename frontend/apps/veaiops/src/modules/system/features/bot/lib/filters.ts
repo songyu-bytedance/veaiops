@@ -20,9 +20,9 @@ import type { FieldItem, HandleFilterProps } from '@veaiops/components';
 import { ChannelType } from '@veaiops/api-client';
 
 /**
- * Filter configuration接口
+ * 筛选配置接口
  *
- * ✅ Compatibility update：Add index signature to be compatible with BaseQuery 类型
+ * ✅ 兼容性更新：添加索引签名以兼容 BaseQuery 类型
  */
 export interface BotFilters {
   status?: string;
@@ -70,7 +70,7 @@ export const BOT_QUERY_SEARCH_PARAMS_FORMAT = {
 };
 
 /**
- * BotFilter configuration - CustomTable标准格式
+ * Bot筛选配置 - CustomTable标准格式
  */
 export const getBotFilters = ({
   query,
