@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { ChatConfigFormData, ChatQueryParams } from '@bot/lib';
+import type { ChatConfigFormData, ChatQueryParams } from '@bot/types';
 import { logger } from '@veaiops/utils';
 import type { Chat } from 'api-generate';
 import { useCallback, useMemo } from 'react';

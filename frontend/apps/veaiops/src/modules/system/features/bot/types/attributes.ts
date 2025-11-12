@@ -68,6 +68,29 @@ export interface LastRequestParams {
 }
 
 /**
+ * Bot 属性筛选查询参数接口
+ *
+ * ✅ 类型独立原则：从 lib/attributes-filters.ts 移至 types/attributes.ts
+ * 对应 CustomTable 的 query 参数结构
+ */
+export interface BotAttributeFiltersQuery {
+  /**
+   * 类目筛选（多选）
+   * 对应后端 names 参数
+   */
+  names?: AttributeKey[];
+  /**
+   * 内容筛选（模糊搜索）
+   * 对应后端 value 参数
+   */
+  value?: string;
+  /**
+   * 索引签名，满足 BaseQuery 约束
+   */
+  [key: string]: unknown;
+}
+
+/**
  * Bot属性类目选项
  * 目前仅支持项目，客户和产品功能待开发
  */

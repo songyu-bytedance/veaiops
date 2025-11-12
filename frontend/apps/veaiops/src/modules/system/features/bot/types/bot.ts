@@ -126,3 +126,20 @@ export interface BotTableProps {
 export interface BotTableRef {
   refresh: () => Promise<boolean>;
 }
+
+/**
+ * Bot 筛选查询参数接口
+ *
+ * ✅ 类型独立原则：从 lib/filters.ts 移至 types/bot.ts
+ * 对应 CustomTable 的 query 参数结构
+ */
+export interface BotFilters {
+  /** 状态筛选 */
+  status?: string;
+  /** 频道类型筛选 */
+  channel?: string;
+  /** 关键字搜索 */
+  keyword?: string;
+  /** 索引签名，满足 BaseQuery 约束 */
+  [key: string]: unknown;
+}

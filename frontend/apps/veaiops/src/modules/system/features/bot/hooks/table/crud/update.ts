@@ -14,7 +14,8 @@
 
 import apiClient from '@/utils/api-client';
 import { Message } from '@arco-design/web-react';
-import { BOT_MESSAGES, type BotUpdateRequest } from '@bot/lib';
+import { BOT_MESSAGES } from '@bot/lib';
+import type { BotUpdateRequest } from '@bot/types';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useCallback } from 'react';
 

@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { AttributeKey } from 'api-generate';
-import type { BotAttributeFiltersQuery } from './attributes-filters';
+import type { BotAttributeFiltersQuery } from '@bot/types';
 
 /**
  * Bot 属性表格配置常量

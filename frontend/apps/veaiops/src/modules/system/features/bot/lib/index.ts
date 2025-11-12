@@ -13,45 +13,52 @@
 // limitations under the License.
 
 /**
- * Bot管理库统一导出
- * 注意：类型定义已迁移到 types/ 目录，此处不再导出
+ * Bot 管理库统一导出
+ *
+ * 📂 标准结构（2025-11-12 优化）：
+ *
+ * ✅ 子目录（多文件统一组织）：
+ *    - columns/: 列配置（4个文件）- bot/chat/attributes/table
+ *    - filters/: 筛选器（3个文件）- bot/chat/attributes
+ *    - constants/: 常量配置（3个文件）- bot/attributes/chat ⭐ 新增
+ *
+ * ✅ 根目录（按职能独立）：
+ *    - api.ts: API 服务（统一入口）
+ *    - utils.tsx: 工具函数
+ *    - translations.ts: 翻译配置
+ *
+ * ✅ 核心规范：
+ *    - 单一数据源：每个功能只在一处定义，避免重复文件
+ *    - 单层导出：只导出 lib/ 内容，不跨级导出 types
+ *    - 类型独立：所有类型在 types/，lib 不含类型定义
+ *    - 统一子目录：多文件同类职能使用子目录（>=3个）
+ *    - 目录上下文：文件名简化，移除冗余前缀/后缀
  */
 
-// 类型定义（从上级 types 目录导出，保持层层导出原则）
-export type { Bot, BotCreateRequest, BotFormData, BotTableRef, BotUpdateRequest } from "../types";
-
-// API服务
+// API 服务
 export * from "./api";
 
-// 表格列配置（从 columns/index.ts 导出，避免循环导入）
-export * from "./chat-columns";
+// 列配置（统一从 columns/ 子目录导出）
+// - getBotColumns: Bot 主表列配置
+// - getChatColumns: Chat 表格列配置
+// - getBotAttributesColumns: 属性表格列配置
+// - getTableColumns: 通用表格列配置
 export * from "./columns";
 
-// 属性相关配置（已简化命名：移除 bot- 前缀）
-export {
-  getBotAttributesColumns,
-  type BotAttributesColumnsProps,
-} from './attributes-columns';
-export * from "./attributes-filters";
+// 筛选器配置（统一从 filters/ 子目录导出）
+// - getBotFilters: Bot 主表筛选器
+// - getBotAttributeFilters: 属性表格筛选器
+// - getChatFilters: Chat 表格筛选器
+export * from "./filters";
+
+// 常量配置（统一从 constants/ 子目录导出）⭐ 优化
+// - BOT_MANAGEMENT_CONFIG、BOT_MESSAGES: Bot 管理常量
+// - BOT_ATTRIBUTES_*: 属性专用常量
+// - CHAT_TABLE_QUERY_FORMAT: Chat 表格常量
+export * from "./constants";
 
 // 工具函数
 export * from "./utils";
 
-// 配置
-export * from "./config";
-
-// 从 types 重新导出的常量（供 UI 组件使用）
-// 注意：CHANNEL_TYPE_OPTIONS 已迁移到 @veaiops/constants，统一使用 CHANNEL_OPTIONS
-export { NETWORK_TYPE_OPTIONS, TOS_REGION_OPTIONS } from "../types/bot";
-
-// 其他
-export * from "./chat-filters";
-export * from "./chat-query-format";
-export * from "./chat-types";
-export * from "./filters";
+// 翻译配置
 export * from "./translations";
-
-// 属性表格配置
-export * from "./attributes-table-config";
-
-// 注意：Bot 属性 API 已合并到 api.ts，不再单独导出

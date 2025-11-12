@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { Form } from '@arco-design/web-react';
-import type { Bot } from '@bot/lib';
+import type { Bot } from '@bot/types';
 import { useState } from 'react';
 
 /**

@@ -12,8 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BotAttributeFiltersQuery } from '@bot/lib';
-import type { BotAttributeFormData, ModalType } from '@bot/types';
+import type {
+  BotAttributeFiltersQuery,
+  BotAttributeFormData,
+  ModalType,
+} from '@bot/types';
 import type { CustomTableActionType } from '@veaiops/components';
 import type { AttributeKey, BotAttribute } from 'api-generate';
 import type React from 'react';

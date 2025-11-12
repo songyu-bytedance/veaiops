@@ -13,15 +13,11 @@
 // limitations under the License.
 
 /**
- * Bot类型定义统一导出
- * 按照模块分类导出类型定义
+ * Page Management 职能 - 页面管理统一导出
+ *
+ * ✅ 修复：原 pages/ 目录改名为 page-management/（职能更清晰）
  */
 
-// Bot 相关类型
-export * from './bot';
-
-// Bot 属性相关类型
-export * from './attributes';
-
-// Chat 相关类型
-export * from './chat';
+export * from './guide';
+export * from './tab-management';
+export * from './url-params';

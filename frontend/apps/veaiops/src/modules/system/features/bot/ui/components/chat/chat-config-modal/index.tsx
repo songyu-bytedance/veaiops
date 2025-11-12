@@ -14,7 +14,7 @@
 
 import { Divider, Form, Modal } from '@arco-design/web-react';
 import { IconRobot } from '@arco-design/web-react/icon';
-import type { ChatConfigFormData } from '@bot/lib';
+import type { ChatConfigFormData } from '@bot/types';
 import type { Chat } from 'api-generate';
 import { useEffect } from 'react';
 import { AgentConfigSection, ChatInfoSection } from './sections';

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BotTableRef } from '@bot/lib';
+import type { BotTableRef } from '@bot/types';
 import type { RefObject } from 'react';
 import { useCreateBot, useDeleteBot, useUpdateBot } from './crud';
 import { useBotHandlers } from './handlers';

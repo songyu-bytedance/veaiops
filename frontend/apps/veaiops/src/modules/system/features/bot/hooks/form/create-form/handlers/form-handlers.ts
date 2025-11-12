@@ -12,8 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Form, Message, type FormInstance } from '@arco-design/web-react';
-import { BOT_MESSAGES, type BotFormData } from '@bot/lib';
+import { Form, type FormInstance, Message } from '@arco-design/web-react';
+import { BOT_MESSAGES } from '@bot/lib';
+import type { BotFormData } from '@bot/types';
 
 /**
  * 表单提交处理器参数

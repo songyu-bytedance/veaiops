@@ -16,7 +16,7 @@ import type { TableColumnProps } from '@arco-design/web-react';
 import { ButtonGroupRender, CellRender, type ButtonConfiguration } from '@veaiops/components';
 import { IconDelete } from '@arco-design/web-react/icon';
 import type { BotAttribute } from 'api-generate';
-import { ATTRIBUTE_NAME_MAP } from '../types/attributes';
+import { ATTRIBUTE_NAME_MAP } from '@bot/types';
 
 // Destructure CellRender component to avoid repeated calls
 const { CustomOutlineTag, StampTime } = CellRender;

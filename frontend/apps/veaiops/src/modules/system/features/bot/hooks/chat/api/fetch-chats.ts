@@ -14,7 +14,7 @@
 
 import apiClient from '@/utils/api-client';
 import { Message } from '@arco-design/web-react';
-import type { ChatQueryParams } from '@bot/lib';
+import type { ChatQueryParams } from '@bot/types';
 import { API_RESPONSE_CODE, PAGINATION } from '@veaiops/constants';
 import { logger } from '@veaiops/utils';
 import type { Chat } from 'api-generate';

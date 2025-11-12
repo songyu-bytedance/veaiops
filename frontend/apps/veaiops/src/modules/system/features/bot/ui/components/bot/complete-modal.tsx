@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import { Drawer } from '@arco-design/web-react';
-import type { BotCreateRequest, BotUpdateRequest } from '@bot/lib';
+import type { BotCreateRequest, BotUpdateRequest } from '@bot/types';
 import { DrawerFormContent } from '@veaiops/utils';
 import type { Bot } from 'api-generate';
 import type React from 'react';

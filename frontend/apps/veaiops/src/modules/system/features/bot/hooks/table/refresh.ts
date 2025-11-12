@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BotTableRef } from '@bot/lib';
+import type { BotTableRef } from '@bot/types';
 import { logger } from '@veaiops/utils';
 import { type RefObject, useCallback } from 'react';
 

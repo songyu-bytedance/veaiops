@@ -14,7 +14,7 @@
 
 import apiClient from '@/utils/api-client';
 import { Message } from '@arco-design/web-react';
-import type { ChatConfigFormData } from '@bot/lib';
+import type { ChatConfigFormData } from '@bot/types';
 import { API_RESPONSE_CODE } from '@veaiops/constants';
 import { useCallback } from 'react';
 

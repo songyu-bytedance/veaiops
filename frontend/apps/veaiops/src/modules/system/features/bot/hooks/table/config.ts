@@ -14,7 +14,7 @@
 
 import apiClient from '@/utils/api-client';
 import { Message } from '@arco-design/web-react';
-import type { Bot } from '@bot/lib';
+import type { Bot } from '@bot/types';
 import {
   type StandardApiResponse,
   createServerPaginationDataSource,

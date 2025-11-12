@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import type { FormInstance } from '@arco-design/web-react';
-import type { BotFormData } from '@bot/lib';
+import type { BotFormData } from '@bot/types';
 import { Bot, ChannelType, VolcCfgPayload } from 'api-generate';
 import { useEffect } from 'react';
 

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Message, type FormInstance } from '@arco-design/web-react';
-import type { BotCreateRequest } from '@bot/lib';
+import { type FormInstance, Message } from '@arco-design/web-react';
+import type { BotCreateRequest } from '@bot/types';
 import { useManagementRefresh } from '@veaiops/hooks';
 import { logger } from '@veaiops/utils';
 import { useCallback } from 'react';

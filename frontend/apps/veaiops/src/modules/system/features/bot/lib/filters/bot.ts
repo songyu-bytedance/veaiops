@@ -18,18 +18,7 @@
 import { channelTypeOptions } from '@ec/strategy';
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
 import { ChannelType } from '@veaiops/api-client';
-
-/**
- * 筛选配置接口
- *
- * ✅ 兼容性更新：添加索引签名以兼容 BaseQuery 类型
- */
-export interface BotFilters {
-  status?: string;
-  channel?: string;
-  keyword?: string;
-  [key: string]: unknown;
-}
+import type { BotFilters } from '@bot/types';
 
 /**
  * Default filter configuration

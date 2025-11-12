@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BotAttributeFiltersQuery } from '@bot/lib';
+import type { BotAttributeFiltersQuery } from '@bot/types';
 import type { CustomTableActionType } from '@veaiops/components';
 import { logger } from '@veaiops/utils';
 import type { BotAttribute } from 'api-generate';

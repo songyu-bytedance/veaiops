@@ -14,7 +14,7 @@
 
 import type { FormInstance } from '@arco-design/web-react';
 import type { UpdateBotParams } from '@bot/hooks';
-import type { Bot, BotUpdateRequest } from '@bot/lib';
+import type { Bot, BotUpdateRequest } from '@bot/types';
 import { logger } from '@veaiops/utils';
 import { useCallback } from 'react';
 

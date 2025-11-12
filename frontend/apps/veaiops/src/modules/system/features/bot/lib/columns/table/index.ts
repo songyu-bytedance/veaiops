@@ -14,9 +14,9 @@
 
 import type { ColumnProps } from '@arco-design/web-react/es/Table';
 import type { Bot } from '@bot/types';
-import { getActionColumn } from './action-column';
-import { getBaseColumns } from './base-columns';
-import { getGroupManagementColumn } from './group-management-column';
+import { getActionColumn } from './action';
+import { getBaseColumns } from './base';
+import { getGroupManagementColumn } from './group-management';
 
 interface TableColumnsProps {
   onEdit: (bot: Bot) => void;
@@ -28,10 +28,10 @@ interface TableColumnsProps {
 /**
  * 获取表格列定义 - 传统方式
  *
- * 拆分说明：
- * - base-columns.tsx: 基础列定义（App ID、名称、Open ID）
- * - group-management-column.tsx: 群管理列定义
- * - action-column.tsx: 操作列定义（编辑、删除、特别关注）
+ * ✅ 文件组织说明（遵循目录上下文原则）：
+ * - base.tsx: 基础列定义（App ID、名称、Open ID）
+ * - group-management.tsx: 群管理列定义
+ * - action.tsx: 操作列定义（编辑、删除、特别关注）
  * - index.ts: 主入口，负责组装和导出
  */
 export const getTableColumns = ({

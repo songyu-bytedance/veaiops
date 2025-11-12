@@ -12,5 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export { getBotColumns, type BotColumnsProps } from './main-columns';
-export { getTableColumns } from './table-columns';
+export { getBotColumns, type BotColumnsProps } from './bot';
+export { getTableColumns } from './table';
+export { getChatColumns, type ChatColumnsProps } from './chat';
+export { getBotAttributesColumns, type BotAttributesColumnsProps } from './attributes';

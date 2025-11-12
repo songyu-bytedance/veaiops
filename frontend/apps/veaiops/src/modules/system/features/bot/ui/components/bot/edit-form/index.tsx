@@ -13,11 +13,8 @@
 // limitations under the License.
 
 import { Form, Message } from '@arco-design/web-react';
-import {
-  BOT_MESSAGES,
-  type BotUpdateRequest,
-  type ExtendedBot,
-} from '@bot/lib';
+import { BOT_MESSAGES } from '@bot/lib';
+import type { BotUpdateRequest, ExtendedBot } from '@bot/types';
 import { logger } from '@veaiops/utils';
 import { VolcCfgPayload } from 'api-generate';
 import { type React, useEffect, useState } from 'react';

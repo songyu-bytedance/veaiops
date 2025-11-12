@@ -12,8 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { FetchAttributesParams } from '@bot/lib';
-import type { LastRequestParams } from '@bot/types';
+import type { FetchAttributesParams, LastRequestParams } from '@bot/types';
 import { logger } from '@veaiops/utils';
 import { AttributeKey } from 'api-generate';
 

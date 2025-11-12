@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
-import type { ChatQueryParams } from './chat-types';
+import type { ChatQueryParams } from '@bot/types';
 
 interface FilterConfigProps {
   query: ChatQueryParams;

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { Bot, ChannelType, Chat } from "api-generate";
+import { type Bot, ChannelType, type Chat } from 'api-generate';
 
 // 基础类型定义
 /**
@@ -36,7 +36,7 @@ export type ChatChannelType = ChannelType;
  * - ChannelType.WE_CHAT ↔ Python ChannelType.WeChat = "WeChat"
  */
 export const CHAT_CHANNEL_TYPE_OPTIONS = [
-  { label: "Lark", value: ChannelType.LARK },
+  { label: 'Lark', value: ChannelType.LARK },
   // { label: "DingTalk", value: ChannelType.DING_TALK },
   // { label: "WeChat", value: ChannelType.WE_CHAT },
 ];
@@ -45,8 +45,8 @@ export const CHAT_CHANNEL_TYPE_OPTIONS = [
  * 群类型选项
  */
 export const CHAT_TYPE_OPTIONS = [
-  { label: "群聊", value: "group" },
-  { label: "私聊", value: "private" },
+  { label: '群聊', value: 'group' },
+  { label: '私聊', value: 'private' },
 ];
 
 /**
@@ -77,7 +77,7 @@ export interface PaginatedAPIResponseChatList {
 export interface ChatQueryParams {
   skip?: number;
   limit?: number;
-  chat_type?: "group" | "private";
+  chat_type?: 'group' | 'private';
   channel?: ChannelType;
   bot_id?: string;
   force_refresh?: boolean;
@@ -126,12 +126,12 @@ export interface ChatTableActions {
  * 类型守卫：检查是否为群表格数据
  */
 export function isChatTableData(
-  record: Record<string, unknown>
+  record: Record<string, unknown>,
 ): record is ChatTableData {
   return (
-    typeof record === "object" &&
+    typeof record === 'object' &&
     record !== null &&
-    typeof record.key === "string" &&
-    typeof record.chat_id === "string"
+    typeof record.key === 'string' &&
+    typeof record.chat_id === 'string'
   );
 }

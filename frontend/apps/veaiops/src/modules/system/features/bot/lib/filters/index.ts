@@ -13,15 +13,14 @@
 // limitations under the License.
 
 /**
- * Bot类型定义统一导出
- * 按照模块分类导出类型定义
+ * Bot 筛选器配置统一导出
+ *
+ * 包含 3 个筛选器：
+ * - getBotFilters: Bot 主表筛选器
+ * - getBotAttributeFilters: 属性表格筛选器
+ * - getChatFilters: Chat 表格筛选器
  */
 
-// Bot 相关类型
-export * from './bot';
-
-// Bot 属性相关类型
-export * from './attributes';
-
-// Chat 相关类型
-export * from './chat';
+export { getBotFilters, DEFAULT_BOT_FILTERS, BOT_QUERY_FORMAT, BOT_QUERY_SEARCH_PARAMS_FORMAT } from './bot';
+export { getBotAttributeFilters } from './attributes';
+export { getChatFilters } from './chat';

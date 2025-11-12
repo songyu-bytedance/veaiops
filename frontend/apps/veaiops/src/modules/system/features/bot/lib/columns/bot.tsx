@@ -14,7 +14,7 @@
 
 import type { ColumnProps } from "@arco-design/web-react/es/Table";
 import type { Bot } from "@bot/types";
-import { getTableColumns } from './table-columns';
+import { getTableColumns } from './table';
 
 /**
  * Bot 表格列配置函数的参数接口

@@ -13,15 +13,28 @@
 // limitations under the License.
 
 /**
- * Bot类型定义统一导出
- * 按照模块分类导出类型定义
+ * Bot 常量配置统一导出
+ *
+ * 包含 3 个常量模块：
+ * - bot: Bot 管理常量（BOT_MANAGEMENT_CONFIG、BOT_MESSAGES 等）
+ * - attributes: 属性表格常量（BOT_ATTRIBUTES_* 系列）
+ * - chat: Chat 表格常量（CHAT_TABLE_QUERY_FORMAT）
  */
 
-// Bot 相关类型
-export * from './bot';
+// Bot 管理常量
+export {
+  BOT_MANAGEMENT_CONFIG,
+  BOT_MESSAGES,
+  createActionButtons,
+  getTableProps,
+} from './bot';
 
-// Bot 属性相关类型
-export * from './attributes';
+// 属性表格常量
+export {
+  BOT_ATTRIBUTES_TABLE_INIT_QUERY,
+  BOT_ATTRIBUTES_INFO_MESSAGE,
+  BOT_ATTRIBUTES_TABLE_SCROLL,
+} from './attributes';
 
-// Chat 相关类型
-export * from './chat';
+// Chat 表格常量
+export { CHAT_TABLE_QUERY_FORMAT } from './chat';

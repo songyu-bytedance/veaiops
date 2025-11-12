@@ -13,27 +13,7 @@
 // limitations under the License.
 
 import type { FieldItem, HandleFilterProps } from '@veaiops/components';
-import type { AttributeKey } from 'api-generate';
-
-/**
- * Bot属性筛选查询参数接口
- */
-export interface BotAttributeFiltersQuery {
-  /**
-   * 类目筛选（多选）
-   * 对应后端 names 参数
-   */
-  names?: AttributeKey[];
-  /**
-   * 内容筛选（模糊搜索）
-   * 对应后端 value 参数
-   */
-  value?: string;
-  /**
-   * 索引签名，满足 BaseQuery 约束
-   */
-  [key: string]: unknown;
-}
+import type { BotAttributeFiltersQuery } from '@bot/types';
 
 /**
  * Bot属性表格筛选器配置

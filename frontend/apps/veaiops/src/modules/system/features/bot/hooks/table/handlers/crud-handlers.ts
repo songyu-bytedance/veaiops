@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { BotCreateRequest, BotUpdateRequest } from '@bot/lib';
+import type { BotCreateRequest, BotUpdateRequest } from '@bot/types';
 import { useCallback } from 'react';
 import type { UpdateBotParams } from '../crud';
 import type { UseBotStateReturn } from '../state';

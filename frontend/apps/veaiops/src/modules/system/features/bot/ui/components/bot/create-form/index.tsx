@@ -27,7 +27,7 @@
 // limitations under the License.
 
 import { Form } from '@arco-design/web-react';
-import type { BotFormData } from '@bot/lib';
+import type { BotFormData } from '@bot/types';
 import type React from 'react';
 import { useBotCreateForm } from '../../../../hooks/form/create-form';
 import { ChatOpsConfig } from '../chat-ops-config';
