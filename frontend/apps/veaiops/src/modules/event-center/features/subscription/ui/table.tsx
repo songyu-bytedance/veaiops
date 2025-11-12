@@ -83,115 +83,15 @@ export const SubscriptionTable = forwardRef<any, SubscriptionTableProps>(
 
     renderCountRef.current++;
 
-    // 表格配置
-    const { dataSource, tableProps } = useSubscriptionTableConfig({
-      handleEdit: onEdit,
-      handleDelete: onDelete,
-    });
-
-    // 🔍 追踪 dataSource 引用变化
-    useEffect(() => {
-      if (prevDataSourceRef.current !== dataSource) {
-        logger.debug({
-          message: '[SubscriptionTable] dataSource 引用变化',
-          data: {
-            renderCount: renderCountRef.current,
-            prevDataSource: prevDataSourceRef.current,
-            currentDataSource: dataSource,
-            dataSourceChanged:
-              prevDataSourceRef.current !== null &&
-              prevDataSourceRef.current !== dataSource,
-          },
-          source: 'SubscriptionTable',
-          component: 'useEffect',
-        });
-        prevDataSourceRef.current = dataSource;
-      }
-    }, [dataSource]);
+    // 表格配置（使用 useBusinessTable 集成的配置）
+    const { customTableProps, handleColumns, handleFilters, renderActions } =
+      useSubscriptionTableConfig({
+        handleEdit: onEdit,
+        handleDelete: onDelete,
+      });
 
     // 操作按钮配置
     const { actions } = useSubscriptionActionConfig(onAdd);
-
-    // 创建 handleColumns 函数，传递操作回调给列配置
-    // 🔧 使用 useCallback 稳定化函数引用，避免触发不必要的表格刷新
-    const handleColumns = useCallback(
-      (
-        props: Record<string, unknown>,
-      ): ModernTableColumnProps<SubscriptionTableData>[] => {
-        // CustomTable 传递的 props 包含 query、handleChange 等属性
-        // 需要确保类型转换正确
-        const filterProps = props as HandleFilterProps<BaseQuery>;
-        return getSubscriptionColumns({
-          ...filterProps,
-          onEdit,
-          onDelete,
-          onView,
-        });
-      },
-      [onEdit, onDelete, onView],
-    );
-
-    // 🔍 追踪 handleColumns 引用变化
-    useEffect(() => {
-      if (prevHandleColumnsRef.current !== handleColumns) {
-        logger.debug({
-          message: '[SubscriptionTable] handleColumns 引用变化',
-          data: {
-            renderCount: renderCountRef.current,
-            prevHandleColumns: prevHandleColumnsRef.current,
-            currentHandleColumns: handleColumns,
-          },
-          source: 'SubscriptionTable',
-          component: 'useEffect',
-        });
-        prevHandleColumnsRef.current = handleColumns;
-      }
-    }, [handleColumns]);
-
-    // 创建 handleFilters 函数
-    // 🔧 使用 useCallback 稳定化函数引用，避免触发不必要的表格刷新
-    const handleFilters = useCallback(
-      (props: HandleFilterProps<BaseQuery>) =>
-        getSubscriptionFilters({
-          query: props.query,
-          handleChange: props.handleChange,
-          moduleType,
-        }),
-      [moduleType],
-    );
-
-    // 🔍 追踪 handleFilters 引用变化
-    useEffect(() => {
-      if (prevHandleFiltersRef.current !== handleFilters) {
-        logger.debug({
-          message: '[SubscriptionTable] handleFilters 引用变化',
-          data: {
-            renderCount: renderCountRef.current,
-            prevHandleFilters: prevHandleFiltersRef.current,
-            currentHandleFilters: handleFilters,
-          },
-          source: 'SubscriptionTable',
-          component: 'useEffect',
-        });
-        prevHandleFiltersRef.current = handleFilters;
-      }
-    }, [handleFilters]);
-
-    // 🔍 记录组件渲染（仅在开发环境）
-    useEffect(() => {
-      logger.debug({
-        message: '[SubscriptionTable] 组件渲染',
-        data: {
-          renderCount: renderCountRef.current,
-          moduleType,
-          hasDataSource: Boolean(dataSource),
-          hasHandleColumns: Boolean(handleColumns),
-          hasHandleFilters: Boolean(handleFilters),
-        },
-        source: 'SubscriptionTable',
-        component: 'useEffect',
-      });
-    });
 
     // 根据模块类型设置默认筛选智能体
     const initQuery = useMemo(() => {
@@ -214,22 +114,18 @@ export const SubscriptionTable = forwardRef<any, SubscriptionTableProps>(
 
     return (
       <CustomTable<SubscriptionTableData>
+        {...customTableProps}
         ref={ref}
         title={SUBSCRIPTION_MANAGEMENT_CONFIG.title}
-        actions={actions}
+        actions={renderActions ? renderActions() : actions}
         initQuery={initQuery}
         handleColumns={handleColumns}
         handleFilters={handleFilters}
-        dataSource={dataSource}
-        tableProps={tableProps}
         syncQueryOnSearchParams
         useActiveKeyHook
-        // 表格配置
         tableClassName="subscription-management-table"
         queryFormat={queryFormat}
       />
     );
   },
 );
-
-export default SubscriptionTable;

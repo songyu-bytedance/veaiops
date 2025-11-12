@@ -65,7 +65,7 @@ export const BasicInfoFields: React.FC<BasicInfoFieldsProps> = ({
         valuesMatch: formDatasourceType === datasourceType,
         hasDatasourceDataSource: Boolean(datasourceDataSource),
         datasourceDataSourceApi: datasourceDataSource
-          ? (datasourceDataSource as any).api
+          ? datasourceDataSource.api
           : undefined,
         timestamp: Date.now(),
       },
@@ -237,7 +237,7 @@ export const BasicInfoFields: React.FC<BasicInfoFieldsProps> = ({
                 valuesMatch: formDatasourceType === datasourceType,
                 hasDatasourceDataSource: Boolean(datasourceDataSource),
                 datasourceDataSourceApi: datasourceDataSource
-                  ? (datasourceDataSource as any).api
+                  ? datasourceDataSource.api
                   : undefined,
                 timestamp: Date.now(),
               },
@@ -258,7 +258,7 @@ export const BasicInfoFields: React.FC<BasicInfoFieldsProps> = ({
                 valuesMatch: formDatasourceType === datasourceType,
                 hasDatasourceDataSource: Boolean(datasourceDataSource),
                 datasourceDataSourceApi: datasourceDataSource
-                  ? (datasourceDataSource as any).api
+                  ? datasourceDataSource.api
                   : undefined,
                 datasourceDataSourceType: typeof datasourceDataSource,
                 timestamp: Date.now(),

@@ -34,7 +34,6 @@ export {
   ProjectCreateDrawer,
   ProjectImportDrawer,
   useProjectManagement,
-  useProjectTable,
   useProject,
   useProjectTableConfig,
   type ProjectStatus,

@@ -63,7 +63,7 @@ export const processTimeseriesItem = ({
       continue;
     }
 
-    const timestampDate = new Date((rawTimestamp as number) * 1000);
+    const timestampDate = new Date((rawTimestamp) * 1000);
 
     // Boundary check: Date object must be valid
     if (Number.isNaN(timestampDate.getTime())) {

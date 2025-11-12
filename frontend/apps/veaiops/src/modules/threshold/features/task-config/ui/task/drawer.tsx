@@ -140,5 +140,3 @@ export const TaskDrawer: React.FC<TaskDrawerProps> = ({
     </>
   );
 };
-
-export { TaskDrawer };

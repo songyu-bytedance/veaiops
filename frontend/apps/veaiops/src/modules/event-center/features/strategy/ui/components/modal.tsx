@@ -90,5 +90,3 @@ export const StrategyModal: React.FC<StrategyModalProps> = ({
     </Drawer>
   );
 };
-
-export { StrategyModal };

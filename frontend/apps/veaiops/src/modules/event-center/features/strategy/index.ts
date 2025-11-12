@@ -33,6 +33,3 @@ export * from './lib';
 
 // ==================== UI 组件导出 ====================
 export * from './ui';
-
-// ==================== 默认导出 ====================
-export { default } from './ui/management';
